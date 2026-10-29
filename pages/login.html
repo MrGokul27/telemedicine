@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Clinical Portal Login | Stackly Telemedicine 24/7 UK Virtual Healthcare
+    </title>
+    <meta
+      name="description"
+      content="Sign in to the Stackly Telemedicine encrypted UK portal to access 4K video consultations, wearable telemetry dashboards, and instant digital prescriptions."
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link rel="apple-touch-icon" href="../assets/images/logoStackly.webp" />
+
+    <!-- Google Fonts: Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6.5.2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Theme & Auth Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+  </head>
+  <body class="tm-auth-body">
+    <!-- Floating Background Medical Icons -->
+    <div class="tm-auth-bg-shapes" aria-hidden="true">
+      <div class="auth-shape"><i class="fa-solid fa-stethoscope"></i></div>
+      <div class="auth-shape"><i class="fa-solid fa-heart-pulse"></i></div>
+      <div class="auth-shape"><i class="fa-solid fa-laptop-medical"></i></div>
+      <div class="auth-shape"><i class="fa-solid fa-user-doctor"></i></div>
+      <div class="auth-shape"><i class="fa-solid fa-dna"></i></div>
+    </div>
+
+    <!-- Top Bar with Brand Logo & Back to Home Button (Requirement 9) -->
+    <header class="tm-auth-topbar">
+      <div class="container">
+        <div class="tm-auth-topbar-inner">
+          <a
+            href="../index.html"
+            class="tm-auth-logo-link"
+            aria-label="Stackly Telemedicine Home"
+          >
+            <img
+              src="../assets/images/logoStackly.webp"
+              alt="Stackly Telemedicine Logo"
+              class="tm-auth-logo"
+            />
+          </a>
+          <div class="d-flex align-items-center gap-3">
+            <span class="tm-live-status-pill d-none d-md-inline-flex">
+              <span class="pulse-dot"></span> 24/7 Encrypted UK Portal
+            </span>
+            <a href="../index.html" class="tm-back-home-btn" id="back-home-top">
+              <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Split-Screen Auth Content -->
+    <main class="tm-auth-main">
+      <div class="container">
+        <div class="tm-auth-shell">
+          <div class="row g-0">
+            <!-- Left Column: Telemedicine Portal Showcase -->
+            <div class="col-lg-5">
+              <div
+                class="tm-auth-showcase"
+                style="
+                  background-image:
+                    linear-gradient(
+                      160deg,
+                      rgba(0, 22, 48, 0.94) 0%,
+                      rgba(0, 40, 86, 0.9) 55%,
+                      rgba(8, 69, 126, 0.88) 100%
+                    ),
+                    url(&quot;../assets/images/home/hero-bg.webp&quot;);
+                "
+              >
+                <div class="tm-auth-showcase-content">
+                  <span class="tm-auth-badge">
+                    <i class="fa-solid fa-shield-halved"></i> NHS &amp; CQC
+                    Compliant Gateway
+                  </span>
+                  <h2>
+                    Welcome Back to <span>Stackly Telemedicine</span> Clinical
+                    Hub
+                  </h2>
+                  <p class="tm-auth-showcase-lead">
+                    Access your encrypted 4K video consultation studio, live
+                    wearable ECG telemetry, and same-day UK digital
+                    prescriptions in one unified portal.
+                  </p>
+
+                  <ul class="tm-auth-feature-list">
+                    <li class="tm-auth-feature-item">
+                      <div class="tm-auth-feature-icon">
+                        <i class="fa-solid fa-video"></i>
+                      </div>
+                      <div class="tm-auth-feature-text">
+                        <h5>Instant 4K Video Consultations</h5>
+                        <p>
+                          Connect with GMC-certified specialists in under 8
+                          minutes from anywhere in the UK.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="tm-auth-feature-item">
+                      <div class="tm-auth-feature-icon">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                      </div>
+                      <div class="tm-auth-feature-text">
+                        <h5>Live Remote Patient Telemetry</h5>
+                        <p>
+                          Real-time SpO2, blood pressure, and 12-lead ECG clouds
+                          synced directly to your care team.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="tm-auth-feature-item">
+                      <div class="tm-auth-feature-icon">
+                        <i class="fa-solid fa-prescription-bottle-medical"></i>
+                      </div>
+                      <div class="tm-auth-feature-text">
+                        <h5>24/7 Barcode E-Prescriptions</h5>
+                        <p>
+                          Instant dispatch to 980+ UK partner pharmacies or
+                          express doorstep courier delivery.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="tm-auth-showcase-footer">
+                  <div class="tm-auth-stats-row">
+                    <div class="tm-auth-stat-box">
+                      <h4>&lt; 8 Min</h4>
+                      <span>Avg Triage Wait</span>
+                    </div>
+                    <div class="tm-auth-stat-box">
+                      <h4>AES-256</h4>
+                      <span>End-to-End SSL</span>
+                    </div>
+                    <div class="tm-auth-stat-box">
+                      <h4>24/7</h4>
+                      <span>UK Doctor Access</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Login Form -->
+            <div class="col-lg-7">
+              <div class="tm-auth-form-col">
+                <!-- Mode Switcher -->
+                <div
+                  class="tm-auth-switcher"
+                  role="navigation"
+                  aria-label="Authentication Mode"
+                >
+                  <a href="login.html" class="tm-auth-switch-btn active">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                  </a>
+                  <a href="register.html" class="tm-auth-switch-btn">
+                    <i class="fa-solid fa-user-plus"></i> Register Account
+                  </a>
+                </div>
+
+                <div class="tm-auth-header">
+                  <h1>Sign In to Your Portal</h1>
+                  <p>
+                    All fields below are required. Please select your role and
+                    enter your verified credentials.
+                  </p>
+                </div>
+
+                <!-- Form Alert Box -->
+                <div
+                  id="login-form-alert"
+                  class="tm-form-alert"
+                  role="alert"
+                ></div>
+
+                <!-- Login Form (Fields: Role, Email, Password, Remember Me - All Required) -->
+                <form id="tm-login-form" novalidate>
+                  <!-- 1. Role Field -->
+                  <div class="tm-auth-field">
+                    <label for="login-role" class="tm-auth-label">
+                      <span
+                        >Select Portal Role
+                        <span class="req-star">*</span></span
+                      >
+                    </label>
+                    <div class="tm-input-wrap">
+                      <i class="fa-solid fa-user-shield tm-input-icon"></i>
+                      <select
+                        id="login-role"
+                        name="role"
+                        class="tm-auth-select"
+                        required
+                      >
+                        <option value="">-- Choose Your Role --</option>
+                        <option value="patient">Patient / Care Member</option>
+                        <option value="doctor">
+                          GMC Tele-Doctor / Specialist
+                        </option>
+                        <option value="nurse">Clinical Triage Nurse</option>
+                        <option value="pharmacist">
+                          E-Pharmacy Coordinator
+                        </option>
+                        <option value="admin">Clinical Administrator</option>
+                      </select>
+                    </div>
+                    <div id="login-role-feedback" class="tm-field-feedback">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      <span>Please select your portal role.</span>
+                    </div>
+                  </div>
+
+                  <!-- 2. Email Field -->
+                  <div class="tm-auth-field">
+                    <label for="login-email" class="tm-auth-label">
+                      <span>Email Address <span class="req-star">*</span></span>
+                    </label>
+                    <div class="tm-input-wrap">
+                      <i class="fa-solid fa-envelope tm-input-icon"></i>
+                      <input
+                        type="email"
+                        id="login-email"
+                        name="email"
+                        class="tm-auth-input"
+                        placeholder="you@stacklytelemed.co.uk"
+                        autocomplete="email"
+                        required
+                      />
+                    </div>
+                    <div id="login-email-feedback" class="tm-field-feedback">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      <span>Please enter a valid email address.</span>
+                    </div>
+                  </div>
+
+                  <!-- 3. Password Field with Weak Password Validation (Requirement 6) -->
+                  <div class="tm-auth-field">
+                    <label for="login-password" class="tm-auth-label">
+                      <span>Password <span class="req-star">*</span></span>
+                    </label>
+                    <div class="tm-input-wrap">
+                      <i class="fa-solid fa-lock tm-input-icon"></i>
+                      <input
+                        type="password"
+                        id="login-password"
+                        name="password"
+                        class="tm-auth-input has-toggle"
+                        placeholder="Enter strong clinical password"
+                        autocomplete="current-password"
+                        required
+                      />
+                      <button
+                        type="button"
+                        class="tm-pwd-toggle"
+                        data-target="login-password"
+                        aria-label="Toggle password visibility"
+                      >
+                        <i class="fa-regular fa-eye"></i>
+                      </button>
+                    </div>
+                    <div id="login-password-feedback" class="tm-field-feedback">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      <span
+                        >Weak password! Please meet all security criteria
+                        below.</span
+                      >
+                    </div>
+
+                    <!-- Weak Password Meter & Checklist -->
+                    <div
+                      class="tm-pwd-strength-box"
+                      id="login-pwd-strength-box"
+                    >
+                      <div class="tm-pwd-meter-header">
+                        <span>Password Security Check</span>
+                        <span
+                          id="login-pwd-status"
+                          class="tm-pwd-status-text weak"
+                          >Required</span
+                        >
+                      </div>
+                      <div
+                        class="tm-pwd-bars"
+                        id="login-pwd-bars"
+                        data-level="0"
+                      >
+                        <span class="tm-pwd-bar-seg"></span>
+                        <span class="tm-pwd-bar-seg"></span>
+                        <span class="tm-pwd-bar-seg"></span>
+                        <span class="tm-pwd-bar-seg"></span>
+                      </div>
+                      <ul class="tm-pwd-rules" id="login-pwd-rules">
+                        <li data-rule="length">
+                          <i class="fa-solid fa-circle-check"></i> 8+ Chars
+                        </li>
+                        <li data-rule="upper">
+                          <i class="fa-solid fa-circle-check"></i> Uppercase
+                        </li>
+                        <li data-rule="lower">
+                          <i class="fa-solid fa-circle-check"></i> Lowercase
+                        </li>
+                        <li data-rule="number">
+                          <i class="fa-solid fa-circle-check"></i> Number
+                        </li>
+                        <li data-rule="special">
+                          <i class="fa-solid fa-circle-check"></i> Special
+                          (!@#$)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- 4. Remember Me Field (Required per Requirement 2 & 4) -->
+                  <div class="tm-auth-field">
+                    <div class="tm-auth-check-wrap">
+                      <label for="login-remember" class="tm-custom-check">
+                        <input
+                          type="checkbox"
+                          id="login-remember"
+                          name="remember"
+                          required
+                        />
+                        <span>
+                          Remember me on this trusted clinical device
+                          <span class="text-danger fw-bold">*</span>
+                        </span>
+                      </label>
+                    </div>
+                    <div id="login-remember-feedback" class="tm-field-feedback">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      <span
+                        >Please check "Remember me" to confirm your session
+                        preference.</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <button type="submit" class="tm-btn1 tm-auth-submit">
+                    <i class="fa-solid fa-shield-heart me-2"></i> SIGN IN TO
+                    PORTAL
+                  </button>
+                </form>
+
+                <div class="tm-auth-divider">
+                  <span>New to Stackly Telemedicine?</span>
+                </div>
+
+                <!-- Bottom Actions & Back to Home Button (Requirement 9) -->
+                <div class="tm-auth-bottom-actions">
+                  <p class="tm-auth-alt-link">
+                    Don't have an account?
+                    <a href="register.html">Create an Account</a>
+                  </p>
+                  <a href="../index.html" class="tm-back-home-inline">
+                    <i class="fa-solid fa-house"></i> Back to Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="tm-auth-footer">
+      <div class="container">
+        <span>
+          &copy; 2026 <strong>Stackly Telemedicine</strong> | 221B Harley
+          Street, Marylebone, London W1G 9QT, UK | 24/7 Hotline: +91 9876543210
+        </span>
+      </div>
+    </footer>
+
+    <!-- Login Validation & Weak Password Script -->
+    <script>
+      (function () {
+        "use strict";
+
+        var form = document.getElementById("tm-login-form");
+        var alertBox = document.getElementById("login-form-alert");
+        var roleEl = document.getElementById("login-role");
+        var emailEl = document.getElementById("login-email");
+        var passwordEl = document.getElementById("login-password");
+        var rememberEl = document.getElementById("login-remember");
+
+        var roleFeedback = document.getElementById("login-role-feedback");
+        var emailFeedback = document.getElementById("login-email-feedback");
+        var passwordFeedback = document.getElementById(
+          "login-password-feedback",
+        );
+        var rememberFeedback = document.getElementById(
+          "login-remember-feedback",
+        );
+
+        var pwdStatus = document.getElementById("login-pwd-status");
+        var pwdBars = document.getElementById("login-pwd-bars");
+        var pwdRules = document.getElementById("login-pwd-rules");
+
+        // Check if redirected after successful registration
+        var params = new URLSearchParams(window.location.search);
+        var regUser = sessionStorage.getItem("tm_registered_username");
+        var regEmail = sessionStorage.getItem("tm_registered_email");
+        var regRole = sessionStorage.getItem("tm_registered_role");
+
+        if (params.get("registered") === "1" || regUser) {
+          alertBox.className = "tm-form-alert success";
+          alertBox.innerHTML =
+            '<i class="fa-solid fa-circle-check me-2"></i>Registration complete' +
+            (regUser ? " for <strong>" + regUser + "</strong>" : "") +
+            "! Please sign in below with your credentials.";
+          if (regEmail && emailEl) emailEl.value = regEmail;
+          if (regRole && roleEl) roleEl.value = regRole;
+          sessionStorage.removeItem("tm_registered_username");
+          sessionStorage.removeItem("tm_registered_email");
+          sessionStorage.removeItem("tm_registered_role");
+        }
+
+        // Toggle password visibility
+        var toggles = document.querySelectorAll(".tm-pwd-toggle");
+        toggles.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var targetId = btn.getAttribute("data-target");
+            var input = document.getElementById(targetId);
+            var icon = btn.querySelector("i");
+            if (!input) return;
+            if (input.type === "password") {
+              input.type = "text";
+              icon.className = "fa-regular fa-eye-slash";
+            } else {
+              input.type = "password";
+              icon.className = "fa-regular fa-eye";
+            }
+          });
+        });
+
+        // Weak Password Evaluator (Requirement 6)
+        function evaluatePassword(val) {
+          var rules = {
+            length: val.length >= 8,
+            upper: /[A-Z]/.test(val),
+            lower: /[a-z]/.test(val),
+            number: /[0-9]/.test(val),
+            special: /[^A-Za-z0-9\s]/.test(val),
+          };
+
+          var passedCount = 0;
+          Object.keys(rules).forEach(function (key) {
+            if (rules[key]) passedCount++;
+            if (pwdRules) {
+              var item = pwdRules.querySelector('[data-rule="' + key + '"]');
+              if (item) {
+                if (rules[key]) item.classList.add("passed");
+                else item.classList.remove("passed");
+              }
+            }
+          });
+
+          var level = 0;
+          var label = "Weak";
+          var statusClass = "weak";
+
+          if (!val) {
+            level = 0;
+            label = "Required";
+            statusClass = "weak";
+          } else if (passedCount <= 2) {
+            level = 1;
+            label = "Weak Password";
+            statusClass = "weak";
+          } else if (passedCount === 3) {
+            level = 2;
+            label = "Fair (Weak)";
+            statusClass = "fair";
+          } else if (passedCount === 4) {
+            level = 3;
+            label = "Almost Strong";
+            statusClass = "good";
+          } else if (passedCount === 5) {
+            level = 4;
+            label = "Strong Password";
+            statusClass = "strong";
+          }
+
+          if (pwdBars) pwdBars.setAttribute("data-level", String(level));
+          if (pwdStatus) {
+            pwdStatus.textContent = label;
+            pwdStatus.className = "tm-pwd-status-text " + statusClass;
+          }
+
+          return {
+            isStrong: passedCount === 5,
+            passedCount: passedCount,
+            rules: rules,
+          };
+        }
+
+        function setFieldState(input, feedbackEl, isValid, errorMsg) {
+          if (isValid) {
+            input.classList.remove("is-invalid");
+            input.classList.add("is-valid");
+            if (feedbackEl) {
+              feedbackEl.className = "tm-field-feedback";
+            }
+          } else {
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+            if (feedbackEl) {
+              if (errorMsg) {
+                var span = feedbackEl.querySelector("span");
+                if (span) span.textContent = errorMsg;
+              }
+              feedbackEl.className = "tm-field-feedback error";
+            }
+          }
+        }
+
+        roleEl.addEventListener("change", function () {
+          setFieldState(
+            roleEl,
+            roleFeedback,
+            Boolean(roleEl.value),
+            "Please select your portal role.",
+          );
+        });
+
+        emailEl.addEventListener("input", function () {
+          var val = emailEl.value.trim();
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+          setFieldState(
+            emailEl,
+            emailFeedback,
+            emailRegex.test(val),
+            val
+              ? "Please enter a valid email address (e.g. name@domain.co.uk)."
+              : "Email address is required.",
+          );
+        });
+
+        passwordEl.addEventListener("input", function () {
+          var val = passwordEl.value;
+          var res = evaluatePassword(val);
+          if (!val) {
+            setFieldState(
+              passwordEl,
+              passwordFeedback,
+              false,
+              "Password is required.",
+            );
+          } else if (!res.isStrong) {
+            setFieldState(
+              passwordEl,
+              passwordFeedback,
+              false,
+              "Weak password! Must include 8+ chars, uppercase, lowercase, number, and special character.",
+            );
+          } else {
+            setFieldState(passwordEl, passwordFeedback, true);
+          }
+        });
+
+        rememberEl.addEventListener("change", function () {
+          if (rememberEl.checked) {
+            rememberFeedback.className = "tm-field-feedback";
+          } else {
+            rememberFeedback.className = "tm-field-feedback error";
+          }
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          var isRoleOk = Boolean(roleEl.value);
+          setFieldState(
+            roleEl,
+            roleFeedback,
+            isRoleOk,
+            "Please select your portal role.",
+          );
+
+          var emailVal = emailEl.value.trim();
+          var isEmailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailVal);
+          setFieldState(
+            emailEl,
+            emailFeedback,
+            isEmailOk,
+            emailVal
+              ? "Please enter a valid email address."
+              : "Email address is required.",
+          );
+
+          var pwdVal = passwordEl.value;
+          var pwdEval = evaluatePassword(pwdVal);
+          var isPwdOk = pwdEval.isStrong;
+          setFieldState(
+            passwordEl,
+            passwordFeedback,
+            isPwdOk,
+            !pwdVal
+              ? "Password is required."
+              : "Weak password! Password must have 8+ chars, uppercase, lowercase, number, and special character.",
+          );
+
+          var isRememberOk = rememberEl.checked;
+          if (!isRememberOk) {
+            rememberFeedback.className = "tm-field-feedback error";
+          } else {
+            rememberFeedback.className = "tm-field-feedback";
+          }
+
+          if (!isRoleOk || !isEmailOk || !isPwdOk || !isRememberOk) {
+            alertBox.className = "tm-form-alert error";
+            alertBox.innerHTML =
+              '<i class="fa-solid fa-triangle-exclamation me-2"></i>Please complete all required fields and ensure your password is not weak.';
+            return;
+          }
+
+          var selectedRoleText =
+            roleEl.options[roleEl.selectedIndex].text || "Portal User";
+          alertBox.className = "tm-form-alert success";
+          alertBox.innerHTML =
+            '<i class="fa-solid fa-circle-check me-2"></i>Authentication verified as <strong>' +
+            selectedRoleText +
+            "</strong>! Redirecting to Stackly Telemedicine Home...";
+
+          setTimeout(function () {
+            window.location.href = "../index.html";
+          }, 900);
+        });
+      })();
+    </script>
+  </body>
+</html>

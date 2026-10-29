@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Create Clinical Account | Stackly Telemedicine 24/7 UK Virtual Healthcare
+    </title>
+    <meta
+      name="description"
+      content="Register for your Stackly Telemedicine UK account to book 4K virtual consultations with GMC-registered doctors, connect wearable monitors, and receive e-prescriptions."
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link rel="apple-touch-icon" href="../assets/images/logoStackly.webp" />
+
+    <!-- Google Fonts: Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6.5.2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Theme & Auth Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+  </head>
+  <body class="tm-auth-body">
+    <!-- Floating Background Medical Icons -->
+    <div class="tm-auth-bg-shapes" aria-hidden="true">
+      <div class="auth-shape"><i class="fa-solid fa-stethoscope"></i></div>
+      <div class="auth-shape"><i class="fa-solid fa-heart-pulse"></i></div>
+      <div class="auth-shape"><i class="fa-solid fa-laptop-medical"></i></div>
+      <div class="auth-shape"><i class="fa-solid fa-user-doctor"></i></div>
+      <div class="auth-shape"><i class="fa-solid fa-dna"></i></div>
+    </div>
+
+    <!-- Top Bar with Brand Logo & Back to Home Button (Requirement 9) -->
+    <header class="tm-auth-topbar">
+      <div class="container">
+        <div class="tm-auth-topbar-inner">
+          <a
+            href="../index.html"
+            class="tm-auth-logo-link"
+            aria-label="Stackly Telemedicine Home"
+          >
+            <img
+              src="../assets/images/logoStackly.webp"
+              alt="Stackly Telemedicine Logo"
+              class="tm-auth-logo"
+            />
+          </a>
+          <div class="d-flex align-items-center gap-3">
+            <span class="tm-live-status-pill d-none d-md-inline-flex">
+              <span class="pulse-dot"></span> Instant UK Patient &amp; Clinician
+              Onboarding
+            </span>
+            <a href="../index.html" class="tm-back-home-btn" id="back-home-top">
+              <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Split-Screen Auth Content -->
+    <main class="tm-auth-main">
+      <div class="container">
+        <div class="tm-auth-shell">
+          <div class="row g-0">
+            <!-- Left Column: Telemedicine Portal Showcase -->
+            <div class="col-lg-5">
+              <div
+                class="tm-auth-showcase"
+                style="
+                  background-image:
+                    linear-gradient(
+                      160deg,
+                      rgba(0, 22, 48, 0.94) 0%,
+                      rgba(0, 40, 86, 0.9) 55%,
+                      rgba(8, 69, 126, 0.88) 100%
+                    ),
+                    url(&quot;../assets/images/home/hero-bg.webp&quot;);
+                "
+              >
+                <div class="tm-auth-showcase-content">
+                  <span class="tm-auth-badge">
+                    <i class="fa-solid fa-user-check"></i> CQC &amp; GDPR
+                    Verified Onboarding
+                  </span>
+                  <h2>
+                    Join the UK's #1 <span>4K Telehealth</span> &amp; Remote
+                    Care Network
+                  </h2>
+                  <p class="tm-auth-showcase-lead">
+                    Create your encrypted Stackly Telemedicine profile in under
+                    60 seconds for 24/7 specialist video access, home diagnostic
+                    kit dispatch, and NHS-compatible digital records.
+                  </p>
+
+                  <ul class="tm-auth-feature-list">
+                    <li class="tm-auth-feature-item">
+                      <div class="tm-auth-feature-icon">
+                        <i class="fa-solid fa-user-doctor"></i>
+                      </div>
+                      <div class="tm-auth-feature-text">
+                        <h5>120+ GMC-Registered Consultants</h5>
+                        <p>
+                          Direct access to UK Cardiology, Neurology,
+                          Dermatology, Pediatrics, and GP specialists.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="tm-auth-feature-item">
+                      <div class="tm-auth-feature-icon">
+                        <i class="fa-solid fa-kit-medical"></i>
+                      </div>
+                      <div class="tm-auth-feature-text">
+                        <h5>Smart Home Telemetry Integration</h5>
+                        <p>
+                          Pair Bluetooth blood pressure cuffs, pulse oximeters,
+                          and digital stethoscopes effortlessly.
+                        </p>
+                      </div>
+                    </li>
+                    <li class="tm-auth-feature-item">
+                      <div class="tm-auth-feature-icon">
+                        <i class="fa-solid fa-file-shield"></i>
+                      </div>
+                      <div class="tm-auth-feature-text">
+                        <h5>Zero-Trust Medical Privacy</h5>
+                        <p>
+                          Protected by ISO 27001, NHS Digital DSPT standards,
+                          and end-to-end biometric encryption.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="tm-auth-showcase-footer">
+                  <div class="tm-auth-stats-row">
+                    <div class="tm-auth-stat-box">
+                      <h4>99.4%</h4>
+                      <span>First-Call Resolution</span>
+                    </div>
+                    <div class="tm-auth-stat-box">
+                      <h4>980+</h4>
+                      <span>UK Pharmacies</span>
+                    </div>
+                    <div class="tm-auth-stat-box">
+                      <h4>4.9/5</h4>
+                      <span>Patient Rating</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Register Form -->
+            <div class="col-lg-7">
+              <div class="tm-auth-form-col">
+                <!-- Mode Switcher -->
+                <div
+                  class="tm-auth-switcher"
+                  role="navigation"
+                  aria-label="Authentication Mode"
+                >
+                  <a href="login.html" class="tm-auth-switch-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                  </a>
+                  <a href="register.html" class="tm-auth-switch-btn active">
+                    <i class="fa-solid fa-user-plus"></i> Register Account
+                  </a>
+                </div>
+
+                <div class="tm-auth-header">
+                  <h1>Create Your Portal Account</h1>
+                  <p>
+                    All fields are required. Username accepts letters only (no
+                    numbers, special characters, or spaces).
+                  </p>
+                </div>
+
+                <!-- Form Alert Box -->
+                <div
+                  id="register-form-alert"
+                  class="tm-form-alert"
+                  role="alert"
+                ></div>
+
+                <!-- Register Form (Fields: Username, Role, Email, Password, Confirm Password, Terms & Conditions - All Required) -->
+                <form id="tm-register-form" novalidate>
+                  <div class="row g-3">
+                    <!-- 1. Username Field (Letters only, no numbers, no special chars, no spaces - Requirement 7) -->
+                    <div class="col-md-6">
+                      <div class="tm-auth-field mb-0">
+                        <label for="reg-username" class="tm-auth-label">
+                          <span>Username <span class="req-star">*</span></span>
+                        </label>
+                        <div class="tm-input-wrap">
+                          <i class="fa-solid fa-user tm-input-icon"></i>
+                          <input
+                            type="text"
+                            id="reg-username"
+                            name="username"
+                            class="tm-auth-input"
+                            placeholder="LettersOnly (e.g. Olivertwist)"
+                            autocomplete="username"
+                            required
+                          />
+                        </div>
+                        <div id="reg-username-hint" class="tm-field-hint">
+                          <i class="fa-solid fa-shield-halved"></i>
+                          <span id="reg-username-hint-text"
+                            >Alphabets only (A–Z). No spaces, numbers, or
+                            symbols.</span
+                          >
+                        </div>
+                        <div
+                          id="reg-username-feedback"
+                          class="tm-field-feedback"
+                        >
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <span
+                            >Username is required (letters only, no
+                            spaces).</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 2. Role Field -->
+                    <div class="col-md-6">
+                      <div class="tm-auth-field mb-0">
+                        <label for="reg-role" class="tm-auth-label">
+                          <span
+                            >Select Role <span class="req-star">*</span></span
+                          >
+                        </label>
+                        <div class="tm-input-wrap">
+                          <i class="fa-solid fa-user-shield tm-input-icon"></i>
+                          <select
+                            id="reg-role"
+                            name="role"
+                            class="tm-auth-select"
+                            required
+                          >
+                            <option value="">-- Choose Your Role --</option>
+                            <option value="patient">
+                              Patient / Care Member
+                            </option>
+                            <option value="doctor">
+                              GMC Tele-Doctor / Specialist
+                            </option>
+                            <option value="nurse">Clinical Triage Nurse</option>
+                            <option value="pharmacist">
+                              E-Pharmacy Coordinator
+                            </option>
+                            <option value="admin">
+                              Clinical Administrator
+                            </option>
+                          </select>
+                        </div>
+                        <div id="reg-role-feedback" class="tm-field-feedback">
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <span>Please select your portal role.</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 3. Email Field -->
+                    <div class="col-12">
+                      <div class="tm-auth-field mb-0">
+                        <label for="reg-email" class="tm-auth-label">
+                          <span
+                            >Email Address <span class="req-star">*</span></span
+                          >
+                        </label>
+                        <div class="tm-input-wrap">
+                          <i class="fa-solid fa-envelope tm-input-icon"></i>
+                          <input
+                            type="email"
+                            id="reg-email"
+                            name="email"
+                            class="tm-auth-input"
+                            placeholder="you@stacklytelemed.co.uk"
+                            autocomplete="email"
+                            required
+                          />
+                        </div>
+                        <div id="reg-email-feedback" class="tm-field-feedback">
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <span>Please enter a valid email address.</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 4. Password Field with Weak Password Validation (Requirement 6) -->
+                    <div class="col-md-6">
+                      <div class="tm-auth-field mb-0">
+                        <label for="reg-password" class="tm-auth-label">
+                          <span>Password <span class="req-star">*</span></span>
+                        </label>
+                        <div class="tm-input-wrap">
+                          <i class="fa-solid fa-lock tm-input-icon"></i>
+                          <input
+                            type="password"
+                            id="reg-password"
+                            name="password"
+                            class="tm-auth-input has-toggle"
+                            placeholder="Create strong password"
+                            autocomplete="new-password"
+                            required
+                          />
+                          <button
+                            type="button"
+                            class="tm-pwd-toggle"
+                            data-target="reg-password"
+                            aria-label="Toggle password visibility"
+                          >
+                            <i class="fa-regular fa-eye"></i>
+                          </button>
+                        </div>
+                        <div
+                          id="reg-password-feedback"
+                          class="tm-field-feedback"
+                        >
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <span
+                            >Weak password! Meet all security rules below.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 5. Confirm Password Field (Match Check - Requirement 5) -->
+                    <div class="col-md-6">
+                      <div class="tm-auth-field mb-0">
+                        <label for="reg-confirm-password" class="tm-auth-label">
+                          <span
+                            >Confirm Password
+                            <span class="req-star">*</span></span
+                          >
+                        </label>
+                        <div class="tm-input-wrap">
+                          <i
+                            class="fa-solid fa-shield-halved tm-input-icon"
+                          ></i>
+                          <input
+                            type="password"
+                            id="reg-confirm-password"
+                            name="confirmPassword"
+                            class="tm-auth-input has-toggle"
+                            placeholder="Re-enter your password"
+                            autocomplete="new-password"
+                            required
+                          />
+                          <button
+                            type="button"
+                            class="tm-pwd-toggle"
+                            data-target="reg-confirm-password"
+                            aria-label="Toggle confirm password visibility"
+                          >
+                            <i class="fa-regular fa-eye"></i>
+                          </button>
+                        </div>
+                        <div
+                          id="reg-confirm-feedback"
+                          class="tm-field-feedback"
+                        >
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <span>Passwords do not match.</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Weak Password Meter & Checklist (Full Width) -->
+                    <div class="col-12">
+                      <div class="tm-pwd-strength-box mt-0">
+                        <div class="tm-pwd-meter-header">
+                          <span>Password Strength &amp; Security Policy</span>
+                          <span
+                            id="reg-pwd-status"
+                            class="tm-pwd-status-text weak"
+                            >Required</span
+                          >
+                        </div>
+                        <div
+                          class="tm-pwd-bars"
+                          id="reg-pwd-bars"
+                          data-level="0"
+                        >
+                          <span class="tm-pwd-bar-seg"></span>
+                          <span class="tm-pwd-bar-seg"></span>
+                          <span class="tm-pwd-bar-seg"></span>
+                          <span class="tm-pwd-bar-seg"></span>
+                        </div>
+                        <ul class="tm-pwd-rules" id="reg-pwd-rules">
+                          <li data-rule="length">
+                            <i class="fa-solid fa-circle-check"></i> 8+ Chars
+                          </li>
+                          <li data-rule="upper">
+                            <i class="fa-solid fa-circle-check"></i> Uppercase
+                            (A-Z)
+                          </li>
+                          <li data-rule="lower">
+                            <i class="fa-solid fa-circle-check"></i> Lowercase
+                            (a-z)
+                          </li>
+                          <li data-rule="number">
+                            <i class="fa-solid fa-circle-check"></i> Number
+                            (0-9)
+                          </li>
+                          <li data-rule="special">
+                            <i class="fa-solid fa-circle-check"></i> Special
+                            Char (!@#$)
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- 6. Terms & Conditions Checkbox (Required per Requirement 3 & 4) -->
+                    <div class="col-12">
+                      <div class="tm-auth-field mb-2">
+                        <div class="tm-auth-check-wrap">
+                          <label for="reg-terms" class="tm-custom-check">
+                            <input
+                              type="checkbox"
+                              id="reg-terms"
+                              name="terms"
+                              required
+                            />
+                            <span>
+                              I agree to the Stackly Telemedicine
+                              <a href="#">Terms &amp; Conditions</a>, UK
+                              Clinical Governance Charter, and GDPR Privacy
+                              Policy <span class="text-danger fw-bold">*</span>
+                            </span>
+                          </label>
+                        </div>
+                        <div id="reg-terms-feedback" class="tm-field-feedback">
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <span
+                            >You must accept the Terms &amp; Conditions to
+                            register.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-12">
+                      <button type="submit" class="tm-btn1 tm-auth-submit">
+                        <i class="fa-solid fa-user-check me-2"></i> COMPLETE
+                        REGISTRATION
+                      </button>
+                    </div>
+                  </div>
+                </form>
+
+                <div class="tm-auth-divider">
+                  <span>Already Registered with Stackly?</span>
+                </div>
+
+                <!-- Bottom Actions & Back to Home Button (Requirement 9) -->
+                <div class="tm-auth-bottom-actions">
+                  <p class="tm-auth-alt-link">
+                    Already have an account?
+                    <a href="login.html">Sign In Here</a>
+                  </p>
+                  <a href="../index.html" class="tm-back-home-inline">
+                    <i class="fa-solid fa-house"></i> Back to Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="tm-auth-footer">
+      <div class="container">
+        <span>
+          &copy; 2026 <strong>Stackly Telemedicine</strong> | 221B Harley
+          Street, Marylebone, London W1G 9QT, UK | 24/7 Hotline: +91 9876543210
+        </span>
+      </div>
+    </footer>
+
+    <!-- Register Validation, Strict Username Prevention, Weak Password & Redirect Script -->
+    <script>
+      (function () {
+        "use strict";
+
+        var form = document.getElementById("tm-register-form");
+        var alertBox = document.getElementById("register-form-alert");
+
+        var usernameEl = document.getElementById("reg-username");
+        var roleEl = document.getElementById("reg-role");
+        var emailEl = document.getElementById("reg-email");
+        var passwordEl = document.getElementById("reg-password");
+        var confirmEl = document.getElementById("reg-confirm-password");
+        var termsEl = document.getElementById("reg-terms");
+
+        var usernameHint = document.getElementById("reg-username-hint");
+        var usernameHintText = document.getElementById(
+          "reg-username-hint-text",
+        );
+        var usernameFeedback = document.getElementById("reg-username-feedback");
+        var roleFeedback = document.getElementById("reg-role-feedback");
+        var emailFeedback = document.getElementById("reg-email-feedback");
+        var passwordFeedback = document.getElementById("reg-password-feedback");
+        var confirmFeedback = document.getElementById("reg-confirm-feedback");
+        var termsFeedback = document.getElementById("reg-terms-feedback");
+
+        var pwdStatus = document.getElementById("reg-pwd-status");
+        var pwdBars = document.getElementById("reg-pwd-bars");
+        var pwdRules = document.getElementById("reg-pwd-rules");
+
+        // Toggle password visibility
+        var toggles = document.querySelectorAll(".tm-pwd-toggle");
+        toggles.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var targetId = btn.getAttribute("data-target");
+            var input = document.getElementById(targetId);
+            var icon = btn.querySelector("i");
+            if (!input) return;
+            if (input.type === "password") {
+              input.type = "text";
+              icon.className = "fa-regular fa-eye-slash";
+            } else {
+              input.type = "password";
+              icon.className = "fa-regular fa-eye";
+            }
+          });
+        });
+
+        function setFieldState(input, feedbackEl, isValid, msg, isSuccessMsg) {
+          if (isValid) {
+            input.classList.remove("is-invalid");
+            input.classList.add("is-valid");
+            if (feedbackEl) {
+              if (isSuccessMsg && msg) {
+                feedbackEl.className = "tm-field-feedback success";
+                feedbackEl.innerHTML =
+                  '<i class="fa-solid fa-circle-check"></i><span>' +
+                  msg +
+                  "</span>";
+              } else {
+                feedbackEl.className = "tm-field-feedback";
+              }
+            }
+          } else {
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+            if (feedbackEl) {
+              feedbackEl.className = "tm-field-feedback error";
+              feedbackEl.innerHTML =
+                '<i class="fa-solid fa-circle-exclamation"></i><span>' +
+                (msg || "This field is required.") +
+                "</span>";
+            }
+          }
+        }
+
+        // =========================================================================
+        // Requirement 7: Prevent numbers, special characters, AND spaces/Enter in username
+        // =========================================================================
+        var allowedControlKeys = [
+          "Backspace",
+          "Delete",
+          "Tab",
+          "Escape",
+          "ArrowLeft",
+          "ArrowRight",
+          "ArrowUp",
+          "ArrowDown",
+          "Home",
+          "End",
+        ];
+        var hintTimer = null;
+
+        function flashBlockedInput(reason) {
+          if (!usernameHint || !usernameHintText) return;
+          usernameHint.classList.add("blocked-flash");
+          usernameHintText.textContent = reason;
+          if (hintTimer) clearTimeout(hintTimer);
+          hintTimer = setTimeout(function () {
+            usernameHint.classList.remove("blocked-flash");
+            usernameHintText.textContent =
+              "Alphabets only (A–Z). No spaces, numbers, or symbols.";
+          }, 1800);
+        }
+
+        usernameEl.addEventListener("keydown", function (e) {
+          if (e.ctrlKey || e.metaKey || e.altKey) return;
+          if (allowedControlKeys.indexOf(e.key) !== -1) return;
+
+          // Explicitly prevent Space and Enter as well as numbers and special characters
+          if (e.key === " " || e.code === "Space" || e.key === "Enter") {
+            e.preventDefault();
+            flashBlockedInput(
+              "Spaces and Enter key are not allowed in username!",
+            );
+            return;
+          }
+
+          if (!/^[a-zA-Z]$/.test(e.key)) {
+            e.preventDefault();
+            flashBlockedInput(
+              "Numbers and special characters are blocked! Letters only (A–Z).",
+            );
+          }
+        });
+
+        usernameEl.addEventListener("beforeinput", function (e) {
+          if (e.data && !/^[a-zA-Z]+$/.test(e.data)) {
+            e.preventDefault();
+            flashBlockedInput(
+              "Only alphabetical letters (A–Z) are allowed in username!",
+            );
+          }
+        });
+
+        usernameEl.addEventListener("paste", function (e) {
+          e.preventDefault();
+          var raw =
+            (e.clipboardData || window.clipboardData).getData("text") || "";
+          var cleaned = raw.replace(/[^a-zA-Z]/g, "");
+          if (raw !== cleaned) {
+            flashBlockedInput(
+              "Removed spaces, numbers, and special characters from pasted text.",
+            );
+          }
+          var start = usernameEl.selectionStart || 0;
+          var end = usernameEl.selectionEnd || 0;
+          usernameEl.value =
+            usernameEl.value.slice(0, start) +
+            cleaned +
+            usernameEl.value.slice(end);
+          validateUsername();
+        });
+
+        function validateUsername() {
+          var cleaned = usernameEl.value.replace(/[^a-zA-Z]/g, "");
+          if (usernameEl.value !== cleaned) {
+            usernameEl.value = cleaned;
+          }
+          var isValid = /^[a-zA-Z]{3,}$/.test(cleaned);
+          setFieldState(
+            usernameEl,
+            usernameFeedback,
+            isValid,
+            !cleaned
+              ? "Username is required (letters only, no spaces)."
+              : "Username must be at least 3 alphabetical letters (A–Z).",
+          );
+          return isValid;
+        }
+
+        usernameEl.addEventListener("input", validateUsername);
+
+        // =========================================================================
+        // Role & Email Validation
+        // =========================================================================
+        function validateRole() {
+          var isValid = Boolean(roleEl.value);
+          setFieldState(
+            roleEl,
+            roleFeedback,
+            isValid,
+            "Please select your portal role.",
+          );
+          return isValid;
+        }
+
+        function validateEmail() {
+          var val = emailEl.value.trim();
+          var isValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val);
+          setFieldState(
+            emailEl,
+            emailFeedback,
+            isValid,
+            val
+              ? "Please enter a valid email address (e.g. name@domain.co.uk)."
+              : "Email address is required.",
+          );
+          return isValid;
+        }
+
+        roleEl.addEventListener("change", validateRole);
+        emailEl.addEventListener("input", validateEmail);
+
+        // =========================================================================
+        // Requirement 6: Weak Password Validation
+        // =========================================================================
+        function evaluatePassword(val) {
+          var rules = {
+            length: val.length >= 8,
+            upper: /[A-Z]/.test(val),
+            lower: /[a-z]/.test(val),
+            number: /[0-9]/.test(val),
+            special: /[^A-Za-z0-9\s]/.test(val),
+          };
+
+          var passedCount = 0;
+          Object.keys(rules).forEach(function (key) {
+            if (rules[key]) passedCount++;
+            if (pwdRules) {
+              var item = pwdRules.querySelector('[data-rule="' + key + '"]');
+              if (item) {
+                if (rules[key]) item.classList.add("passed");
+                else item.classList.remove("passed");
+              }
+            }
+          });
+
+          var level = 0;
+          var label = "Weak";
+          var statusClass = "weak";
+
+          if (!val) {
+            level = 0;
+            label = "Required";
+            statusClass = "weak";
+          } else if (passedCount <= 2) {
+            level = 1;
+            label = "Weak Password";
+            statusClass = "weak";
+          } else if (passedCount === 3) {
+            level = 2;
+            label = "Fair (Weak)";
+            statusClass = "fair";
+          } else if (passedCount === 4) {
+            level = 3;
+            label = "Almost Strong";
+            statusClass = "good";
+          } else if (passedCount === 5) {
+            level = 4;
+            label = "Strong Password";
+            statusClass = "strong";
+          }
+
+          if (pwdBars) pwdBars.setAttribute("data-level", String(level));
+          if (pwdStatus) {
+            pwdStatus.textContent = label;
+            pwdStatus.className = "tm-pwd-status-text " + statusClass;
+          }
+
+          return {
+            isStrong: passedCount === 5,
+            passedCount: passedCount,
+          };
+        }
+
+        function validatePassword() {
+          var val = passwordEl.value;
+          var res = evaluatePassword(val);
+          var isValid = res.isStrong;
+          setFieldState(
+            passwordEl,
+            passwordFeedback,
+            isValid,
+            !val
+              ? "Password is required."
+              : "Weak password! Must include 8+ chars, uppercase, lowercase, number & special char.",
+          );
+          return isValid;
+        }
+
+        // =========================================================================
+        // Requirement 5: Check Whether Password and Confirm Password Match
+        // =========================================================================
+        function validateConfirmPassword() {
+          var pwdVal = passwordEl.value;
+          var confVal = confirmEl.value;
+
+          if (!confVal) {
+            setFieldState(
+              confirmEl,
+              confirmFeedback,
+              false,
+              "Please confirm your password.",
+            );
+            return false;
+          }
+
+          if (pwdVal !== confVal) {
+            setFieldState(
+              confirmEl,
+              confirmFeedback,
+              false,
+              "Passwords do not match!",
+            );
+            return false;
+          }
+
+          setFieldState(
+            confirmEl,
+            confirmFeedback,
+            true,
+            "Passwords match!",
+            true,
+          );
+          return true;
+        }
+
+        passwordEl.addEventListener("input", function () {
+          validatePassword();
+          if (confirmEl.value) {
+            validateConfirmPassword();
+          }
+        });
+
+        confirmEl.addEventListener("input", validateConfirmPassword);
+
+        // =========================================================================
+        // Terms & Conditions Checkbox Validation
+        // =========================================================================
+        function validateTerms() {
+          var isChecked = termsEl.checked;
+          if (isChecked) {
+            termsFeedback.className = "tm-field-feedback";
+          } else {
+            termsFeedback.className = "tm-field-feedback error";
+          }
+          return isChecked;
+        }
+
+        termsEl.addEventListener("change", validateTerms);
+
+        // =========================================================================
+        // Requirement 8: Submit Register Form & Redirect to Login Page
+        // =========================================================================
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          var isUserOk = validateUsername();
+          var isRoleOk = validateRole();
+          var isEmailOk = validateEmail();
+          var isPwdOk = validatePassword();
+          var isConfirmOk = validateConfirmPassword();
+          var isTermsOk = validateTerms();
+
+          if (
+            !isUserOk ||
+            !isRoleOk ||
+            !isEmailOk ||
+            !isPwdOk ||
+            !isConfirmOk ||
+            !isTermsOk
+          ) {
+            alertBox.className = "tm-form-alert error";
+            alertBox.innerHTML =
+              '<i class="fa-solid fa-triangle-exclamation me-2"></i>Please fix the highlighted errors before submitting your registration.';
+            return;
+          }
+
+          // Store registered info for seamless pre-fill on login page
+          try {
+            sessionStorage.setItem(
+              "tm_registered_username",
+              usernameEl.value.trim(),
+            );
+            sessionStorage.setItem("tm_registered_email", emailEl.value.trim());
+            sessionStorage.setItem("tm_registered_role", roleEl.value);
+          } catch (err) {}
+
+          alertBox.className = "tm-form-alert success";
+          alertBox.innerHTML =
+            '<i class="fa-solid fa-circle-check me-2"></i>Registration successful! Redirecting you to the Login page...';
+
+          setTimeout(function () {
+            window.location.href = "login.html?registered=1";
+          }, 500);
+        });
+      })();
+    </script>
+  </body>
+</html>

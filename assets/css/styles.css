@@ -436,6 +436,17 @@ ul {
   justify-content: space-between;
   min-height: 78px;
   gap: 16px;
+  position: relative;
+}
+
+.tm-primary-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tm-header-cta {
+  margin-left: auto;
 }
 
 .tm-logo-link {
