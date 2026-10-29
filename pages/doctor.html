@@ -1,0 +1,1446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Our Tele-Doctors | Stackly UK Board-Certified Virtual Consultants
+    </title>
+    <meta
+      name="description"
+      content="Meet Stackly Telemedicine's GMC-registered UK doctors and senior hospital consultants available 24/7 for 4K video consultations and remote patient care."
+    />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link rel="apple-touch-icon" href="../assets/images/logoStackly.webp" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/doctor.css" />
+  </head>
+  <body>
+    <!-- Common Header Component -->
+    <div id="header-placeholder"></div>
+
+    <main>
+      <!-- ==================================================================
+             SECTION 1: Common Page Banner & Breadcrumbs (Requirement 7)
+             ================================================================== -->
+      <section
+        class="tm-page-banner"
+        style="
+          background-image: url(&quot;../assets/images/doctor/banner-bg.webp&quot;);
+        "
+      >
+        <div class="container">
+          <div class="tm-page-banner-content">
+            <span class="tm-page-banner-badge"
+              ><i class="fa-solid fa-user-doctor"></i> 220+ GMC Registered
+              Consultants</span
+            >
+            <h1>Our Telemedicine Doctors</h1>
+            <p>
+              Consult directly with UK Fellow-level physicians and Harley Street
+              specialists trained in high-definition video examination, remote
+              wearable interpretation, and personalized digital therapeutics.
+            </p>
+            <nav aria-label="breadcrumb">
+              <div class="tm-breadcrumb">
+                <a href="../index.html"
+                  ><i class="fa-solid fa-house"></i> Home</a
+                >
+                <span class="sep"
+                  ><i class="fa-solid fa-chevron-right"></i
+                ></span>
+                <span class="current">Tele-Doctors</span>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 2: Filterable Specialist Directory (8 Consultant Profiles)
+             ================================================================== -->
+      <section class="tm-section-pad" id="specialist-directory">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-stethoscope"></i> Verified GMC
+              Registry</span
+            >
+            <h2>Browse Our Virtual Specialist Directory</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Filter by clinical department to view consultant credentials,
+              languages spoken, and live video availability.
+            </p>
+          </div>
+
+          <div
+            class="doctor-filter-bar"
+            data-filter-group="#doctor-directory-grid"
+          >
+            <button
+              type="button"
+              class="doctor-filter-btn active"
+              data-filter="*"
+            >
+              All Specialists
+            </button>
+            <button
+              type="button"
+              class="doctor-filter-btn"
+              data-filter="cardio"
+            >
+              Cardiology &amp;Pulmonary
+            </button>
+            <button type="button" class="doctor-filter-btn" data-filter="neuro">
+              Neurology &amp; Psychiatry
+            </button>
+            <button type="button" class="doctor-filter-btn" data-filter="derm">
+              Dermatology &amp; Endocrine
+            </button>
+            <button type="button" class="doctor-filter-btn" data-filter="pedia">
+              Pediatrics &amp; Ortho
+            </button>
+          </div>
+
+          <div class="row g-4" id="doctor-directory-grid">
+            <!-- Doc 1 -->
+            <div class="col-lg-3 col-md-6" data-category="cardio">
+              <div class="doc-profile-card">
+                <div class="tm-member-hover">
+                  <span class="doc-live-badge"
+                    ><span class="pulse-dot"></span> Online Now</span
+                  >
+                  <span class="doc-rating-badge"
+                    ><i class="fa-solid fa-star me-1"></i>4.98</span
+                  >
+                  <div class="tm-member-thumb">
+                    <img
+                      src="../assets/images/doctor/doc-1.webp"
+                      alt="Dr. Sebastian Clarke"
+                    />
+                  </div>
+                  <div class="tm-member-social-btn-wrap">
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook-f"></i
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="X (Twitter)"
+                      ><i class="fa-brands fa-x-twitter"></i
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="LinkedIn"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="doc-card-details">
+                  <div>
+                    <h3 class="tm-member-name">
+                      <a href="#">Dr. Sebastian Clarke</a>
+                    </h3>
+                    <span class="tm-member-speciality"
+                      >Consultant Tele-Cardiologist</span
+                    >
+                    <ul class="doc-meta-list">
+                      <li>
+                        <i class="fa-solid fa-id-badge"></i> GMC #7048291 | FRCP
+                        London
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-briefcase-medical"></i> 21 Years
+                        Clinical Experience
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-video"></i> Next Slot: Today in 10
+                        mins
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="#" class="tm-btn1 w-100 py-2">BOOK VIDEO CONSULT</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc 2 -->
+            <div class="col-lg-3 col-md-6" data-category="neuro">
+              <div class="doc-profile-card">
+                <div class="tm-member-hover">
+                  <span class="doc-live-badge"
+                    ><span class="pulse-dot"></span> Online Now</span
+                  >
+                  <span class="doc-rating-badge"
+                    ><i class="fa-solid fa-star me-1"></i>4.97</span
+                  >
+                  <div class="tm-member-thumb">
+                    <img
+                      src="../assets/images/doctor/doc-2.webp"
+                      alt="Dr. Amelia Thornton"
+                    />
+                  </div>
+                  <div class="tm-member-social-btn-wrap">
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook-f"></i
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="X (Twitter)"
+                      ><i class="fa-brands fa-x-twitter"></i
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="LinkedIn"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="doc-card-details">
+                  <div>
+                    <h3 class="tm-member-name">
+                      <a href="#">Dr. Amelia Thornton</a>
+                    </h3>
+                    <span class="tm-member-speciality"
+                      >Consultant Tele-Neurologist</span
+                    >
+                    <ul class="doc-meta-list">
+                      <li>
+                        <i class="fa-solid fa-id-badge"></i> GMC #6928104 | PhD
+                        Cambridge
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-briefcase-medical"></i> 17 Years
+                        Clinical Experience
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-video"></i> Next Slot: Today in 15
+                        mins
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="#" class="tm-btn1 w-100 py-2">BOOK VIDEO CONSULT</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc 3 -->
+            <div class="col-lg-3 col-md-6" data-category="derm">
+              <div class="doc-profile-card">
+                <div class="tm-member-hover">
+                  <span class="doc-live-badge"
+                    ><span class="pulse-dot"></span> Online Now</span
+                  >
+                  <span class="doc-rating-badge"
+                    ><i class="fa-solid fa-star me-1"></i>4.95</span
+                  >
+                  <div class="tm-member-thumb">
+                    <img
+                      src="../assets/images/doctor/doc-3.webp"
+                      alt="Dr. Vikram Mehta"
+                    />
+                  </div>
+                  <div class="tm-member-social-btn-wrap">
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook-f"></i
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="X (Twitter)"
+                      ><i class="fa-brands fa-x-twitter"></i
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="LinkedIn"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="doc-card-details">
+                  <div>
+                    <h3 class="tm-member-name">
+                      <a href="#">Dr. Vikram Mehta</a>
+                    </h3>
+                    <span class="tm-member-speciality"
+                      >Consultant Endocrinologist</span
+                    >
+                    <ul class="doc-meta-list">
+                      <li>
+                        <i class="fa-solid fa-id-badge"></i> GMC #7194028 | MRCP
+                        UK
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-briefcase-medical"></i> 15 Years
+                        Clinical Experience
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-video"></i> Next Slot: Today in 20
+                        mins
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="#" class="tm-btn1 w-100 py-2">BOOK VIDEO CONSULT</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc 4 -->
+            <div class="col-lg-3 col-md-6" data-category="derm">
+              <div class="doc-profile-card">
+                <div class="tm-member-hover">
+                  <span class="doc-live-badge"
+                    ><span class="pulse-dot"></span> Online Now</span
+                  >
+                  <span class="doc-rating-badge"
+                    ><i class="fa-solid fa-star me-1"></i>4.99</span
+                  >
+                  <div class="tm-member-thumb">
+                    <img
+                      src="../assets/images/doctor/doc-4.webp"
+                      alt="Dr. Chloe Richardson"
+                    />
+                  </div>
+                  <div class="tm-member-social-btn-wrap">
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook-f"></i
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="X (Twitter)"
+                      ><i class="fa-brands fa-x-twitter"></i
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="LinkedIn"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="doc-card-details">
+                  <div>
+                    <h3 class="tm-member-name">
+                      <a href="#">Dr. Chloe Richardson</a>
+                    </h3>
+                    <span class="tm-member-speciality"
+                      >Consultant Dermatologist</span
+                    >
+                    <ul class="doc-meta-list">
+                      <li>
+                        <i class="fa-solid fa-id-badge"></i> GMC #7382915 | BAD
+                        Fellow
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-briefcase-medical"></i> 14 Years
+                        Clinical Experience
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-video"></i> Next Slot: Today in 8
+                        mins
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="#" class="tm-btn1 w-100 py-2">BOOK VIDEO CONSULT</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc 5 -->
+            <div class="col-lg-3 col-md-6" data-category="cardio">
+              <div class="doc-profile-card">
+                <div class="tm-member-hover">
+                  <span class="doc-live-badge"
+                    ><span class="pulse-dot"></span> Online Now</span
+                  >
+                  <span class="doc-rating-badge"
+                    ><i class="fa-solid fa-star me-1"></i>4.96</span
+                  >
+                  <div class="tm-member-thumb">
+                    <img
+                      src="../assets/images/doctor/doc-5.webp"
+                      alt="Dr. Liam O'Connor"
+                    />
+                  </div>
+                  <div class="tm-member-social-btn-wrap">
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook-f"></i
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="X (Twitter)"
+                      ><i class="fa-brands fa-x-twitter"></i
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="LinkedIn"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="doc-card-details">
+                  <div>
+                    <h3 class="tm-member-name">
+                      <a href="#">Dr. Liam O'Connor</a>
+                    </h3>
+                    <span class="tm-member-speciality"
+                      >Consultant Pulmonologist</span
+                    >
+                    <ul class="doc-meta-list">
+                      <li>
+                        <i class="fa-solid fa-id-badge"></i> GMC #6811209 | FRCP
+                        Edinburgh
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-briefcase-medical"></i> 18 Years
+                        Clinical Experience
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-video"></i> Next Slot: Today in 12
+                        mins
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="#" class="tm-btn1 w-100 py-2">BOOK VIDEO CONSULT</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc 6 -->
+            <div class="col-lg-3 col-md-6" data-category="pedia">
+              <div class="doc-profile-card">
+                <div class="tm-member-hover">
+                  <span class="doc-live-badge"
+                    ><span class="pulse-dot"></span> Online Now</span
+                  >
+                  <span class="doc-rating-badge"
+                    ><i class="fa-solid fa-star me-1"></i>4.99</span
+                  >
+                  <div class="tm-member-thumb">
+                    <img
+                      src="../assets/images/doctor/doc-6.webp"
+                      alt="Dr. Zara Al-Mansoor"
+                    />
+                  </div>
+                  <div class="tm-member-social-btn-wrap">
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook-f"></i
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="X (Twitter)"
+                      ><i class="fa-brands fa-x-twitter"></i
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="LinkedIn"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="doc-card-details">
+                  <div>
+                    <h3 class="tm-member-name">
+                      <a href="#">Dr. Zara Al-Mansoor</a>
+                    </h3>
+                    <span class="tm-member-speciality"
+                      >Consultant Pediatrician</span
+                    >
+                    <ul class="doc-meta-list">
+                      <li>
+                        <i class="fa-solid fa-id-badge"></i> GMC #7490122 |
+                        FRCPCH London
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-briefcase-medical"></i> 13 Years
+                        Clinical Experience
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-video"></i> Next Slot: Today in 5
+                        mins
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="#" class="tm-btn1 w-100 py-2">BOOK VIDEO CONSULT</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc 7 -->
+            <div class="col-lg-3 col-md-6" data-category="neuro">
+              <div class="doc-profile-card">
+                <div class="tm-member-hover">
+                  <span class="doc-live-badge"
+                    ><span class="pulse-dot"></span> Online Now</span
+                  >
+                  <span class="doc-rating-badge"
+                    ><i class="fa-solid fa-star me-1"></i>4.94</span
+                  >
+                  <div class="tm-member-thumb">
+                    <img
+                      src="../assets/images/doctor/doc-7.webp"
+                      alt="Dr. Edward Hughes"
+                    />
+                  </div>
+                  <div class="tm-member-social-btn-wrap">
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook-f"></i
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="X (Twitter)"
+                      ><i class="fa-brands fa-x-twitter"></i
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="LinkedIn"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="doc-card-details">
+                  <div>
+                    <h3 class="tm-member-name">
+                      <a href="#">Dr. Edward Hughes</a>
+                    </h3>
+                    <span class="tm-member-speciality"
+                      >Consultant Tele-Psychiatrist</span
+                    >
+                    <ul class="doc-meta-list">
+                      <li>
+                        <i class="fa-solid fa-id-badge"></i> GMC #6723980 |
+                        MRCPsych UK
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-briefcase-medical"></i> 19 Years
+                        Clinical Experience
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-video"></i> Next Slot: Today in 25
+                        mins
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="#" class="tm-btn1 w-100 py-2">BOOK VIDEO CONSULT</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doc 8 -->
+            <div class="col-lg-3 col-md-6" data-category="pedia">
+              <div class="doc-profile-card">
+                <div class="tm-member-hover">
+                  <span class="doc-live-badge"
+                    ><span class="pulse-dot"></span> Online Now</span
+                  >
+                  <span class="doc-rating-badge"
+                    ><i class="fa-solid fa-star me-1"></i>4.97</span
+                  >
+                  <div class="tm-member-thumb">
+                    <img
+                      src="../assets/images/doctor/doc-8.webp"
+                      alt="Dr. Freya Lindqvist"
+                    />
+                  </div>
+                  <div class="tm-member-social-btn-wrap">
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="Facebook"
+                      ><i class="fa-brands fa-facebook-f"></i
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="X (Twitter)"
+                      ><i class="fa-brands fa-x-twitter"></i
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a
+                      href="#"
+                      rel="noopener noreferrer"
+                      class="tm-social-btn"
+                      aria-label="LinkedIn"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="doc-card-details">
+                  <div>
+                    <h3 class="tm-member-name">
+                      <a href="#">Dr. Freya Lindqvist</a>
+                    </h3>
+                    <span class="tm-member-speciality"
+                      >Consultant Orthopedic Rehab</span
+                    >
+                    <ul class="doc-meta-list">
+                      <li>
+                        <i class="fa-solid fa-id-badge"></i> GMC #7201944 | FRCS
+                        Ortho
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-briefcase-medical"></i> 16 Years
+                        Clinical Experience
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-video"></i> Next Slot: Today in 18
+                        mins
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="#" class="tm-btn1 w-100 py-2">BOOK VIDEO CONSULT</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 3: Chief Medical Director Spotlight
+             ================================================================== -->
+      <section class="tm-section-pad tm-gray-bg" id="chief-spotlight">
+        <div class="container">
+          <div class="cmo-spotlight-wrap">
+            <div class="row g-5 align-items-center">
+              <div class="col-lg-5">
+                <div class="cmo-spotlight-img">
+                  <img
+                    src="../assets/images/doctor/featured-chief.webp"
+                    alt="Chief Medical Director Spotlight"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <span class="tm-section-badge"
+                  ><i class="fa-solid fa-star"></i> Clinical Director
+                  Spotlight</span
+                >
+                <h2 class="text-white fw-bold mb-2">
+                  Prof. Eleanor Vance, MD, FRCP
+                </h2>
+                <p class="text-info fw-bold mb-3">
+                  Chair of Clinical Telemedicine &amp; Senior Consultant
+                  Neurologist
+                </p>
+                <p class="text-white-50 mb-4">
+                  "Virtual medicine is not about replacing the human bond
+                  between doctor and patient—it is about removing the friction
+                  of distance so we can spend 100% of our time listening,
+                  examining live telemetry, and crafting precise treatment
+                  plans."
+                </p>
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-4">
+                    <div class="cmo-stat-pill">
+                      <h4>9,400+</h4>
+                      <span class="small text-white-50">4K Video Consults</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="cmo-stat-pill">
+                      <h4>42</h4>
+                      <span class="small text-white-50"
+                        >Peer-Reviewed Papers</span
+                      >
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="cmo-stat-pill">
+                      <h4>4.99 / 5</h4>
+                      <span class="small text-white-50"
+                        >Patient Trust Score</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <a href="#" class="tm-btn1"
+                  >REQUEST SECOND OPINION WITH PROF. VANCE</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 4: Rigorous 5-Stage Doctor Vetting & Credentialing Process
+             ================================================================== -->
+      <section class="tm-section-pad" id="credentialing-process">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-shield-check"></i> Clinical Selection</span
+            >
+            <h2>Only the Top 4% of UK Applicants Join Our Panel</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Every physician undergoes a stringent 5-stage credentialing and
+              digital clinical simulation process before seeing patients.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="tm-card tm-step-card">
+                <div>
+                  <span class="tm-step-number">01</span>
+                  <div class="tm-step-icon">
+                    <i class="fa-solid fa-file-contract"></i>
+                  </div>
+                  <h4>GMC Specialist Check</h4>
+                  <p class="text-muted">
+                    Direct verification of full General Medical Council
+                    specialist registration, clean license history, and Enhanced
+                    DBS clearance.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="tm-card tm-step-card">
+                <div>
+                  <span class="tm-step-number">02</span>
+                  <div class="tm-step-icon">
+                    <i class="fa-solid fa-user-graduate"></i>
+                  </div>
+                  <h4>10+ Years Seniority</h4>
+                  <p class="text-muted">
+                    Minimum 10 years of post-qualification UK NHS or Harley
+                    Street hospital experience at Consultant or Senior GP
+                    Partner level.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="tm-card tm-step-card">
+                <div>
+                  <span class="tm-step-number">03</span>
+                  <div class="tm-step-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                  </div>
+                  <h4>Tele-Exam Certification</h4>
+                  <p class="text-muted">
+                    40 hours of accredited training in virtual physical
+                    examination, camera-assisted neurological testing, and
+                    remote red-flag triage.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="tm-card tm-step-card">
+                <div>
+                  <span class="tm-step-number">04</span>
+                  <div class="tm-step-icon">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                  </div>
+                  <h4>Monthly Peer Audit</h4>
+                  <p class="text-muted">
+                    Continuous clinical chart review, antibiotic stewardship
+                    scoring, and patient outcome tracking by our CMO board.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 5: Weekly Live Virtual Clinic Roster & Shift Schedule
+             ================================================================== -->
+      <section class="tm-section-pad tm-gray-bg" id="weekly-roster">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-calendar-week"></i> Live Clinic
+              Timetable</span
+            >
+            <h2>Weekly Specialist Tele-Consultation Roster</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Our on-demand GP desk operates 24/7. Below are the core live
+              clinic windows for our senior sub-specialty consultants.
+            </p>
+          </div>
+
+          <div class="roster-table-wrap bg-white">
+            <div class="table-responsive">
+              <table class="table dept-compare-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Lead Consultant</th>
+                    <th>Specialty Unit</th>
+                    <th>Mon – Wed</th>
+                    <th>Thu – Fri</th>
+                    <th>Sat – Sun</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-bold">Dr. Sebastian Clarke</td>
+                    <td>Tele-Cardiology</td>
+                    <td><span class="roster-slot-pill">07:00 – 15:00</span></td>
+                    <td><span class="roster-slot-pill">12:00 – 20:00</span></td>
+                    <td><span class="roster-slot-pill">09:00 – 16:00</span></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">Dr. Amelia Thornton</td>
+                    <td>Tele-Neurology</td>
+                    <td><span class="roster-slot-pill">08:00 – 17:00</span></td>
+                    <td><span class="roster-slot-pill">08:00 – 17:00</span></td>
+                    <td><span class="roster-slot-pill">10:00 – 15:00</span></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">Dr. Chloe Richardson</td>
+                    <td>Teledermatology</td>
+                    <td><span class="roster-slot-pill">09:00 – 19:00</span></td>
+                    <td><span class="roster-slot-pill">10:00 – 21:00</span></td>
+                    <td><span class="roster-slot-pill">09:00 – 17:00</span></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">Dr. Zara Al-Mansoor</td>
+                    <td>Virtual Pediatrics</td>
+                    <td><span class="roster-slot-pill">06:00 – 22:00</span></td>
+                    <td><span class="roster-slot-pill">06:00 – 22:00</span></td>
+                    <td><span class="roster-slot-pill">24/7 On-Call</span></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">Dr. Vikram Mehta</td>
+                    <td>Tele-Endocrinology</td>
+                    <td><span class="roster-slot-pill">08:30 – 17:30</span></td>
+                    <td><span class="roster-slot-pill">09:00 – 18:00</span></td>
+                    <td><span class="roster-slot-pill">09:00 – 14:00</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 6: Multilingual & Accessible Virtual Care
+             ================================================================== -->
+      <section class="tm-section-pad" id="multilingual-care">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-language"></i> Inclusive Healthcare</span
+            >
+            <h2>Multilingual &amp; Accessible Consultations</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Communicate in the language you feel most comfortable with,
+              supported by real-time closed captioning and BSL interpreters.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+              <div class="tm-icon-box style1">
+                <div>
+                  <div class="tm-icon">
+                    <i class="fa-solid fa-earth-europe"></i>
+                  </div>
+                  <h3 class="tm-icon-box-title">14+ Spoken Languages</h3>
+                  <p class="tm-icon-box-text">
+                    Filter doctors fluent in English, Welsh, Hindi, Urdu,
+                    Arabic, Polish, French, Spanish, Mandarin, and Punjabi.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="tm-icon-box style1">
+                <div>
+                  <div class="tm-icon">
+                    <i class="fa-solid fa-hands-asl-interpreting"></i>
+                  </div>
+                  <h3 class="tm-icon-box-title">On-Demand BSL Video</h3>
+                  <p class="tm-icon-box-text">
+                    One-click British Sign Language (BSL) medical interpreter
+                    join-in for deaf and hard-of-hearing patients at zero extra
+                    fee.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="tm-icon-box style1">
+                <div>
+                  <div class="tm-icon">
+                    <i class="fa-solid fa-closed-captioning"></i>
+                  </div>
+                  <h3 class="tm-icon-box-title">Live AI Medical Captions</h3>
+                  <p class="tm-icon-box-text">
+                    Real-time clinical speech-to-text subtitles during your 4K
+                    call plus an downloadable transcript in your health vault.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 7: Clinician Recruitment & Virtual Practice Fellowship
+             ================================================================== -->
+      <section class="tm-section-pad tm-dark-bg" id="join-our-doctors">
+        <div class="container">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+              <span class="tm-section-badge"
+                ><i class="fa-solid fa-user-plus"></i> Careers for UK
+                Clinicians</span
+              >
+              <h2 class="text-white fw-bold mb-3">
+                Are You a GMC-Registered Consultant or GP?
+              </h2>
+              <p class="text-white-50 mb-4">
+                Join Stackly Telemedicine's clinical network and practice
+                flexible, high-impact medicine from our Harley Street studios or
+                your encrypted home workstation. We handle all CQC compliance,
+                medical indemnity, and AI charting.
+              </p>
+              <ul class="tm-about-feature-list text-white">
+                <li class="text-white">
+                  <i class="fa-solid fa-circle-check"></i> Dual-Monitor 4K
+                  Workstation Provided
+                </li>
+                <li class="text-white">
+                  <i class="fa-solid fa-circle-check"></i> Automated FHIR
+                  Clinical Note Drafting
+                </li>
+                <li class="text-white">
+                  <i class="fa-solid fa-circle-check"></i> Full Medical Defense
+                  Indemnity Covered
+                </li>
+                <li class="text-white">
+                  <i class="fa-solid fa-circle-check"></i> Flexible 4-Hour
+                  Clinical Sessions
+                </li>
+              </ul>
+              <a href="#" class="tm-btn1 mt-2">APPLY TO JOIN CLINICAL BOARD</a>
+            </div>
+            <div class="col-lg-6">
+              <div
+                class="tm-img-zoom-wrap border border-2 border-info rounded-4 shadow-lg"
+              >
+                <img
+                  src="../assets/images/doctor/recruitment-bg.webp"
+                  alt="Clinician Virtual Workstation"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 8: Patient-to-Doctor Verified Feedback Highlights
+             ================================================================== -->
+      <section class="tm-section-pad" id="doctor-reviews">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-heart"></i> Verified Consult Reviews</span
+            >
+            <h2>What Patients Appreciate About Our Doctors</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Unedited post-consultation ratings submitted by UK patients
+              immediately following their video visits.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+              <div class="tm-single-testimonial">
+                <div>
+                  <div class="text-warning small mb-2">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                    <span class="text-dark fw-bold ms-2"
+                      >For Dr. Sebastian Clarke</span
+                    >
+                  </div>
+                  <blockquote>
+                    "Dr. Clarke shared his screen to walk me through every wave
+                    on my 7-day ECG patch. I have never felt so listened to or
+                    reassured in a cardiology appointment."
+                  </blockquote>
+                </div>
+                <div class="border-top pt-3 small text-muted">
+                  Verified Video Consult &bull; London W1
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="tm-single-testimonial">
+                <div>
+                  <div class="text-warning small mb-2">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                    <span class="text-dark fw-bold ms-2"
+                      >For Dr. Chloe Richardson</span
+                    >
+                  </div>
+                  <blockquote>
+                    "Within 15 minutes of uploading dermatoscope photos, Dr.
+                    Richardson diagnosed my rosacea subtype and arranged a
+                    custom prescription cream that cleared my skin in 3 weeks."
+                  </blockquote>
+                </div>
+                <div class="border-top pt-3 small text-muted">
+                  Verified Video Consult &bull; Bristol
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+              <div class="tm-single-testimonial">
+                <div>
+                  <div class="text-warning small mb-2">
+                    <i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i>
+                    <span class="text-dark fw-bold ms-2"
+                      >For Dr. Zara Al-Mansoor</span
+                    >
+                  </div>
+                  <blockquote>
+                    "Warm, calm, and incredibly thorough with our toddler at 10
+                    PM. Having a senior hospital pediatrician on video saved us
+                    a 5-hour wait in A&amp;E."
+                  </blockquote>
+                </div>
+                <div class="border-top pt-3 small text-muted">
+                  Verified Video Consult &bull; Leeds
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 9: Doctor Consultation FAQ Accordion
+             ================================================================== -->
+      <section class="tm-section-pad tm-gray-bg" id="doctor-faq">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-circle-question"></i> Doctor Booking
+              FAQ</span
+            >
+            <h2>Questions About Seeing Our Doctors</h2>
+            <div class="tm-section-seperator"><span></span></div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div class="accordian">
+                <div class="single-accordian">
+                  <h3 class="accordian-head active">
+                    Can I book follow-up appointments with the exact same
+                    doctor?
+                    <span class="accordian-toggle"
+                      ><i class="fa-solid fa-chevron-down"></i
+                    ></span>
+                  </h3>
+                  <div class="accordian-body">
+                    Yes. Continuity of care is central to Stackly Telemedicine.
+                    You can select your preferred named GP or Consultant for all
+                    future video check-ins and message them directly for 7 days
+                    after every visit.
+                  </div>
+                </div>
+                <div class="single-accordian">
+                  <h3 class="accordian-head">
+                    Can Stackly Telemedicine doctors write NHS GP letters and
+                    private referrals?
+                    <span class="accordian-toggle"
+                      ><i class="fa-solid fa-chevron-down"></i
+                    ></span>
+                  </h3>
+                  <div class="accordian-body" style="display: none">
+                    Yes. Every clinician can issue formal specialist referral
+                    letters, diagnostic imaging requests (MRI, CT, Ultrasound),
+                    fit-to-fly certificates, and occupational sick notes signed
+                    with their GMC registration number.
+                  </div>
+                </div>
+                <div class="single-accordian">
+                  <h3 class="accordian-head">
+                    How do I verify a doctor's GMC registration number?
+                    <span class="accordian-toggle"
+                      ><i class="fa-solid fa-chevron-down"></i
+                    ></span>
+                  </h3>
+                  <div class="accordian-body" style="display: none">
+                    Every doctor card on our platform displays their 7-digit
+                    General Medical Council (GMC) reference number, which can be
+                    verified instantaneously on the official UK GMC online
+                    medical register.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 10: Direct Specialist Appointment Form (Validated)
+             ================================================================== -->
+      <section class="tm-section-pad" id="doctor-booking-form">
+        <div class="container">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-5">
+              <span class="tm-section-badge"
+                ><i class="fa-solid fa-calendar-check"></i> Reserve Your
+                Slot</span
+              >
+              <h2 class="fw-bold mb-3">
+                Book a 1-on-1 Video Session With Your Chosen Doctor
+              </h2>
+              <div class="tm-section-seperator ms-0"><span></span></div>
+              <p class="text-muted mb-4">
+                Choose your preferred consultant below. All fields are mandatory
+                and validated in real time to ensure your booking is processed
+                without delay.
+              </p>
+              <div class="tm-contact-info">
+                <div class="tm-single-contact">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div>
+                    <h3>Harley Street Chambers</h3>
+                    <p>
+                      221B Harley Street, Marylebone, London W1G 9QT, United
+                      Kingdom
+                    </p>
+                  </div>
+                </div>
+                <div class="tm-single-contact">
+                  <i class="fa-solid fa-phone-volume"></i>
+                  <div>
+                    <h3>Doctor Booking Desk</h3>
+                    <p><a href="#">+91 9876543210</a></p>
+                  </div>
+                </div>
+                <div class="tm-single-contact">
+                  <i class="fa-solid fa-envelope"></i>
+                  <div>
+                    <h3>Medical Secretary Email</h3>
+                    <p>
+                      <a href="#">info@stacklytelemed.co.uk</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="tm-appointment-box">
+                <h3 class="mb-2">Direct Doctor Consultation Form</h3>
+                <p class="text-muted small mb-4">
+                  All fields are required. Name accepts alphabets only; Phone
+                  accepts numbers only; Past dates are restricted.
+                </p>
+                <form
+                  id="doctor-page-form"
+                  data-success-msg="Doctor Appointment Confirmed! Your private 4K consultation link has been dispatched."
+                >
+                  <div class="tm-form-alert" role="alert"></div>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="doc-uname" class="tm-form-label"
+                          >Patient Full Name *</label
+                        >
+                        <input
+                          type="text"
+                          id="doc-uname"
+                          name="uname"
+                          class="tm-form-control"
+                          data-validate="name"
+                          placeholder="Letters only (e.g. Arthur Pendelton)"
+                          autocomplete="name"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="doc-uemail" class="tm-form-label"
+                          >Email Address *</label
+                        >
+                        <input
+                          type="email"
+                          id="doc-uemail"
+                          name="uemail"
+                          class="tm-form-control"
+                          placeholder="patient@domain.co.uk"
+                          autocomplete="email"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="doc-unumber" class="tm-form-label"
+                          >Phone Number *</label
+                        >
+                        <input
+                          type="tel"
+                          id="doc-unumber"
+                          name="unumber"
+                          class="tm-form-control"
+                          data-validate="phone"
+                          maxlength="15"
+                          placeholder="Digits only (e.g. 9876543210)"
+                          autocomplete="tel"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="doc-udate" class="tm-form-label"
+                          >Preferred Date *</label
+                        >
+                        <input
+                          type="date"
+                          id="doc-udate"
+                          name="udate"
+                          class="tm-form-control"
+                          data-validate="future-date"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="doc-select" class="tm-form-label"
+                          >Choose Specialist Doctor *</label
+                        >
+                        <select
+                          id="doc-select"
+                          name="udoctor"
+                          class="tm-form-control"
+                          required
+                        >
+                          <option value="">Select Doctor</option>
+                          <option value="dr-clarke">
+                            Dr. Sebastian Clarke (Cardiology)
+                          </option>
+                          <option value="dr-thornton">
+                            Dr. Amelia Thornton (Neurology)
+                          </option>
+                          <option value="dr-mehta">
+                            Dr. Vikram Mehta (Endocrinology)
+                          </option>
+                          <option value="dr-richardson">
+                            Dr. Chloe Richardson (Dermatology)
+                          </option>
+                          <option value="dr-oconnor">
+                            Dr. Liam O'Connor (Pulmonology)
+                          </option>
+                          <option value="dr-almansoor">
+                            Dr. Zara Al-Mansoor (Pediatrics)
+                          </option>
+                          <option value="dr-hughes">
+                            Dr. Edward Hughes (Psychiatry)
+                          </option>
+                          <option value="dr-lindqvist">
+                            Dr. Freya Lindqvist (Orthopedics)
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="doc-slot" class="tm-form-label"
+                          >Preferred Time Window *</label
+                        >
+                        <select
+                          id="doc-slot"
+                          name="uslot"
+                          class="tm-form-control"
+                          required
+                        >
+                          <option value="">Select Time Window</option>
+                          <option value="immediate">
+                            Immediate On-Demand (&lt;15 mins)
+                          </option>
+                          <option value="morning">
+                            Morning Clinic (08:00 – 12:00)
+                          </option>
+                          <option value="afternoon">
+                            Afternoon Clinic (12:00 – 17:00)
+                          </option>
+                          <option value="evening">
+                            Evening Clinic (17:00 – 22:00)
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="tm-form-field">
+                        <label for="doc-umsg" class="tm-form-label"
+                          >Clinical Reason for Visit *</label
+                        >
+                        <textarea
+                          id="doc-umsg"
+                          name="umsg"
+                          rows="3"
+                          class="tm-form-control"
+                          placeholder="Share your symptoms, questions for the consultant, or prescription needs..."
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="tm-btn1 w-100">
+                        <i class="fa-solid fa-user-doctor me-2"></i> BOOK CHOSEN
+                        SPECIALIST NOW
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Common Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+/* Doctor Filter Controls */
+.doctor-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.doctor-filter-btn {
+  background: var(--tm-white);
+  color: var(--tm-dark-blue);
+  border: 1.5px solid var(--tm-border-color);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: var(--tm-transition);
+}
+
+.doctor-filter-btn.active,
+.doctor-filter-btn:hover {
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+  border-color: var(--tm-light-blue);
+  box-shadow: 0 6px 18px rgba(0, 40, 86, 0.22);
+}
+
+/* Enhanced Consultant Profile Cards */
+.doc-profile-card {
+  background: var(--tm-white);
+  border-radius: 16px;
+  border: 1px solid var(--tm-border-color);
+  box-shadow: var(--tm-shadow-sm);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--tm-transition);
+}
+
+.doc-profile-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--tm-light-blue);
+  box-shadow: var(--tm-shadow-lg);
+}
+
+.doc-live-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 40, 86, 0.88);
+  color: var(--tm-white);
+  border: 1px solid var(--tm-light-blue);
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 11.5px;
+  font-weight: 700;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.doc-rating-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  padding: 4px 10px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 3;
+}
+
+.doc-card-details {
+  padding: 22px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.doc-meta-list {
+  margin: 12px 0 18px;
+  font-size: 13px;
+  color: var(--tm-text-muted);
+}
+
+.doc-meta-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.doc-meta-list li i {
+  color: var(--tm-light-blue);
+}
+
+/* Chief Medical Officer Spotlight */
+.cmo-spotlight-wrap {
+  background: linear-gradient(
+    135deg,
+    var(--tm-dark-blue-deep) 0%,
+    var(--tm-dark-blue) 70%,
+    #074786 100%
+  );
+  border-radius: 22px;
+  padding: 48px;
+  color: var(--tm-white);
+  border: 2px solid rgba(44, 174, 226, 0.4);
+  box-shadow: var(--tm-shadow-lg);
+}
+
+.cmo-spotlight-img {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid var(--tm-light-blue);
+}
+
+.cmo-stat-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(44, 174, 226, 0.4);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.cmo-stat-pill h4 {
+  color: var(--tm-light-blue);
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+/* Weekly Tele-Consultation Roster Table */
+.roster-table-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--tm-border-color);
+  box-shadow: var(--tm-shadow-sm);
+}
+
+.roster-slot-pill {
+  display: inline-block;
+  background: var(--tm-light-blue-soft);
+  color: var(--tm-dark-blue);
+  border: 1px solid rgba(44, 174, 226, 0.4);
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+  .cmo-spotlight-wrap {
+    padding: 28px 22px;
+  }
+}

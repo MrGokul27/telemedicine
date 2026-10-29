@@ -1,0 +1,161 @@
+/* Specialty Department Cards */
+.dept-specialty-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 16px;
+  background: var(--tm-white);
+  border: 1px solid var(--tm-border-color);
+  box-shadow: var(--tm-shadow-sm);
+  overflow: hidden;
+  transition: var(--tm-transition);
+}
+
+.dept-specialty-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--tm-light-blue);
+  box-shadow: var(--tm-shadow-lg);
+}
+
+.dept-card-thumb {
+  position: relative;
+  height: 215px;
+  overflow: hidden;
+}
+
+.dept-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dept-specialty-card:hover .dept-card-thumb img {
+  transform: scale(1.08);
+}
+
+.dept-wait-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0, 40, 86, 0.9);
+  color: var(--tm-white);
+  border: 1px solid var(--tm-light-blue);
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.dept-card-icon-float {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -28px;
+  margin-left: 24px;
+  position: relative;
+  z-index: 2;
+  border: 3px solid var(--tm-white);
+  box-shadow: var(--tm-shadow-sm);
+}
+
+.dept-card-body {
+  padding: 18px 24px 26px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dept-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 20px;
+}
+
+.dept-tag {
+  background: var(--tm-light-blue-soft);
+  color: var(--tm-dark-blue);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* AI Triage Workflow Matrix */
+.triage-matrix-box {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(44, 174, 226, 0.4);
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+  transition: var(--tm-transition);
+}
+
+.triage-matrix-box:hover {
+  background: rgba(44, 174, 226, 0.18);
+  transform: translateY(-5px);
+}
+
+.triage-priority-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.triage-priority-pill.urgent {
+  background: #ef4444;
+  color: #fff;
+}
+
+.triage-priority-pill.priority {
+  background: var(--tm-light-blue);
+  color: #fff;
+}
+
+.triage-priority-pill.routine {
+  background: #10b981;
+  color: #fff;
+}
+
+/* Comparison Table: Virtual Visit vs In-Clinic */
+.dept-compare-table-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--tm-shadow-md);
+  border: 1px solid var(--tm-border-color);
+}
+
+.dept-compare-table {
+  margin-bottom: 0;
+}
+
+.dept-compare-table thead th {
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+  padding: 18px 20px;
+  font-weight: 700;
+  border: none;
+}
+
+.dept-compare-table thead th.highlight-col {
+  background: var(--tm-light-blue);
+}
+
+.dept-compare-table tbody td {
+  padding: 16px 20px;
+  vertical-align: middle;
+  font-size: 14.5px;
+  border-color: var(--tm-border-color);
+}

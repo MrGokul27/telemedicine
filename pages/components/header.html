@@ -1,0 +1,287 @@
+<!-- Common Site Header Component -->
+<header class="tm-site-header" id="site-header">
+  <!-- Top Info Bar -->
+  <div class="tm-header-info-wrap">
+    <div class="container">
+      <div class="tm-header-info-inner">
+        <div class="tm-header-contact-list">
+          <a href="#" class="tm-header-info-item">
+            <i class="fa-solid fa-phone-volume"></i>
+            <span>+91 9876543210</span>
+          </a>
+          <a href="#" class="tm-header-info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>info@stacklytelemed.co.uk</span>
+          </a>
+          <span class="tm-header-info-item d-none d-xl-inline-flex">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>221B Harley Street, Marylebone, London W1G 9QT, UK</span>
+          </span>
+        </div>
+        <div class="tm-header-right-meta">
+          <span class="tm-live-status-pill d-none d-md-inline-flex">
+            <span class="pulse-dot"></span> 24/7 HD Virtual Clinic Active
+          </span>
+          <div class="tm-header-socials">
+            <a href="#" rel="noopener noreferrer" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="#" rel="noopener noreferrer" aria-label="X (Twitter)"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="#" rel="noopener noreferrer" aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+            <a href="#" rel="noopener noreferrer" aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Navigation Bar -->
+  <div class="tm-header-menu" id="sticky-header">
+    <div class="container">
+      <div class="tm-header-menu-container">
+        <div class="tm-site-branding">
+          <a
+            href="index.html"
+            data-page-link="index.html"
+            class="tm-logo-link"
+            aria-label="Stackly Telemedicine Home"
+          >
+            <img
+              data-asset-src="assets/images/logoStackly.webp"
+              alt="Stackly Telemedicine Logo"
+              class="tm-logo"
+            />
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav
+          class="tm-primary-nav d-none d-lg-flex align-items-center"
+          aria-label="Main Navigation"
+        >
+          <ul class="tm-primary-nav-list">
+            <li class="menu-item">
+              <a
+                href="index.html"
+                data-page-link="index.html"
+                data-nav-id="home"
+                class="nav-link"
+                >HOME</a
+              >
+            </li>
+            <li class="menu-item">
+              <a
+                href="pages/about.html"
+                data-page-link="pages/about.html"
+                data-nav-id="about"
+                class="nav-link"
+                >ABOUT</a
+              >
+            </li>
+            <li class="menu-item">
+              <a
+                href="pages/department.html"
+                data-page-link="pages/department.html"
+                data-nav-id="department"
+                class="nav-link"
+                >DEPARTMENT</a
+              >
+            </li>
+            <li class="menu-item">
+              <a
+                href="pages/doctor.html"
+                data-page-link="pages/doctor.html"
+                data-nav-id="doctor"
+                class="nav-link"
+                >DOCTOR</a
+              >
+            </li>
+            <li class="menu-item">
+              <a
+                href="pages/gallery.html"
+                data-page-link="pages/gallery.html"
+                data-nav-id="gallery"
+                class="nav-link"
+                >GALLERY</a
+              >
+            </li>
+            <li class="menu-item">
+              <a
+                href="pages/blog.html"
+                data-page-link="pages/blog.html"
+                data-nav-id="blog"
+                class="nav-link"
+                >BLOG</a
+              >
+            </li>
+            <li class="menu-item">
+              <a
+                href="pages/contact.html"
+                data-page-link="pages/contact.html"
+                data-nav-id="contact"
+                class="nav-link"
+                >CONTACT</a
+              >
+            </li>
+          </ul>
+          <div class="tm-header-cta ms-lg-3">
+            <a href="#" data-page-link="#" class="tm-btn1 tm-btn-header">
+              <i class="fa-solid fa-video me-2"></i>APPOINTMENT
+            </a>
+          </div>
+        </nav>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          type="button"
+          class="tm-mobile-toggle d-lg-none"
+          id="mobile-menu-open"
+          aria-label="Open Mobile Menu"
+          aria-expanded="false"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Screen Covered Mobile Navigation Overlay -->
+  <div
+    class="tm-mobile-fullscreen-menu"
+    id="mobile-fullscreen-menu"
+    aria-hidden="true"
+  >
+    <div class="tm-mobile-menu-header">
+      <a href="index.html" data-page-link="index.html" class="tm-logo-link">
+        <img
+          data-asset-src="assets/images/logoStackly.webp"
+          alt="Stackly Telemedicine Logo"
+          class="tm-logo"
+        />
+      </a>
+      <button
+        type="button"
+        class="tm-mobile-close"
+        id="mobile-menu-close"
+        aria-label="Close Mobile Menu"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="tm-mobile-menu-body">
+      <ul class="tm-mobile-nav-list">
+        <li>
+          <a
+            href="index.html"
+            data-page-link="index.html"
+            data-nav-id="home"
+            class="mobile-nav-link"
+            >HOME</a
+          >
+        </li>
+        <li>
+          <a
+            href="pages/about.html"
+            data-page-link="pages/about.html"
+            data-nav-id="about"
+            class="mobile-nav-link"
+            >ABOUT</a
+          >
+        </li>
+        <li>
+          <a
+            href="pages/department.html"
+            data-page-link="pages/department.html"
+            data-nav-id="department"
+            class="mobile-nav-link"
+            >DEPARTMENT</a
+          >
+        </li>
+        <li>
+          <a
+            href="pages/doctor.html"
+            data-page-link="pages/doctor.html"
+            data-nav-id="doctor"
+            class="mobile-nav-link"
+            >DOCTOR</a
+          >
+        </li>
+        <li>
+          <a
+            href="pages/gallery.html"
+            data-page-link="pages/gallery.html"
+            data-nav-id="gallery"
+            class="mobile-nav-link"
+            >GALLERY</a
+          >
+        </li>
+        <li>
+          <a
+            href="pages/blog.html"
+            data-page-link="pages/blog.html"
+            data-nav-id="blog"
+            class="mobile-nav-link"
+            >BLOG</a
+          >
+        </li>
+        <li>
+          <a
+            href="pages/contact.html"
+            data-page-link="pages/contact.html"
+            data-nav-id="contact"
+            class="mobile-nav-link"
+            >CONTACT</a
+          >
+        </li>
+      </ul>
+      <div class="tm-mobile-menu-cta mt-4">
+        <a
+          href="#"
+          data-page-link="#"
+          class="tm-btn1 w-100 text-center justify-content-center"
+        >
+          <i class="fa-solid fa-video me-2"></i>BOOK VIRTUAL APPOINTMENT
+        </a>
+      </div>
+      <div class="tm-mobile-contact-info mt-4">
+        <p>
+          <i class="fa-solid fa-phone-volume me-2"></i
+          ><a href="#">+91 9876543210</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-envelope me-2"></i
+          ><a href="#">info@stacklytelemed.co.uk</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-location-dot me-2"></i>221B Harley Street,
+          Marylebone, London W1G 9QT, UK
+        </p>
+      </div>
+      <div class="tm-mobile-socials mt-3">
+        <a href="#" rel="noopener noreferrer" aria-label="Facebook"
+          ><i class="fa-brands fa-facebook-f"></i
+        ></a>
+        <a href="#" rel="noopener noreferrer" aria-label="X (Twitter)"
+          ><i class="fa-brands fa-x-twitter"></i
+        ></a>
+        <a href="#" rel="noopener noreferrer" aria-label="LinkedIn"
+          ><i class="fa-brands fa-linkedin-in"></i
+        ></a>
+        <a href="#" rel="noopener noreferrer" aria-label="Instagram"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a href="#" rel="noopener noreferrer" aria-label="YouTube"
+          ><i class="fa-brands fa-youtube"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</header>

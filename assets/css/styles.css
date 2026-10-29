@@ -1,0 +1,2533 @@
+:root {
+  --tm-dark-blue: #002856;
+  --tm-dark-blue-rgb: 0, 40, 86;
+  --tm-dark-blue-deep: #001a38;
+  --tm-light-blue: #2caee2;
+  --tm-light-blue-rgb: 44, 174, 226;
+  --tm-light-blue-soft: #eef9fe;
+  --tm-gray-bg: #f4f9fc;
+  --tm-white: #ffffff;
+  --tm-text-main: #334e68;
+  --tm-text-muted: #5c768d;
+  --tm-border-color: #dceefb;
+  --tm-success: #10b981;
+  --tm-danger: #ef4444;
+  --tm-font: "Open Sans", sans-serif;
+  --tm-shadow-sm: 0 6px 20px rgba(0, 40, 86, 0.07);
+  --tm-shadow-md: 0 12px 32px rgba(0, 40, 86, 0.12);
+  --tm-shadow-lg: 0 20px 45px rgba(0, 40, 86, 0.18);
+  --tm-transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   1. Base & Typography
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--tm-font);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--tm-font);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--tm-text-main);
+  background-color: var(--tm-white);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--tm-font);
+  color: var(--tm-dark-blue);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+a {
+  color: var(--tm-light-blue);
+  text-decoration: none;
+  transition: var(--tm-transition);
+}
+
+a:hover {
+  color: var(--tm-dark-blue);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tm-gray-bg {
+  background-color: var(--tm-gray-bg);
+}
+
+.tm-dark-bg {
+  background-color: var(--tm-dark-blue);
+  color: var(--tm-white);
+}
+
+.tm-section-pad {
+  padding: 90px 0;
+}
+
+.tm-section-pad-sm {
+  padding: 65px 0;
+}
+
+@media (max-width: 991.98px) {
+  .tm-section-pad {
+    padding: 65px 0;
+  }
+}
+
+/* ==========================================================================
+   2. Reference Section Headings & Separators
+   ========================================================================== */
+.tm-section-heading {
+  max-width: 720px;
+  margin: 0 auto 50px;
+}
+
+.tm-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(44, 174, 226, 0.12);
+  color: var(--tm-light-blue);
+  border: 1px solid rgba(44, 174, 226, 0.35);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+.tm-dark-bg .tm-section-badge {
+  background: rgba(44, 174, 226, 0.2);
+  color: #fff;
+}
+
+.tm-section-heading h2 {
+  font-size: 34px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+  color: var(--tm-dark-blue);
+}
+
+.tm-dark-bg .tm-section-heading h2 {
+  color: var(--tm-white);
+}
+
+.tm-section-heading p {
+  font-size: 15.5px;
+  color: var(--tm-text-muted);
+  margin-bottom: 0;
+}
+
+.tm-dark-bg .tm-section-heading p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.tm-section-seperator {
+  width: 140px;
+  height: 2px;
+  background: rgba(44, 174, 226, 0.35);
+  margin: 14px auto 18px;
+  position: relative;
+}
+
+.tm-section-seperator span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 6px;
+  background: var(--tm-light-blue);
+  border-radius: 4px;
+}
+
+.tm-section-seperator span::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--tm-dark-blue);
+  border: 2px solid var(--tm-light-blue);
+  border-radius: 50%;
+}
+
+@media (max-width: 767.98px) {
+  .tm-section-heading h2 {
+    font-size: 26px;
+  }
+}
+
+/* ==========================================================================
+   3. Theme Buttons
+   ========================================================================== */
+.tm-btn1 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--tm-light-blue);
+  color: var(--tm-white) !important;
+  font-family: var(--tm-font);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 13px 30px;
+  border-radius: 6px;
+  border: 2px solid var(--tm-light-blue);
+  box-shadow: 0 6px 18px rgba(44, 174, 226, 0.3);
+  cursor: pointer;
+  transition: var(--tm-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.tm-btn1:hover {
+  background-color: var(--tm-dark-blue);
+  border-color: var(--tm-dark-blue);
+  color: var(--tm-white) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 40, 86, 0.32);
+}
+
+.tm-btn1.tm-reverse {
+  background-color: var(--tm-dark-blue);
+  border-color: var(--tm-dark-blue);
+  box-shadow: 0 6px 18px rgba(0, 40, 86, 0.25);
+}
+
+.tm-btn1.tm-reverse:hover {
+  background-color: var(--tm-light-blue);
+  border-color: var(--tm-light-blue);
+}
+
+.tm-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--tm-dark-blue) !important;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 6px;
+  border: 2px solid var(--tm-light-blue);
+  transition: var(--tm-transition);
+}
+
+.tm-btn-outline:hover {
+  background-color: var(--tm-light-blue);
+  color: var(--tm-white) !important;
+  transform: translateY(-3px);
+}
+
+.tm-btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--tm-white) !important;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  border-radius: 6px;
+  border: 2px solid var(--tm-white);
+  transition: var(--tm-transition);
+}
+
+.tm-btn-outline-light:hover {
+  background-color: var(--tm-light-blue);
+  border-color: var(--tm-light-blue);
+  color: var(--tm-white) !important;
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   4. Site Header, Fixed Sticky Scroll & Full-Screen Mobile Menu
+   ========================================================================== */
+.tm-site-header {
+  position: relative;
+  z-index: 1040;
+  width: 100%;
+}
+
+.tm-header-info-wrap {
+  background-color: var(--tm-dark-blue-deep);
+  border-bottom: 1px solid rgba(44, 174, 226, 0.22);
+  padding: 9px 0;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tm-header-info-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tm-header-contact-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.tm-header-info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.tm-header-info-item i {
+  color: var(--tm-light-blue);
+  font-size: 14px;
+}
+
+.tm-header-info-item:hover {
+  color: var(--tm-light-blue);
+}
+
+.tm-header-right-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.tm-live-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(44, 174, 226, 0.16);
+  border: 1px solid rgba(44, 174, 226, 0.4);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: tmPulseDot 1.8s infinite;
+}
+
+@keyframes tmPulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.tm-header-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tm-header-socials a {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--tm-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12.5px;
+  transition: var(--tm-transition);
+}
+
+.tm-header-socials a:hover {
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  transform: translateY(-2px);
+}
+
+/* Main Navigation Bar */
+.tm-header-menu {
+  background-color: var(--tm-dark-blue);
+  border-bottom: 2px solid rgba(44, 174, 226, 0.35);
+  transition: all 0.3s ease;
+  width: 100%;
+  z-index: 1050;
+}
+
+/* Fixed Header When Scrolled Down (Desktop & Mobile) */
+.tm-header-menu.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0, 40, 86, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 28px rgba(0, 24, 54, 0.38);
+  animation: tmSlideDown 0.35s ease forwards;
+}
+
+@keyframes tmSlideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.tm-header-menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 78px;
+  gap: 16px;
+}
+
+.tm-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.tm-logo {
+  max-height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--tm-transition);
+}
+
+.tm-logo-link:hover .tm-logo {
+  transform: scale(1.03);
+}
+
+.tm-primary-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tm-primary-nav-list .nav-link {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  position: relative;
+  transition: var(--tm-transition);
+}
+
+.tm-primary-nav-list .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 14px;
+  right: 14px;
+  height: 2.5px;
+  background-color: var(--tm-light-blue);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tm-primary-nav-list .nav-link:hover,
+.tm-primary-nav-list .nav-link.active {
+  color: var(--tm-light-blue);
+  background: rgba(44, 174, 226, 0.1);
+}
+
+.tm-primary-nav-list .nav-link:hover::after,
+.tm-primary-nav-list .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.tm-btn-header {
+  padding: 10px 20px;
+  font-size: 13px;
+}
+
+/* Mobile Toggle Button */
+.tm-mobile-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(44, 174, 226, 0.18);
+  border: 1.5px solid var(--tm-light-blue);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--tm-transition);
+}
+
+.tm-mobile-toggle .bar {
+  width: 22px;
+  height: 2.5px;
+  background-color: var(--tm-white);
+  border-radius: 2px;
+  transition: var(--tm-transition);
+}
+
+.tm-mobile-toggle:hover {
+  background: var(--tm-light-blue);
+}
+
+/* Full-Screen Covered Mobile Navigation Overlay */
+.tm-mobile-fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(160deg, #001a38 0%, #002856 60%, #063d7a 100%);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 28px 36px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.tm-mobile-fullscreen-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.tm-mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(44, 174, 226, 0.25);
+  padding-bottom: 18px;
+}
+
+.tm-mobile-close {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(44, 174, 226, 0.2);
+  border: 1.5px solid var(--tm-light-blue);
+  color: var(--tm-white);
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--tm-transition);
+}
+
+.tm-mobile-close:hover {
+  background: var(--tm-light-blue);
+  transform: rotate(90deg);
+}
+
+.tm-mobile-menu-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.tm-mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tm-mobile-nav-list .mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 18px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--tm-white);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(44, 174, 226, 0.15);
+  transition: var(--tm-transition);
+}
+
+.tm-mobile-nav-list .mobile-nav-link:hover,
+.tm-mobile-nav-list .mobile-nav-link.active {
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  border-color: var(--tm-light-blue);
+  transform: translateX(6px);
+}
+
+.tm-mobile-contact-info {
+  border-top: 1px solid rgba(44, 174, 226, 0.25);
+  padding-top: 18px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+}
+
+.tm-mobile-contact-info p {
+  margin-bottom: 8px;
+}
+
+.tm-mobile-contact-info i {
+  color: var(--tm-light-blue);
+}
+
+.tm-mobile-contact-info a {
+  color: var(--tm-white);
+}
+
+.tm-mobile-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.tm-mobile-socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(44, 174, 226, 0.18);
+  border: 1px solid var(--tm-light-blue);
+  color: var(--tm-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.tm-mobile-socials a:hover {
+  background: var(--tm-light-blue);
+}
+
+@media (max-width: 575.98px) {
+  .tm-header-contact-list {
+    gap: 12px;
+    font-size: 12px;
+  }
+  .tm-header-menu-container {
+    min-height: 66px;
+  }
+  .tm-logo {
+    max-height: 40px;
+  }
+}
+
+/* ==========================================================================
+   5. Common Inner Page Banner & Breadcrumbs (Requirement 7)
+   ========================================================================== */
+.tm-page-banner {
+  position: relative;
+  padding: 105px 0 95px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--tm-white);
+  overflow: hidden;
+}
+
+.tm-page-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(0, 40, 86, 0.93) 0%,
+    rgba(0, 40, 86, 0.84) 55%,
+    rgba(44, 174, 226, 0.72) 100%
+  );
+  z-index: 1;
+}
+
+.tm-page-banner .container {
+  position: relative;
+  z-index: 2;
+}
+
+.tm-page-banner-content {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tm-page-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(44, 174, 226, 0.24);
+  border: 1px solid rgba(44, 174, 226, 0.6);
+  color: var(--tm-white);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.tm-page-banner-content h1 {
+  color: var(--tm-white);
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: 0.4px;
+}
+
+.tm-page-banner-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16.5px;
+  line-height: 1.75;
+  margin-bottom: 26px;
+}
+
+.tm-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(0, 24, 54, 0.55);
+  border: 1px solid rgba(44, 174, 226, 0.45);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tm-breadcrumb a {
+  color: var(--tm-light-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tm-breadcrumb a:hover {
+  color: var(--tm-white);
+}
+
+.tm-breadcrumb .sep {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+
+.tm-breadcrumb .current {
+  color: var(--tm-white);
+}
+
+@media (max-width: 767.98px) {
+  .tm-page-banner {
+    padding: 75px 0 70px;
+  }
+  .tm-page-banner-content h1 {
+    font-size: 30px;
+  }
+  .tm-page-banner-content p {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================================================
+   6. Universal Card Alignment & Hover Effects (Requirement 13)
+   ========================================================================== */
+.tm-card,
+.tm-icon-box,
+.tm-team-member,
+.tm-price-list,
+.tm-post {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--tm-white);
+  border-radius: 14px;
+  border: 1px solid var(--tm-border-color);
+  box-shadow: var(--tm-shadow-sm);
+  transition: var(--tm-transition);
+  overflow: hidden;
+}
+
+.tm-card:hover,
+.tm-icon-box:hover,
+.tm-team-member:hover,
+.tm-price-list:hover,
+.tm-post:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--tm-shadow-lg);
+  border-color: var(--tm-light-blue);
+}
+
+.tm-img-zoom-wrap {
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+}
+
+.tm-img-zoom-wrap img,
+.tm-dept-img img,
+.tm-member-thumb img,
+.tm-post-thumb img {
+  transition: transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 100%;
+  object-fit: cover;
+}
+
+.tm-img-zoom-wrap:hover img,
+.tm-dept-img:hover img,
+.tm-team-member:hover .tm-member-thumb img,
+.tm-post:hover .tm-post-thumb img {
+  transform: scale(1.07);
+}
+
+/* ==========================================================================
+   7. HOME PAGE SECTION 1: Hero Banner with Rotating Text & Floating Shapes
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 670px;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(0, 40, 86, 0.94) 0%,
+    rgba(0, 40, 86, 0.85) 55%,
+    rgba(44, 174, 226, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.slider-text {
+  max-width: 680px;
+  color: var(--tm-white);
+}
+
+.tm-headline {
+  color: var(--tm-white);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 22px;
+}
+
+.tm-words-wrapper {
+  display: inline-block;
+  position: relative;
+  color: var(--tm-light-blue);
+  border-bottom: 3px solid var(--tm-light-blue);
+  padding-bottom: 2px;
+  min-width: 280px;
+}
+
+.tm-words-wrapper b {
+  display: none;
+  font-weight: 800;
+}
+
+.tm-words-wrapper b.is-visible {
+  display: inline-block;
+  animation: tmWordFade 0.5s ease;
+}
+
+@keyframes tmWordFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slider-text p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 32px;
+}
+
+.tm-hero-btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tm-hero-live-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(44, 174, 226, 0.45);
+  border-radius: 18px;
+  padding: 26px;
+  color: var(--tm-white);
+  box-shadow: 0 20px 45px rgba(0, 20, 48, 0.35);
+}
+
+.tm-hero-live-card img {
+  border-radius: 12px;
+  border: 2px solid var(--tm-light-blue);
+  margin-bottom: 18px;
+}
+
+.tm-hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.tm-hero-stat-item {
+  background: rgba(0, 40, 86, 0.65);
+  border: 1px solid rgba(44, 174, 226, 0.3);
+  padding: 12px 8px;
+  border-radius: 10px;
+}
+
+.tm-hero-stat-item h4 {
+  color: var(--tm-light-blue);
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.tm-hero-stat-item span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Floating Shapes in Hero (Reference UI) */
+.shap-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.shap-wrap .shape {
+  position: absolute;
+  color: rgba(44, 174, 226, 0.18);
+  font-size: 38px;
+  animation: tmFloatShape 8s ease-in-out infinite;
+}
+
+.shap-wrap .shape:nth-child(1) {
+  top: 14%;
+  left: 6%;
+  animation-delay: 0s;
+}
+.shap-wrap .shape:nth-child(2) {
+  top: 75%;
+  left: 10%;
+  animation-delay: 1.2s;
+}
+.shap-wrap .shape:nth-child(3) {
+  top: 20%;
+  right: 12%;
+  animation-delay: 2.4s;
+}
+.shap-wrap .shape:nth-child(4) {
+  top: 68%;
+  right: 8%;
+  animation-delay: 0.8s;
+}
+.shap-wrap .shape:nth-child(5) {
+  top: 45%;
+  left: 48%;
+  animation-delay: 1.8s;
+}
+.shap-wrap .shape:nth-child(6) {
+  bottom: 12%;
+  left: 38%;
+  animation-delay: 3s;
+}
+.shap-wrap .shape:nth-child(7) {
+  top: 12%;
+  left: 55%;
+  animation-delay: 2s;
+}
+
+@keyframes tmFloatShape {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hero {
+    min-height: auto;
+    padding: 70px 0;
+  }
+  .tm-headline {
+    font-size: 32px;
+  }
+}
+
+/* ==========================================================================
+   8. HOME SECTION 2: Icon Boxes Style1 (Reference UI)
+   ========================================================================== */
+.tm-icon-box.style1 {
+  padding: 38px 30px;
+  text-align: center;
+  position: relative;
+  background: var(--tm-white);
+  border-bottom: 4px solid var(--tm-light-blue);
+}
+
+.tm-icon-box.style1 .tm-icon {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: var(--tm-light-blue-soft);
+  color: var(--tm-light-blue);
+  font-size: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  border: 2px dashed rgba(44, 174, 226, 0.5);
+  transition: var(--tm-transition);
+}
+
+.tm-icon-box.style1:hover .tm-icon {
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+  border-style: solid;
+  border-color: var(--tm-light-blue);
+  transform: rotateY(180deg);
+}
+
+.tm-icon-box-title {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--tm-dark-blue);
+}
+
+.tm-icon-box-text {
+  color: var(--tm-text-muted);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   9. HOME SECTION 3: Who We Are / Schedule & Half-Bg (Reference UI)
+   ========================================================================== */
+.tm-shedule-wrap {
+  background: var(--tm-dark-blue);
+  border-radius: 16px;
+  padding: 36px 32px;
+  color: var(--tm-white);
+  box-shadow: var(--tm-shadow-md);
+  border: 2px solid rgba(44, 174, 226, 0.35);
+  height: 100%;
+}
+
+.tm-shedule + .tm-shedule {
+  margin-top: 30px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(44, 174, 226, 0.25);
+}
+
+.tm-shedule-title {
+  color: var(--tm-light-blue);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tm-shedule-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tm-shedule-list li:last-child {
+  border-bottom: none;
+}
+
+.tm-about-card {
+  background: var(--tm-white);
+  border-radius: 16px;
+  padding: 36px;
+  border: 1px solid var(--tm-border-color);
+  box-shadow: var(--tm-shadow-sm);
+  height: 100%;
+}
+
+.tm-about-title {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.tm-about-title span {
+  color: var(--tm-light-blue);
+}
+
+.tm-about-feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 22px 0 28px;
+}
+
+.tm-about-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--tm-dark-blue);
+  font-size: 14.5px;
+}
+
+.tm-about-feature-list li i {
+  color: var(--tm-light-blue);
+  font-size: 16px;
+}
+
+@media (max-width: 575.98px) {
+  .tm-about-feature-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   10. HOME SECTION 4: 4-Step How Telemedicine Works
+   ========================================================================== */
+.tm-step-card {
+  padding: 34px 26px;
+  text-align: center;
+  position: relative;
+}
+
+.tm-step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+  font-weight: 800;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--tm-light-blue);
+  margin-bottom: 18px;
+}
+
+.tm-step-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: var(--tm-light-blue-soft);
+  color: var(--tm-light-blue);
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  transition: var(--tm-transition);
+}
+
+.tm-step-card:hover .tm-step-icon {
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+}
+
+/* ==========================================================================
+   11. HOME SECTION 5: Our Department Tabs (Reference UI)
+   ========================================================================== */
+.tm-tabs-wrap .tabs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.tm-tabs-wrap .tabs li {
+  background: var(--tm-white);
+  border: 1.5px solid var(--tm-border-color);
+  border-radius: 12px;
+  padding: 20px 12px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--tm-dark-blue);
+  cursor: pointer;
+  transition: var(--tm-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--tm-shadow-sm);
+}
+
+.tm-tabs-wrap .tabs li i {
+  font-size: 28px;
+  color: var(--tm-light-blue);
+  transition: var(--tm-transition);
+}
+
+.tm-tabs-wrap .tabs li:hover,
+.tm-tabs-wrap .tabs li.current {
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+  border-color: var(--tm-light-blue);
+  transform: translateY(-4px);
+  box-shadow: var(--tm-shadow-md);
+}
+
+.tm-tabs-wrap .tabs li:hover i,
+.tm-tabs-wrap .tabs li.current i {
+  color: var(--tm-light-blue);
+}
+
+.tm-tabs-item {
+  display: none;
+  background: var(--tm-white);
+  border-radius: 16px;
+  padding: 36px;
+  border: 1px solid var(--tm-border-color);
+  box-shadow: var(--tm-shadow-sm);
+  animation: tmFadeIn 0.4s ease;
+}
+
+.tm-tabs-item.active {
+  display: block;
+}
+
+@keyframes tmFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tm-dept-img {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid var(--tm-light-blue-soft);
+  height: 100%;
+}
+
+.tm-dept-img img {
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+
+@media (max-width: 991.98px) {
+  .tm-tabs-wrap .tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .tm-tabs-wrap .tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tm-tabs-item {
+    padding: 22px;
+  }
+}
+
+/* ==========================================================================
+   12. HOME SECTION 6: Smart Remote Patient Monitoring (RPM) & Wearables
+   ========================================================================== */
+.tm-rpm-metric-box {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(44, 174, 226, 0.35);
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+  transition: var(--tm-transition);
+}
+
+.tm-rpm-metric-box:hover {
+  background: rgba(44, 174, 226, 0.16);
+  transform: translateY(-5px);
+}
+
+.tm-rpm-metric-box i {
+  font-size: 28px;
+  color: var(--tm-light-blue);
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.tm-rpm-metric-box h4 {
+  color: var(--tm-white);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.tm-rpm-metric-box p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13.5px;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   13. HOME SECTION 7: Make An Appointment Form (Reference UI + Validation)
+   ========================================================================== */
+.tm-appointment-box {
+  background: var(--tm-white);
+  border-radius: 18px;
+  padding: 42px 38px;
+  border: 1px solid var(--tm-border-color);
+  box-shadow: var(--tm-shadow-md);
+}
+
+.tm-form-field {
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.tm-form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--tm-dark-blue);
+  margin-bottom: 6px;
+}
+
+.tm-form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1.5px solid #cbd5e1;
+  background-color: #f8fafc;
+  font-family: var(--tm-font);
+  font-size: 14.5px;
+  color: var(--tm-dark-blue);
+  transition: var(--tm-transition);
+}
+
+.tm-form-control:focus {
+  outline: none;
+  border-color: var(--tm-light-blue);
+  background-color: var(--tm-white);
+  box-shadow: 0 0 0 3px rgba(44, 174, 226, 0.18);
+}
+
+.tm-form-control.is-invalid {
+  border-color: var(--tm-danger);
+}
+
+.tm-form-feedback {
+  font-size: 12px;
+  color: var(--tm-danger);
+  margin-top: 4px;
+  display: none;
+}
+
+.tm-form-alert {
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 18px;
+  display: none;
+}
+
+.tm-form-alert.success {
+  display: block;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid var(--tm-success);
+  color: #065f46;
+}
+
+.tm-form-alert.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid var(--tm-danger);
+  color: #991b1b;
+}
+
+/* ==========================================================================
+   14. HOME SECTION 8: Our Experienced Tele-Doctors (Reference UI)
+   ========================================================================== */
+.tm-member-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.tm-member-thumb {
+  display: block;
+  overflow: hidden;
+}
+
+.tm-member-thumb img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.tm-member-social-btn-wrap {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 40, 86, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transition: var(--tm-transition);
+}
+
+.tm-team-member:hover .tm-member-social-btn-wrap {
+  opacity: 1;
+}
+
+.tm-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--tm-light-blue);
+  color: var(--tm-white) !important;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+  transition: var(--tm-transition);
+}
+
+.tm-social-btn i {
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: transform 0.3s ease;
+}
+
+.tm-social-btn:hover {
+  background: var(--tm-dark-blue);
+  border: 1px solid var(--tm-light-blue);
+}
+
+.tm-social-btn:hover i {
+  transform: translateY(-40px);
+}
+
+.tm-member-meta {
+  padding: 24px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tm-member-name {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.tm-member-name a {
+  color: var(--tm-dark-blue);
+}
+
+.tm-member-name a:hover {
+  color: var(--tm-light-blue);
+}
+
+.tm-member-speciality {
+  display: inline-block;
+  color: var(--tm-light-blue);
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   15. HOME SECTION 9: Interactive Before & After Comparison Slider
+   ========================================================================== */
+.tm-ba-container {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--tm-shadow-md);
+  border: 3px solid var(--tm-light-blue);
+  user-select: none;
+}
+
+.tm-ba-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tm-ba-after-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  overflow: hidden;
+  border-right: 3px solid var(--tm-white);
+}
+
+.tm-ba-after-wrap img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.tm-ba-label {
+  position: absolute;
+  top: 18px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 4;
+}
+
+.tm-ba-label.before {
+  left: 18px;
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+}
+
+.tm-ba-label.after {
+  right: 18px;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+}
+
+.tm-ba-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 6;
+  margin: 0;
+}
+
+.tm-ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  border: 3px solid var(--tm-white);
+  box-shadow: 0 4px 16px rgba(0, 40, 86, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 767.98px) {
+  .tm-ba-container {
+    height: 290px;
+  }
+}
+
+/* ==========================================================================
+   16. HOME SECTION 10: Filterable Gallery & Lightbox Modal (Reference UI)
+   ========================================================================== */
+.tm-portfolio-filter ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.tm-portfolio-filter ul li button {
+  background: var(--tm-white);
+  color: var(--tm-dark-blue);
+  border: 1.5px solid var(--tm-border-color);
+  padding: 9px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  transition: var(--tm-transition);
+}
+
+.tm-portfolio-filter ul li.active button,
+.tm-portfolio-filter ul li button:hover {
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  border-color: var(--tm-light-blue);
+  box-shadow: 0 6px 16px rgba(44, 174, 226, 0.3);
+}
+
+.tm-portfolio-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 260px;
+  box-shadow: var(--tm-shadow-sm);
+  border: 2px solid transparent;
+  transition: var(--tm-transition);
+}
+
+.tm-portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tm-portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 40, 86, 0.92) 0%,
+    rgba(44, 174, 226, 0.55) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  color: var(--tm-white);
+  opacity: 0;
+  transition: var(--tm-transition);
+}
+
+.tm-portfolio-card:hover {
+  border-color: var(--tm-light-blue);
+  transform: translateY(-5px);
+}
+
+.tm-portfolio-card:hover img {
+  transform: scale(1.08);
+}
+
+.tm-portfolio-card:hover .tm-portfolio-overlay {
+  opacity: 1;
+}
+
+.tm-zoom-trigger {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  border: 2px solid var(--tm-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: var(--tm-transition);
+}
+
+.tm-zoom-trigger:hover {
+  background: var(--tm-dark-blue);
+  transform: scale(1.1);
+}
+
+/* Lightbox Modal */
+.tm-lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 46, 0.92);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--tm-transition);
+}
+
+.tm-lightbox-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tm-lightbox-content {
+  max-width: 820px;
+  width: 100%;
+  background: var(--tm-dark-blue);
+  border: 2px solid var(--tm-light-blue);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tm-lightbox-content img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background: #00152e;
+}
+
+.tm-lightbox-caption {
+  padding: 16px 24px;
+  color: var(--tm-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tm-lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   17. HOME SECTION 11: Patient Testimonials (Reference UI)
+   ========================================================================== */
+.tm-single-testimonial {
+  background: var(--tm-white);
+  border-radius: 16px;
+  padding: 34px 30px;
+  border: 1px solid var(--tm-border-color);
+  box-shadow: var(--tm-shadow-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: var(--tm-transition);
+}
+
+.tm-single-testimonial:hover {
+  transform: translateY(-8px);
+  border-color: var(--tm-light-blue);
+  box-shadow: var(--tm-shadow-lg);
+}
+
+.tm-quote-icon {
+  font-size: 32px;
+  color: rgba(44, 174, 226, 0.35);
+  margin-bottom: 14px;
+}
+
+.tm-single-testimonial blockquote {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--tm-text-main);
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+
+.tm-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-top: 1px solid var(--tm-border-color);
+  padding-top: 16px;
+}
+
+.tm-testimonial-thumb img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid var(--tm-light-blue);
+}
+
+.tm-testimonial-meta h3 {
+  font-size: 17px;
+  margin-bottom: 2px;
+}
+
+.tm-testimonial-meta span {
+  font-size: 13px;
+  color: var(--tm-light-blue);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   18. HOME SECTION 12: Fun Fact Counters (Reference UI)
+   ========================================================================== */
+.tm-fun-fact-wrap {
+  background: linear-gradient(
+    125deg,
+    var(--tm-dark-blue-deep) 0%,
+    var(--tm-dark-blue) 60%,
+    #064687 100%
+  );
+  position: relative;
+  color: var(--tm-white);
+}
+
+.tm-fun-fact {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(44, 174, 226, 0.35);
+  border-radius: 16px;
+  padding: 34px 20px;
+  height: 100%;
+  transition: var(--tm-transition);
+}
+
+.tm-fun-fact:hover {
+  background: rgba(44, 174, 226, 0.16);
+  transform: translateY(-6px);
+  border-color: var(--tm-light-blue);
+}
+
+.tm-fun-fact i {
+  font-size: 40px;
+  color: var(--tm-light-blue);
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.tm-fun-fact h2 {
+  color: var(--tm-white);
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.tm-fun-fact h3 {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   19. HOME SECTION 13: Pricing Plans (Reference UI)
+   ========================================================================== */
+.tm-price-list {
+  padding: 38px 30px;
+  text-align: center;
+  position: relative;
+}
+
+.tm-price-list.featured {
+  border: 2px solid var(--tm-light-blue);
+  background: linear-gradient(to bottom, #ffffff 0%, #f0faff 100%);
+}
+
+.tm-popular-ribbon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 30px;
+}
+
+.tm-price {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+  border: 4px solid var(--tm-light-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  transition: var(--tm-transition);
+}
+
+.tm-price-list:hover .tm-price {
+  background: var(--tm-light-blue);
+  border-color: var(--tm-dark-blue);
+  transform: scale(1.06);
+}
+
+.tm-price h3 {
+  color: var(--tm-white);
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.tm-price span {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.tm-pricing-heading {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.tm-test-list {
+  text-align: left;
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+
+.tm-test-list li {
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--tm-border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.tm-test-list li i {
+  color: var(--tm-light-blue);
+}
+
+/* ==========================================================================
+   20. HOME SECTION 14: Video Tour & FAQ Accordion (Reference UI)
+   ========================================================================== */
+.tm-about-video {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 420px;
+  box-shadow: var(--tm-shadow-md);
+}
+
+.tm-about-video img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+}
+
+.tm-video-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  border: 4px solid var(--tm-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 3;
+  transition: var(--tm-transition);
+}
+
+.tm-video-button:hover {
+  background: var(--tm-dark-blue);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.accordian-heading {
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+
+.single-accordian {
+  background: var(--tm-white);
+  border: 1px solid var(--tm-border-color);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: var(--tm-shadow-sm);
+}
+
+.accordian-head {
+  font-size: 16.5px;
+  font-weight: 700;
+  padding: 18px 22px;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--tm-dark-blue);
+  background: var(--tm-white);
+  transition: var(--tm-transition);
+}
+
+.accordian-head.active {
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+}
+
+.accordian-head .accordian-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--tm-light-blue-soft);
+  color: var(--tm-light-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.accordian-head.active .accordian-toggle {
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  transform: rotate(180deg);
+}
+
+.accordian-body {
+  padding: 18px 22px;
+  color: var(--tm-text-main);
+  border-top: 1px solid var(--tm-border-color);
+  font-size: 14.5px;
+}
+
+/* ==========================================================================
+   21. HOME SECTION 15: Latest News Blog (Reference UI)
+   ========================================================================== */
+.tm-post-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.tm-post.tm-style1 .tm-post-thumb img {
+  height: 290px;
+}
+
+.tm-post.tm-style2 {
+  flex-direction: row;
+  align-items: stretch;
+  margin-bottom: 20px;
+  height: auto;
+}
+
+.tm-post.tm-style2:last-child {
+  margin-bottom: 0;
+}
+
+.tm-post.tm-style2 .tm-post-thumb {
+  width: 36%;
+  min-width: 160px;
+}
+
+.tm-post.tm-style2 .tm-post-thumb img {
+  height: 100%;
+  min-height: 165px;
+}
+
+.tm-blog-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tm-blog-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--tm-text-muted);
+  margin-bottom: 10px;
+}
+
+.tm-blog-meta i {
+  color: var(--tm-light-blue);
+  margin-right: 5px;
+}
+
+.tm-blog-heading {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.tm-blog-heading a {
+  color: var(--tm-dark-blue);
+}
+
+.tm-blog-heading a:hover {
+  color: var(--tm-light-blue);
+}
+
+@media (max-width: 575.98px) {
+  .tm-post.tm-style2 {
+    flex-direction: column;
+  }
+  .tm-post.tm-style2 .tm-post-thumb {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   22. HOME SECTION 16: Newsletter Subscription Banner (Reference UI)
+   ========================================================================== */
+.tm-newsletter {
+  background: linear-gradient(
+    120deg,
+    var(--tm-dark-blue-deep) 0%,
+    var(--tm-dark-blue) 55%,
+    var(--tm-light-blue) 100%
+  );
+  padding: 70px 0;
+  color: var(--tm-white);
+  position: relative;
+}
+
+.tm-newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.tm-newsletter-form input {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--tm-dark-blue);
+  font-size: 15px;
+}
+
+@media (max-width: 575.98px) {
+  .tm-newsletter-form {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   23. HOME SECTION 17: Contact Form, UK Info, Map & Partners
+   ========================================================================== */
+.tm-contact-info {
+  background: var(--tm-dark-blue);
+  color: var(--tm-white);
+  border-radius: 16px;
+  padding: 36px 30px;
+  height: 100%;
+  border: 2px solid rgba(44, 174, 226, 0.4);
+}
+
+.tm-single-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.tm-single-contact:last-child {
+  margin-bottom: 0;
+}
+
+.tm-single-contact i {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  background: rgba(44, 174, 226, 0.2);
+  border: 1px solid var(--tm-light-blue);
+  color: var(--tm-light-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.tm-single-contact h3 {
+  color: var(--tm-light-blue);
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.tm-single-contact p,
+.tm-single-contact a {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-size: 14.5px;
+}
+
+#tm-map iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  display: block;
+}
+
+.tm-partner-card {
+  background: var(--tm-white);
+  border: 1px solid var(--tm-border-color);
+  border-radius: 12px;
+  padding: 14px;
+  transition: var(--tm-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-partner-card:hover {
+  border-color: var(--tm-light-blue);
+  transform: translateY(-4px);
+  box-shadow: var(--tm-shadow-sm);
+}
+
+/* ==========================================================================
+   24. Site Footer & Scroll-To-Top Button (Reference UI + Requirement 5)
+   ========================================================================== */
+.tm-site-footer-wrap {
+  background-color: var(--tm-dark-blue-deep);
+  color: rgba(255, 255, 255, 0.86);
+  position: relative;
+}
+
+.tm-footer-top-bar {
+  background-color: #021f42;
+  border-top: 2px solid rgba(44, 174, 226, 0.3);
+  border-bottom: 1px solid rgba(44, 174, 226, 0.2);
+  padding: 24px 0;
+}
+
+.tm-footer-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tm-footer-social h2 {
+  color: var(--tm-white);
+  font-size: 22px;
+  margin: 0;
+}
+
+.tm-footer-social-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tm-footer-trust-badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.trust-pill {
+  background: rgba(44, 174, 226, 0.16);
+  border: 1px solid rgba(44, 174, 226, 0.45);
+  color: var(--tm-white);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.trust-pill i {
+  color: var(--tm-light-blue);
+}
+
+.tm-footer-main {
+  padding: 65px 0 55px;
+  background-color: var(--tm-dark-blue);
+}
+
+.tm-footer-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.tm-footer-cert-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(44, 174, 226, 0.14);
+  border: 1px solid rgba(44, 174, 226, 0.35);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--tm-white);
+}
+
+.tm-footer-cert-box i {
+  color: var(--tm-light-blue);
+}
+
+.tm-footer-widget-title {
+  color: var(--tm-white);
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.tm-footer-widget-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42px;
+  height: 3px;
+  background: var(--tm-light-blue);
+  border-radius: 2px;
+}
+
+.tm-footer-links li {
+  margin-bottom: 10px;
+}
+
+.tm-footer-links a {
+  color: rgba(255, 255, 255, 0.82);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  transition: var(--tm-transition);
+}
+
+.tm-footer-links a i {
+  color: var(--tm-light-blue);
+  font-size: 13px;
+}
+
+.tm-footer-links a:hover {
+  color: var(--tm-light-blue);
+  transform: translateX(5px);
+}
+
+.tm-footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tm-footer-contact-list li i {
+  color: var(--tm-light-blue);
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.tm-footer-contact-list li a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tm-footer-contact-list li a:hover {
+  color: var(--tm-light-blue);
+}
+
+.tm-site-footer {
+  background-color: var(--tm-dark-blue-deep);
+  padding: 22px 0;
+  border-top: 1px solid rgba(44, 174, 226, 0.2);
+}
+
+.tm-copyright {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+}
+
+.tm-copyright strong {
+  color: var(--tm-light-blue);
+}
+
+.tm-footer-hotline {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tm-footer-hotline-in {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(44, 174, 226, 0.14);
+  border: 1px solid rgba(44, 174, 226, 0.4);
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.tm-phone-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--tm-light-blue);
+  color: var(--tm-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.tm-footer-hotline-in h3 {
+  color: var(--tm-light-blue);
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.tm-footer-hotline-in p {
+  margin: 0;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.tm-footer-hotline-in p a {
+  color: var(--tm-white);
+}
+
+@media (max-width: 767.98px) {
+  .tm-footer-hotline {
+    justify-content: flex-start;
+  }
+}
+
+/* Scroll To Top Button at Bottom Right Corner */
+.tm-scrollup-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--tm-light-blue);
+  color: var(--tm-white);
+  border: 2px solid var(--tm-white);
+  box-shadow: 0 8px 24px rgba(0, 40, 86, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1080;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--tm-transition);
+}
+
+.tm-scrollup-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tm-scrollup-btn:hover {
+  background-color: var(--tm-dark-blue);
+  border-color: var(--tm-light-blue);
+  transform: translateY(-4px);
+}

@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Clinical &amp; Tech Gallery | Stackly Telemedicine UK Virtual Care
+    </title>
+    <meta
+      name="description"
+      content="Explore Stackly Telemedicine's 4K virtual consultation pods, remote patient monitoring sensors, cloud radiology suites, and clinical recovery outcomes."
+    />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link rel="apple-touch-icon" href="../assets/images/logoStackly.webp" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/gallery.css" />
+  </head>
+  <body>
+    <!-- Common Header Component -->
+    <div id="header-placeholder"></div>
+
+    <main>
+      <!-- ==================================================================
+             SECTION 1: Common Page Banner & Breadcrumbs (Requirement 7)
+             ================================================================== -->
+      <section
+        class="tm-page-banner"
+        style="
+          background-image: url(&quot;../assets/images/gallery/banner-bg.webp&quot;);
+        "
+      >
+        <div class="container">
+          <div class="tm-page-banner-content">
+            <span class="tm-page-banner-badge"
+              ><i class="fa-solid fa-camera-retro"></i> Inside Our Digital
+              Hospital</span
+            >
+            <h1>Telemedicine Clinical Gallery</h1>
+            <p>
+              Take a visual tour inside Stackly Telemedicine's Harley Street 4K
+              consultation pods, remote cardiac ICU telemetry stations,
+              connected home medical kits, and verified patient recovery
+              milestones.
+            </p>
+            <nav aria-label="breadcrumb">
+              <div class="tm-breadcrumb">
+                <a href="../index.html"
+                  ><i class="fa-solid fa-house"></i> Home</a
+                >
+                <span class="sep"
+                  ><i class="fa-solid fa-chevron-right"></i
+                ></span>
+                <span class="current">Clinical Gallery</span>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 2: Filterable 12-Item Telemedicine Portfolio Grid
+             ================================================================== -->
+      <section class="tm-section-pad" id="main-gallery-grid">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-grip"></i> Interactive Showcase</span
+            >
+            <h2>Explore Our Virtual Care Ecosystem</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Filter by clinical category or click any image card to open a
+              high-resolution lightbox inspection.
+            </p>
+          </div>
+
+          <div
+            class="tm-portfolio-filter text-center"
+            data-filter-group="#page-gallery-items"
+          >
+            <ul>
+              <li class="active">
+                <button type="button" data-filter="*">
+                  ALL SHOWCASES (12)
+                </button>
+              </li>
+              <li>
+                <button type="button" data-filter="pods">
+                  4K CONSULT PODS
+                </button>
+              </li>
+              <li>
+                <button type="button" data-filter="telemetry">
+                  REMOTE TELEMETRY
+                </button>
+              </li>
+              <li>
+                <button type="button" data-filter="kits">
+                  HOME DIAGNOSTIC KITS
+                </button>
+              </li>
+              <li>
+                <button type="button" data-filter="labs">
+                  AI LAB &amp; PHARMACY
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="row g-4" id="page-gallery-items">
+            <!-- Item 1 -->
+            <div class="col-lg-4 col-md-6" data-category="pods">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">4K Consult Pod</span>
+                  <img
+                    src="../assets/images/gallery/gal-1.webp"
+                    alt="4K Telemedicine Consultation Pod"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-1.webp"
+                      data-title="Harley Street 4K Acoustic Consultation Pod"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Harley Street 4K Consultation Pod</h3>
+                  <p>
+                    Soundproofed dual-screen clinical studio with calibrated
+                    daylight LED ring optics.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="col-lg-4 col-md-6" data-category="telemetry">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">Cardiac Telemetry</span>
+                  <img
+                    src="../assets/images/gallery/gal-2.webp"
+                    alt="Remote Cardiac Telemetry Station"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-2.webp"
+                      data-title="24/7 Remote Cardiac Telemetry Command Desk"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Remote Cardiac Telemetry Station</h3>
+                  <p>
+                    Live monitoring of 1,200+ simultaneous UK patient 12-lead
+                    ECG patches.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="col-lg-4 col-md-6" data-category="kits">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">Home Diagnostics</span>
+                  <img
+                    src="../assets/images/gallery/gal-3.webp"
+                    alt="Home Digital Otoscope Examination"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-3.webp"
+                      data-title="Home Digital HD Ear Otoscope Examination"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Home Digital Otoscope Exam</h3>
+                  <p>
+                    Parents streaming live 1080p tympanic membrane video to our
+                    pediatricians.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="col-lg-4 col-md-6" data-category="labs">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">AI Pathology</span>
+                  <img
+                    src="../assets/images/gallery/gal-4.webp"
+                    alt="Cloud Pathology and Imaging Lab"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-4.webp"
+                      data-title="Cloud Pathology & DICOM AI Imaging Suite"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Cloud Pathology &amp; Imaging Lab</h3>
+                  <p>
+                    Sub-hour biomarker analysis and neural-network assisted MRI
+                    triage.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="col-lg-4 col-md-6" data-category="pods">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">Tele-Psychiatry</span>
+                  <img
+                    src="../assets/images/gallery/gal-5.webp"
+                    alt="Virtual Therapy and Counseling"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-5.webp"
+                      data-title="Confidential Virtual CBT & Psychiatry Session"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Virtual CBT &amp; Psychiatry Studio</h3>
+                  <p>
+                    Encrypted, calming virtual therapy rooms for anxiety, ADHD,
+                    and burnout recovery.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="col-lg-4 col-md-6" data-category="labs">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">E-Pharmacy</span>
+                  <img
+                    src="../assets/images/gallery/gal-6.webp"
+                    alt="Automated E-Pharmacy Dispensing"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-6.webp"
+                      data-title="Robotic UK E-Pharmacy Dispensing Center"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Automated E-Pharmacy Hub</h3>
+                  <p>
+                    GPhC-registered robotic dispensing for 2-hour London and
+                    same-day UK dispatch.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="col-lg-4 col-md-6" data-category="kits">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">Senior Care</span>
+                  <img
+                    src="../assets/images/gallery/gal-7.webp"
+                    alt="Senior Remote Vitals Check"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-7.webp"
+                      data-title="One-Touch Senior Citizen Vitals Tablet"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Senior Remote Vitals Check</h3>
+                  <p>
+                    Zero-setup cellular blood pressure and SpO2 monitors
+                    designed for older adults.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="col-lg-4 col-md-6" data-category="pods">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">MDT Board</span>
+                  <img
+                    src="../assets/images/gallery/gal-8.webp"
+                    alt="Multi-Specialist Virtual Tumor Board"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-8.webp"
+                      data-title="Multi-Disciplinary Consultant Case Conference"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Multi-Specialist Virtual Board</h3>
+                  <p>
+                    Three senior UK consultants reviewing complex imaging
+                    simultaneously with the patient.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="col-lg-4 col-md-6" data-category="kits">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">Wearable IoT</span>
+                  <img
+                    src="../assets/images/gallery/gal-9.webp"
+                    alt="Wearable Biometric Calibration"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-9.webp"
+                      data-title="Continuous Glucose & ECG Sensor Calibration"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Wearable Biometric Calibration</h3>
+                  <p>
+                    Pre-dispatch clinical accuracy testing for all home
+                    telemetry sensors.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 10 -->
+            <div class="col-lg-4 col-md-6" data-category="pods">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">Pediatrics</span>
+                  <img
+                    src="../assets/images/gallery/gal-10.webp"
+                    alt="Pediatric Video Triage"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-10.webp"
+                      data-title="24/7 Pediatric Family Video Triage"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>Pediatric Family Video Triage</h3>
+                  <p>
+                    Child-friendly virtual assessments with instant parent
+                    action plans.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 11 -->
+            <div class="col-lg-4 col-md-6" data-category="telemetry">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">Motion AI</span>
+                  <img
+                    src="../assets/images/gallery/gal-11.webp"
+                    alt="AI Motion Tracking Rehab"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-11.webp"
+                      data-title="Computer-Vision Orthopedic Joint Tracking"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>AI Motion-Tracking Rehab</h3>
+                  <p>
+                    Real-time skeletal keypoint measurement during home
+                    physiotherapy sessions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 12 -->
+            <div class="col-lg-4 col-md-6" data-category="telemetry">
+              <div class="gallery-showcase-card">
+                <div class="gallery-thumb-box">
+                  <span class="gallery-cat-tag">24/7 Command</span>
+                  <img
+                    src="../assets/images/gallery/gal-12.webp"
+                    alt="24/7 Emergency Tele-Command"
+                  />
+                  <div class="gallery-hover-zoom">
+                    <button
+                      type="button"
+                      class="tm-zoom-trigger"
+                      data-img="../assets/images/gallery/gal-12.webp"
+                      data-title="24/7 UK Emergency Tele-Triage Command Wall"
+                      aria-label="Zoom Image"
+                    >
+                      <i class="fa-solid fa-expand"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="gallery-card-meta">
+                  <h3>24/7 Emergency Tele-Command</h3>
+                  <p>
+                    Centralized London Marylebone clinical operations desk
+                    active 365 days a year.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 3: Interactive Before & After AI Diagnostic Enhancement
+             ================================================================== -->
+      <section class="tm-section-pad tm-gray-bg" id="diagnostic-comparison">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-wand-magic-sparkles"></i> AI Telemetry
+              Overlay</span
+            >
+            <h2>Raw Patient Upload vs. AI-Enhanced Clinical View</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Drag the slider below to see how our clinical computer-vision
+              engine highlights vascular and tissue anomalies for your
+              consultant.
+            </p>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div class="tm-card p-3">
+                <div class="tm-ba-container">
+                  <img
+                    src="../assets/images/gallery/ba-skin-after.webp"
+                    alt="AI Enhanced Diagnostic Telemetry"
+                  />
+                  <div class="tm-ba-after-wrap">
+                    <img
+                      src="../assets/images/gallery/ba-skin-before.webp"
+                      alt="Raw Unfiltered Diagnostic Upload"
+                    />
+                  </div>
+                  <span class="tm-ba-label before">Raw Upload</span>
+                  <span class="tm-ba-label after">AI Annotated View</span>
+                  <div class="tm-ba-handle">
+                    <i class="fa-solid fa-arrows-left-right"></i>
+                  </div>
+                  <input
+                    type="range"
+                    min="5"
+                    max="95"
+                    value="50"
+                    class="tm-ba-range"
+                    aria-label="Compare Raw vs AI Enhanced Diagnostic Scan"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 4: Inside Our 4K Acoustic Consultation Pods
+             ================================================================== -->
+      <section class="tm-section-pad tm-dark-bg" id="pod-engineering">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-Broadcast-tower"></i> Studio
+              Engineering</span
+            >
+            <h2>Engineered for Clinical-Grade Visual &amp; Audio Fidelity</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Why a Stackly Telemedicine consultation looks and sounds
+              dramatically clearer than standard consumer video calls.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="pod-spec-card">
+                <i class="fa-solid fa-video"></i>
+                <h4>Sony 4K 60fps Optics</h4>
+                <p>
+                  True-color CRI 98+ lighting ensures accurate assessment of
+                  skin pallor, jaundice, and rashes.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="pod-spec-card">
+                <i class="fa-solid fa-wave-square"></i>
+                <h4>20Hz–2kHz Stethoscope</h4>
+                <p>
+                  Lossless acoustic audio channel dedicated to heart murmur and
+                  lung auscultation streaming.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="pod-spec-card">
+                <i class="fa-solid fa-network-wired"></i>
+                <h4>Dual-Fiber Redundancy</h4>
+                <p>
+                  10Gbps dedicated NHS HSCN &amp; private fiber lines with
+                  sub-14ms UK latency.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="pod-spec-card">
+                <i class="fa-solid fa-volume-xmark"></i>
+                <h4>-45dB Acoustic Isolation</h4>
+                <p>
+                  Soundproofed clinical booths guaranteeing total patient
+                  confidentiality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 5: Home Diagnostic Kit Unboxing & Contents
+             ================================================================== -->
+      <section class="tm-section-pad" id="home-kit-contents">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-box-open"></i> Connected Hardware</span
+            >
+            <h2>What's Inside the Stackly Home Telemetry Kit?</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Every device arrives pre-paired to your secure account—simply
+              press one button to stream live readings to your doctor.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+              <div class="tm-icon-box style1">
+                <div>
+                  <div class="tm-icon">
+                    <i class="fa-solid fa-stethoscope"></i>
+                  </div>
+                  <h3 class="tm-icon-box-title">Digital Chest Stethoscope</h3>
+                  <p class="tm-icon-box-text">
+                    Place on your chest or back as guided on screen; active
+                    noise cancellation transmits crystal-clear heart and lung
+                    sounds.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="tm-icon-box style1">
+                <div>
+                  <div class="tm-icon"><i class="fa-solid fa-eye"></i></div>
+                  <h3 class="tm-icon-box-title">
+                    1080p Ear &amp; Throat Scope
+                  </h3>
+                  <p class="tm-icon-box-text">
+                    Medical-grade LED otoscope and tongue depressor camera for
+                    instant pediatric and adult ENT diagnoses.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="tm-icon-box style1">
+                <div>
+                  <div class="tm-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                  </div>
+                  <h3 class="tm-icon-box-title">6-Lead ECG &amp; SpO2 Ring</h3>
+                  <p class="tm-icon-box-text">
+                    Capture clinical-grade 6-lead electrocardiograms, arterial
+                    oxygen saturation, and core body temperature in 30 seconds.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 6: Accessibility & Multi-Device Compatibility
+             ================================================================== -->
+      <section class="tm-section-pad tm-gray-bg" id="device-compatibility">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-mobile-screen-button"></i> Universal
+              Access</span
+            >
+            <h2>Works Across Every Device You Own</h2>
+            <div class="tm-section-seperator"><span></span></div>
+            <p>
+              Zero downloads required for browser consultations, or use our
+              native iOS, Android, and Smart TV apps.
+            </p>
+          </div>
+
+          <div class="row g-4 text-center">
+            <div class="col-lg-3 col-sm-6">
+              <div class="tm-card p-4">
+                <i class="fa-brands fa-apple fs-1 text-info mb-3"></i>
+                <h4>iOS &amp; iPadOS App</h4>
+                <p class="small text-muted mb-0">
+                  Full Apple HealthKit &amp; Apple Watch ECG integration.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="tm-card p-4">
+                <i class="fa-brands fa-android fs-1 text-info mb-3"></i>
+                <h4>Android &amp; WearOS</h4>
+                <p class="small text-muted mb-0">
+                  Seamless Google Health Connect &amp; Bluetooth sensor pairing.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="tm-card p-4">
+                <i class="fa-solid fa-desktop fs-1 text-info mb-3"></i>
+                <h4>WebRTC Browser</h4>
+                <p class="small text-muted mb-0">
+                  One-click instant launch on Chrome, Safari, Edge, and Firefox.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="tm-card p-4">
+                <i class="fa-solid fa-tv fs-1 text-info mb-3"></i>
+                <h4>Living Room TV</h4>
+                <p class="small text-muted mb-0">
+                  Large-screen accessibility mode for seniors and family calls.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 7: Visual Platform Performance Metrics
+             ================================================================== -->
+      <section class="tm-section-pad-sm tm-fun-fact-wrap" id="gallery-metrics">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="tm-fun-fact text-center">
+                <i class="fa-solid fa-display"></i>
+                <h2 class="tm-counter" data-target="3840" data-suffix="p">
+                  3,840p
+                </h2>
+                <h3>Ultra-HD 4K Video Stream</h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="tm-fun-fact text-center">
+                <i class="fa-solid fa-gauge-simple-high"></i>
+                <h2 class="tm-counter" data-target="14" data-suffix=" ms">
+                  14 ms
+                </h2>
+                <h3>Average UK Stream Latency</h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="tm-fun-fact text-center">
+                <i class="fa-solid fa-kit-medical"></i>
+                <h2 class="tm-counter" data-target="18500" data-suffix="+">
+                  18,500+
+                </h2>
+                <h3>Home Vitals Kits Active</h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="tm-fun-fact text-center">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h2 class="tm-counter" data-target="256" data-suffix="-Bit">
+                  256-Bit
+                </h2>
+                <h3>End-to-End AES Encryption</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 8: Clinical Photography & Privacy Consent Standards
+             ================================================================== -->
+      <section class="tm-section-pad" id="privacy-standards">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-user-shield"></i> Image
+              Confidentiality</span
+            >
+            <h2>How We Protect Your Clinical Photos &amp; Scans</h2>
+            <div class="tm-section-seperator"><span></span></div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="tm-card p-4">
+                <h4>
+                  <i class="fa-solid fa-file-Zipper text-info me-2"></i>EXIF
+                  Metadata Stripping
+                </h4>
+                <p class="text-muted mb-0">
+                  All uploaded skin or diagnostic photos automatically strip GPS
+                  location and device metadata upon upload.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="tm-card p-4">
+                <h4>
+                  <i class="fa-solid fa-eye-slash text-info me-2"></i>Zero
+                  Third-Party Sharing
+                </h4>
+                <p class="text-muted mb-0">
+                  Your clinical images are accessible strictly to your named GMC
+                  consultant and are never used to train external public AI.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="tm-card p-4">
+                <h4>
+                  <i class="fa-solid fa-trash-can-arrow-up text-info me-2"></i
+                  >Patient-Controlled Vault
+                </h4>
+                <p class="text-muted mb-0">
+                  Export or permanently purge your uploaded media at any time
+                  from your encrypted patient dashboard.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 9: Gallery & Device Kit FAQ Accordion
+             ================================================================== -->
+      <section class="tm-section-pad tm-gray-bg" id="gallery-faq">
+        <div class="container">
+          <div class="tm-section-heading text-center">
+            <span class="tm-section-badge"
+              ><i class="fa-solid fa-circle-question"></i> Hardware &amp; Studio
+              FAQ</span
+            >
+            <h2>Questions About Our Kits &amp; Virtual Pods</h2>
+            <div class="tm-section-seperator"><span></span></div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div class="accordian">
+                <div class="single-accordian">
+                  <h3 class="accordian-head active">
+                    What internet speed do I need for a 4K telemedicine video
+                    call?
+                    <span class="accordian-toggle"
+                      ><i class="fa-solid fa-chevron-down"></i
+                    ></span>
+                  </h3>
+                  <div class="accordian-body">
+                    Our adaptive WebRTC codec delivers full HD video on
+                    connections as low as 3 Mbps (including 4G/5G mobile data)
+                    and automatically scales up to 4K 60fps on standard home
+                    fiber broadband.
+                  </div>
+                </div>
+                <div class="single-accordian">
+                  <h3 class="accordian-head">
+                    Can I order a Home Telemetry Kit before booking an
+                    appointment?
+                    <span class="accordian-toggle"
+                      ><i class="fa-solid fa-chevron-down"></i
+                    ></span>
+                  </h3>
+                  <div class="accordian-body" style="display: none">
+                    Yes! Many families keep a Stackly Home Vitals Kit in their
+                    medicine cabinet so they are immediately ready to stream ear
+                    otoscope video, ECG traces, and lung sounds whenever someone
+                    feels unwell.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+             SECTION 10: Request a Home Telemetry Kit or Virtual Pod Demo (Validated Form)
+             ================================================================== -->
+      <section class="tm-section-pad" id="gallery-request-form">
+        <div class="container">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-5">
+              <span class="tm-section-badge"
+                ><i class="fa-solid fa-box-med"></i> Order Kit or Book
+                Consult</span
+              >
+              <h2 class="fw-bold mb-3">
+                Request a Home Vitals Kit or Virtual Appointment
+              </h2>
+              <div class="tm-section-seperator ms-0"><span></span></div>
+              <p class="text-muted mb-4">
+                Complete the form to reserve a 4K video consultation or request
+                next-day UK courier dispatch of our connected home diagnostic
+                kit.
+              </p>
+              <div class="tm-contact-info">
+                <div class="tm-single-contact">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div>
+                    <h3>Equipment Dispatch Hub</h3>
+                    <p>
+                      221B Harley Street, Marylebone, London W1G 9QT, United
+                      Kingdom
+                    </p>
+                  </div>
+                </div>
+                <div class="tm-single-contact">
+                  <i class="fa-solid fa-phone-volume"></i>
+                  <div>
+                    <h3>24/7 Device Support</h3>
+                    <p><a href="#">+91 9876543210</a></p>
+                  </div>
+                </div>
+                <div class="tm-single-contact">
+                  <i class="fa-solid fa-envelope"></i>
+                  <div>
+                    <h3>Telemetry Desk</h3>
+                    <p>
+                      <a href="#">info@stacklytelemed.co.uk</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="tm-appointment-box">
+                <h3 class="mb-2">Telemetry Kit &amp; Consult Order Form</h3>
+                <p class="text-muted small mb-4">
+                  All fields are required. Name accepts alphabets only; Phone
+                  accepts numbers only; Past dates are restricted.
+                </p>
+                <form
+                  id="gallery-page-form"
+                  data-success-msg="Request Registered! Your telemetry kit / consultation details have been sent to your email."
+                >
+                  <div class="tm-form-alert" role="alert"></div>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="gal-uname" class="tm-form-label"
+                          >Full Name *</label
+                        >
+                        <input
+                          type="text"
+                          id="gal-uname"
+                          name="uname"
+                          class="tm-form-control"
+                          data-validate="name"
+                          placeholder="Letters only (e.g. Oliver Bennett)"
+                          autocomplete="name"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="gal-uemail" class="tm-form-label"
+                          >Email Address *</label
+                        >
+                        <input
+                          type="email"
+                          id="gal-uemail"
+                          name="uemail"
+                          class="tm-form-control"
+                          placeholder="patient@domain.co.uk"
+                          autocomplete="email"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="gal-unumber" class="tm-form-label"
+                          >Phone Number *</label
+                        >
+                        <input
+                          type="tel"
+                          id="gal-unumber"
+                          name="unumber"
+                          class="tm-form-control"
+                          data-validate="phone"
+                          maxlength="15"
+                          placeholder="Digits only (e.g. 9876543210)"
+                          autocomplete="tel"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="tm-form-field">
+                        <label for="gal-udate" class="tm-form-label"
+                          >Preferred Delivery / Consult Date *</label
+                        >
+                        <input
+                          type="date"
+                          id="gal-udate"
+                          name="udate"
+                          class="tm-form-control"
+                          data-validate="future-date"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="tm-form-field">
+                        <label for="gal-package" class="tm-form-label"
+                          >Select Kit or Consultation Package *</label
+                        >
+                        <select
+                          id="gal-package"
+                          name="upackage"
+                          class="tm-form-control"
+                          required
+                        >
+                          <option value="">Choose Package</option>
+                          <option value="complete-kit">
+                            Complete Home Vitals &amp; Stethoscope Kit + Consult
+                          </option>
+                          <option value="cardiac-holter">
+                            7-Day 12-Lead Cardiac ECG Patch Kit
+                          </option>
+                          <option value="pediatric-otoscope">
+                            Pediatric Digital Ear Otoscope Kit
+                          </option>
+                          <option value="video-consult-only">
+                            4K Video Specialist Consultation Only
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="tm-form-field">
+                        <label for="gal-umsg" class="tm-form-label"
+                          >UK Delivery Postcode &amp; Clinical Notes *</label
+                        >
+                        <textarea
+                          id="gal-umsg"
+                          name="umsg"
+                          rows="3"
+                          class="tm-form-control"
+                          placeholder="Enter your UK delivery address/postcode and any symptoms..."
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="tm-btn1 w-100">
+                        <i class="fa-solid fa-truck-medical me-2"></i> CONFIRM
+                        KIT &amp; CONSULT REQUEST
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div
+      class="tm-lightbox-modal"
+      id="tm-lightbox-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Clinical Image Preview"
+    >
+      <div class="tm-lightbox-content">
+        <button
+          type="button"
+          class="tm-lightbox-close"
+          id="tm-lightbox-close"
+          aria-label="Close Preview"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img
+          src="../assets/images/gallery/gal-1.webp"
+          id="tm-lightbox-img"
+          alt="Clinical Preview"
+        />
+        <div class="tm-lightbox-caption">
+          <h5 class="text-white mb-0" id="tm-lightbox-title">
+            Stackly Telemedicine Clinical Preview
+          </h5>
+          <span class="badge bg-info text-dark">HD Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Common Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>
