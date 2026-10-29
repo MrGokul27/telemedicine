@@ -496,6 +496,7 @@
     // 2. Enforce required attribute on all form fields across all pages
     var allForms = document.querySelectorAll("form");
     allForms.forEach(function (form) {
+      if (form.id === "tm-login-form" || form.id === "tm-register-form") return;
       var fields = form.querySelectorAll("input, select, textarea");
       fields.forEach(function (field) {
         if (
@@ -513,7 +514,7 @@
       'input[data-validate="name"], input[name*="name" i], input[id*="name" i]',
     );
     nameInputs.forEach(function (input) {
-      if (input.type === "email") return;
+      if (input.type === "email" || input.id === "reg-username") return;
 
       input.addEventListener("keydown", function (e) {
         if (e.ctrlKey || e.metaKey || e.altKey) return;
@@ -620,6 +621,7 @@
 
     // 6. Clean Form Submission Handler with zero console errors
     allForms.forEach(function (form) {
+      if (form.id === "tm-login-form" || form.id === "tm-register-form") return;
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -672,9 +674,45 @@
   }
 
   /**
+   * Redirect all empty links ("") or "#" links across the entire project to the 404 page
+   */
+  function initEmptyAndHashLinksRedirect() {
+    document.addEventListener("click", function (e) {
+      var link = e.target && e.target.closest ? e.target.closest("a") : null;
+      if (!link) return;
+
+      var rawHref = link.getAttribute("href");
+      var trimmed = rawHref !== null ? rawHref.trim() : "";
+      var lower = trimmed.toLowerCase();
+
+      var isEmptyOrHash =
+        rawHref === null ||
+        trimmed === "" ||
+        trimmed === "#" ||
+        lower === "javascript:void(0)" ||
+        lower === "javascript:;";
+
+      // Also catch hash links (#section) if no matching target element exists on the page
+      if (!isEmptyOrHash && trimmed.charAt(0) === "#" && trimmed.length > 1) {
+        var targetId = trimmed.slice(1);
+        if (!document.getElementById(targetId)) {
+          isEmptyOrHash = true;
+        }
+      }
+
+      if (isEmptyOrHash) {
+        e.preventDefault();
+        var target404 = isSubPage() ? "404.html" : "pages/404.html";
+        window.location.href = target404;
+      }
+    });
+  }
+
+  /**
    * Initialize everything on DOMContentLoaded
    */
   document.addEventListener("DOMContentLoaded", function () {
+    initEmptyAndHashLinksRedirect();
     initCommonComponents(function () {
       initHeaderAndMobileMenu();
       initScrollToTop();
