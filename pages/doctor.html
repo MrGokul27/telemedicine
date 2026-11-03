@@ -1286,6 +1286,7 @@
                           name="uname"
                           class="tm-form-control"
                           data-validate="name"
+                          maxlength="16"
                           placeholder="Letters only (e.g. Arthur Pendelton)"
                           autocomplete="name"
                           required
@@ -1319,7 +1320,8 @@
                           name="unumber"
                           class="tm-form-control"
                           data-validate="phone"
-                          maxlength="15"
+                          minlength="10"
+                          maxlength="10"
                           placeholder="Digits only (e.g. 9876543210)"
                           autocomplete="tel"
                           required

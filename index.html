@@ -919,6 +919,7 @@
                           name="uname"
                           class="tm-form-control"
                           data-validate="name"
+                          maxlength="16"
                           placeholder="Letters only (e.g. Oliver Bennett)"
                           autocomplete="name"
                           required
@@ -952,7 +953,8 @@
                           name="unumber"
                           class="tm-form-control"
                           data-validate="phone"
-                          maxlength="15"
+                          minlength="10"
+                          maxlength="10"
                           placeholder="Digits only (e.g. 9876543210)"
                           autocomplete="tel"
                           required
@@ -2367,6 +2369,7 @@
                             id="name"
                             name="name"
                             class="tm-form-control"
+                            maxlength="16"
                             data-validate="name"
                             placeholder="Letters only (e.g. Amelia Clarke)"
                             autocomplete="name"
@@ -2401,7 +2404,8 @@
                             name="phone"
                             class="tm-form-control"
                             data-validate="phone"
-                            maxlength="15"
+                            minlength="10"
+                            maxlength="10"
                             placeholder="Digits only (e.g. 9876543210)"
                             autocomplete="tel"
                             required

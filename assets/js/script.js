@@ -655,20 +655,8 @@
           return;
         }
 
-        var successMsg =
-          form.getAttribute("data-success-msg") ||
-          "Thank you! Your telemedicine request has been securely registered. Our UK clinical coordinator (+91 9876543210) will confirm shortly.";
-
-        alertBox.className = "tm-form-alert success";
-        alertBox.innerHTML =
-          '<i class="fa-solid fa-circle-check me-2"></i>' + successMsg;
-
-        form.reset();
-        // Restore today's default date on any date inputs after reset
-        form.querySelectorAll('input[type="date"]').forEach(function (dInput) {
-          dInput.setAttribute("min", todayStr);
-          dInput.value = todayStr;
-        });
+        var target404 = isSubPage() ? "404.html" : "pages/404.html";
+        window.location.href = target404;
       });
     });
   }
