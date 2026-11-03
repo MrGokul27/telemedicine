@@ -650,6 +650,7 @@
                (Requirement 2 & 3: Shows exact data entered in login page)
                ================================================================= -->
           <section
+            data-reveal="fade-up"
             class="tm-dash-hero-banner"
             aria-label="Logged-in Session Summary"
           >
@@ -4544,10 +4545,77 @@
         var allPanes = document.querySelectorAll(".tm-dash-section-pane");
         var allNavBtns = document.querySelectorAll(".tm-dash-nav-link");
 
+        var dashRevealObserver =
+          "IntersectionObserver" in window
+            ? new IntersectionObserver(
+                function (entries) {
+                  entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                      var el = entry.target;
+                      el.classList.add("is-revealed");
+                      var d =
+                        parseInt(
+                          el.getAttribute("data-reveal-delay") || "0",
+                          10,
+                        ) || 0;
+                      setTimeout(function () {
+                        el.classList.add("is-reveal-complete");
+                      }, 820 + d);
+                      dashRevealObserver.unobserve(el);
+                    }
+                  });
+                },
+                { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+              )
+            : null;
+
+        function applyDashReveal(el, effect, delayMs) {
+          if (!el) return;
+          el.classList.remove("is-revealed", "is-reveal-complete");
+          el.classList.add("tm-reveal");
+          el.setAttribute("data-reveal", effect || "fade-up");
+          el.setAttribute("data-reveal-delay", String(delayMs || 0));
+          el.style.setProperty("--tm-reveal-delay", (delayMs || 0) + "ms");
+          if (dashRevealObserver) {
+            dashRevealObserver.observe(el);
+          } else {
+            el.classList.add("is-revealed", "is-reveal-complete");
+          }
+        }
+
+        // Reveal Hero Welcome Banner & Submitted Credentials Strip
+        var heroBanner = document.querySelector(".tm-dash-hero-banner");
+        if (heroBanner) {
+          heroBanner.classList.add("tm-section-reveal", "is-section-revealed");
+          var heroCols = heroBanner.querySelectorAll(
+            ":scope > .row > [class*='col-']",
+          );
+          if (heroCols.length === 2) {
+            applyDashReveal(heroCols[0], "fade-right", 0);
+            applyDashReveal(heroCols[1], "fade-left", 120);
+          }
+          var stripCols = heroBanner.querySelectorAll(
+            ".tm-login-data-strip .row > [class*='col-']",
+          );
+          stripCols.forEach(function (col, idx) {
+            applyDashReveal(col, "fade-up", idx * 85);
+          });
+        }
+
         function activateSection(sectionId, sectionTitle) {
           allPanes.forEach(function (pane) {
             if (pane.id === sectionId) {
               pane.classList.add("active");
+              var kpiCols = pane.querySelectorAll(
+                ":scope > .row > [class*='col-']",
+              );
+              kpiCols.forEach(function (col, idx) {
+                applyDashReveal(col, "fade-up", (idx % 4) * 85);
+              });
+              var dashCards = pane.querySelectorAll(".tm-dash-card");
+              dashCards.forEach(function (card, idx) {
+                applyDashReveal(card, "fade-up", idx * 95);
+              });
             } else {
               pane.classList.remove("active");
             }

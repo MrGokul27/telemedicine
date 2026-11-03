@@ -21,6 +21,10 @@
   justify-content: space-between;
 }
 
+input[type="password"]::-ms-reveal {
+  display: none;
+}
+
 /* Floating Animated Telemedicine Shapes in Background */
 .tm-auth-bg-shapes {
   position: fixed;

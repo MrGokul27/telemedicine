@@ -3110,3 +3110,140 @@ body.tm-preloader-lock {
     display: none;
   }
 }
+
+/* ==========================================================================
+   32. Scroll Reveal Animations (Home Page & All Sub-Pages)
+   ========================================================================== */
+main,
+section {
+  overflow-x: clip;
+}
+
+:where(.tm-section-reveal):not(.is-section-revealed) {
+  opacity: 0.01;
+  transform: translate3d(0, 22px, 0);
+}
+
+:where(.tm-section-reveal) {
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:where(.tm-section-reveal.is-section-revealed) {
+  opacity: 1;
+  transform: none;
+}
+
+:where(.tm-reveal):not(.is-reveal-complete) {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity 0.78s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.78s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--tm-reveal-delay, 0ms);
+}
+
+:where(.tm-reveal[data-reveal="fade-up"], .tm-reveal:not([data-reveal])):not(
+    .is-revealed
+  ):not(.is-reveal-complete) {
+  transform: translate3d(0, 40px, 0);
+}
+
+:where(.tm-reveal[data-reveal="fade-down"]):not(.is-revealed):not(
+    .is-reveal-complete
+  ) {
+  transform: translate3d(0, -36px, 0);
+}
+
+:where(.tm-reveal[data-reveal="fade-left"]):not(.is-revealed):not(
+    .is-reveal-complete
+  ) {
+  transform: translate3d(44px, 0, 0);
+}
+
+:where(.tm-reveal[data-reveal="fade-right"]):not(.is-revealed):not(
+    .is-reveal-complete
+  ) {
+  transform: translate3d(-44px, 0, 0);
+}
+
+:where(.tm-reveal[data-reveal="zoom-in"]):not(.is-revealed):not(
+    .is-reveal-complete
+  ) {
+  transform: scale(0.92) translate3d(0, 26px, 0);
+}
+
+:where(.tm-reveal[data-reveal="zoom-out"]):not(.is-revealed):not(
+    .is-reveal-complete
+  ) {
+  transform: scale(1.06) translate3d(0, 20px, 0);
+}
+
+:where(.tm-reveal[data-reveal="flip-up"]):not(.is-revealed):not(
+    .is-reveal-complete
+  ) {
+  transform: perspective(1000px) rotateX(12deg) translate3d(0, 32px, 0);
+}
+
+:where(.tm-reveal.is-revealed):not(.is-reveal-complete) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) rotateX(0deg);
+}
+
+/* Section Separator Line Expansion on Reveal */
+.tm-section-heading.tm-reveal:not(.is-revealed) .tm-section-seperator {
+  transform: scaleX(0.35);
+  opacity: 0;
+  transition:
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.18s,
+    opacity 0.75s ease 0.18s;
+}
+
+.tm-section-heading.tm-reveal.is-revealed .tm-section-seperator {
+  transform: scaleX(1);
+  opacity: 1;
+  transition:
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.18s,
+    opacity 0.75s ease 0.18s;
+}
+
+/* Governance Progress Bar Smooth Width Animation on Reveal */
+.governance-progress-fill {
+  transition: width 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Filter Grid Item Re-Trigger Animation */
+@keyframes tmFilterReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.94) translate3d(0, 18px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.tm-filter-animating {
+  animation: tmFilterReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (max-width: 767.98px) {
+  :where(
+      .tm-reveal[data-reveal="fade-left"],
+      .tm-reveal[data-reveal="fade-right"]
+    ):not(.is-revealed):not(.is-reveal-complete) {
+    transform: translate3d(0, 32px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tm-section-reveal,
+  .tm-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}

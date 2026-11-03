@@ -333,12 +333,21 @@
             btn.parentElement.classList.add("active");
           }
 
+          var visibleIdx = 0;
           items.forEach(function (item) {
             var cats = (item.getAttribute("data-category") || "").split(/\s+/);
             if (filterValue === "*" || cats.indexOf(filterValue) !== -1) {
               item.style.display = "";
+              item.classList.add("is-revealed", "is-reveal-complete");
+              item.classList.remove("tm-filter-animating");
+              // Reflow to restart filter animation cleanly
+              void item.offsetWidth;
+              item.style.animationDelay = (visibleIdx % 4) * 55 + "ms";
+              item.classList.add("tm-filter-animating");
+              visibleIdx++;
             } else {
               item.style.display = "none";
+              item.classList.remove("tm-filter-animating");
             }
           });
         });
@@ -461,6 +470,363 @@
       });
     } else {
       counters.forEach(animateCounter);
+    }
+  }
+
+  /**
+   * Scroll Reveal Animations for Home Page & All Sub-Pages (All Sections)
+   */
+  var tmRevealObserver = null;
+  var tmSectionObserver = null;
+
+  function markRevealElement(el, effect, delayMs) {
+    if (!el || el.classList.contains("tm-reveal")) return;
+    // Skip elements inside inactive tab items or inactive dashboard panes
+    var parentTabItem = el.closest ? el.closest(".tm-tabs-item") : null;
+    if (parentTabItem && !parentTabItem.classList.contains("active")) return;
+    var parentDashPane = el.closest
+      ? el.closest(".tm-dash-section-pane")
+      : null;
+    if (parentDashPane && !parentDashPane.classList.contains("active")) return;
+
+    el.classList.add("tm-reveal");
+    if (!el.getAttribute("data-reveal")) {
+      el.setAttribute("data-reveal", effect || "fade-up");
+    }
+    var delay =
+      typeof delayMs === "number"
+        ? delayMs
+        : parseInt(el.getAttribute("data-reveal-delay") || "0", 10) || 0;
+    el.setAttribute("data-reveal-delay", String(delay));
+    el.style.setProperty("--tm-reveal-delay", delay + "ms");
+  }
+
+  function triggerElementReveal(el) {
+    if (!el || el.classList.contains("is-revealed")) return;
+    el.classList.add("is-revealed");
+
+    // Animate any governance progress bars inside this element
+    var progressBars = el.querySelectorAll(".governance-progress-fill");
+    progressBars.forEach(function (bar) {
+      var targetW = bar.getAttribute("data-target-width");
+      if (targetW) {
+        bar.style.width = targetW;
+      }
+    });
+
+    // Sync Before/After slider dimensions if present inside revealed block
+    if (el.querySelector && el.querySelector(".tm-ba-container")) {
+      setTimeout(function () {
+        window.dispatchEvent(new Event("resize"));
+      }, 60);
+    }
+
+    var delay = parseInt(el.getAttribute("data-reveal-delay") || "0", 10) || 0;
+    setTimeout(function () {
+      el.classList.add("is-reveal-complete");
+    }, 820 + delay);
+  }
+
+  function setupScrollRevealTargets(rootEl) {
+    var scope = rootEl || document;
+
+    // Prepare governance progress bars for smooth width fill on reveal
+    var govBars = scope.querySelectorAll(".governance-progress-fill");
+    govBars.forEach(function (bar) {
+      if (!bar.getAttribute("data-target-width")) {
+        var inlineW = bar.style.width || "98%";
+        bar.setAttribute("data-target-width", inlineW);
+        bar.style.width = "0%";
+      }
+    });
+
+    // 1. Tag every <section> across Home Page and Sub-Pages
+    var sections = scope.querySelectorAll("main section, section");
+    sections.forEach(function (sec) {
+      sec.classList.add("tm-section-reveal");
+      if (!sec.getAttribute("data-reveal")) {
+        sec.setAttribute("data-reveal", "fade-up");
+      }
+
+      // 1a. Hero section on Home page
+      if (sec.classList.contains("hero")) {
+        var sliderText = sec.querySelector(".slider-text");
+        var liveCard = sec.querySelector(".tm-hero-live-card");
+        markRevealElement(sliderText, "fade-right", 0);
+        markRevealElement(liveCard, "fade-left", 160);
+        return;
+      }
+
+      // 1b. Common Sub-Page Banner
+      if (sec.classList.contains("tm-page-banner")) {
+        var bannerContent = sec.querySelector(".tm-page-banner-content");
+        markRevealElement(bannerContent, "fade-up", 50);
+        return;
+      }
+
+      // 1c. Dashboard Hero Banner
+      if (sec.classList.contains("tm-dash-hero-banner")) {
+        var dashCols = sec.querySelectorAll(":scope > .row > [class*='col-']");
+        if (dashCols.length === 2) {
+          markRevealElement(dashCols[0], "fade-right", 0);
+          markRevealElement(dashCols[1], "fade-left", 120);
+        }
+        var stripItems = sec.querySelectorAll(
+          ".tm-login-data-strip .row > [class*='col-']",
+        );
+        stripItems.forEach(function (item, idx) {
+          markRevealElement(item, "fade-up", idx * 90);
+        });
+        return;
+      }
+
+      // 2. Section Headings inside this section
+      var headings = sec.querySelectorAll(".tm-section-heading");
+      headings.forEach(function (h) {
+        markRevealElement(h, "fade-up", 0);
+      });
+
+      // 3. Filter controls & Tab controls
+      var filters = sec.querySelectorAll(
+        ".tm-portfolio-filter, .doctor-filter-bar",
+      );
+      filters.forEach(function (f) {
+        markRevealElement(f, "fade-up", 70);
+      });
+
+      var tabWraps = sec.querySelectorAll(".tm-tab-wrap");
+      tabWraps.forEach(function (tw) {
+        var tabsNav = tw.querySelector(".tm-tabs-wrap");
+        var tabContent = tw.querySelector(".tm-tab-content");
+        markRevealElement(tabsNav, "fade-up", 80);
+        markRevealElement(tabContent, "fade-up", 170);
+      });
+
+      // 4. Special composite wrappers (CMO Spotlight, Blog Featured Story, Comparison/Roster Tables, Newsletter, Map)
+      var cmoWrap = sec.querySelector(".cmo-spotlight-wrap");
+      if (cmoWrap) {
+        markRevealElement(cmoWrap, "zoom-in", 0);
+        var cmoImg = cmoWrap.querySelector(".cmo-spotlight-img");
+        var cmoTextCol = cmoWrap.querySelector(".col-lg-7");
+        markRevealElement(cmoImg, "fade-right", 110);
+        markRevealElement(cmoTextCol, "fade-left", 180);
+      }
+
+      var blogFeatWrap = sec.querySelector(".blog-featured-wrap");
+      if (blogFeatWrap) {
+        markRevealElement(blogFeatWrap, "zoom-in", 0);
+        var featImg = blogFeatWrap.querySelector(".blog-featured-img");
+        var featBody = blogFeatWrap.querySelector(".blog-featured-content");
+        markRevealElement(featImg, "fade-right", 110);
+        markRevealElement(featBody, "fade-left", 180);
+      }
+
+      var tableWraps = sec.querySelectorAll(
+        ".dept-compare-table-wrap, .roster-table-wrap",
+      );
+      tableWraps.forEach(function (tw) {
+        markRevealElement(tw, "fade-up", 120);
+      });
+
+      var newsletter = sec.querySelector(".tm-newsletter");
+      if (newsletter) {
+        markRevealElement(newsletter, "zoom-in", 0);
+      }
+
+      var mapBox = sec.querySelector("#tm-map");
+      if (mapBox) {
+        markRevealElement(mapBox, "fade-up", 100);
+      }
+      if (sec.id === "uk-map-section") {
+        var mapIntro = sec.querySelector(".container");
+        markRevealElement(mapIntro, "fade-up", 0);
+      }
+
+      // 5. Content Rows & Columns inside the section
+      var rows = sec.querySelectorAll(".row");
+      rows.forEach(function (row) {
+        // Do not tag form input rows, tab pane inner rows, or already handled special wrappers
+        if (
+          row.closest("form") ||
+          row.closest(".tm-tab-wrap") ||
+          row.closest(".cmo-spotlight-wrap") ||
+          row.closest(".blog-featured-wrap")
+        ) {
+          return;
+        }
+        // Skip rows nested inside another column that is already a card/box
+        var parentRow = row.parentElement
+          ? row.parentElement.closest(".row")
+          : null;
+        var directCols = Array.prototype.filter.call(
+          row.children,
+          function (child) {
+            return child.className && child.className.indexOf("col-") !== -1;
+          },
+        );
+        if (!directCols.length) return;
+
+        if (!parentRow) {
+          if (directCols.length === 1) {
+            var singleEffect = directCols[0].querySelector(".tm-ba-container")
+              ? "zoom-in"
+              : "fade-up";
+            markRevealElement(directCols[0], singleEffect, 90);
+          } else if (directCols.length === 2) {
+            markRevealElement(directCols[0], "fade-right", 0);
+            markRevealElement(directCols[1], "fade-left", 140);
+
+            // Also stagger stacked blog cards or governance progress items inside 2-column layouts
+            directCols.forEach(function (col) {
+              var stackedPosts = col.querySelectorAll(".tm-post.tm-style2");
+              stackedPosts.forEach(function (post, pIdx) {
+                markRevealElement(post, "fade-left", pIdx * 110);
+              });
+              var govItems = col.querySelectorAll(".governance-progress-item");
+              govItems.forEach(function (gItem, gIdx) {
+                markRevealElement(gItem, "fade-up", gIdx * 90);
+              });
+            });
+          } else {
+            var colsPerRow = directCols.length === 3 ? 3 : 4;
+            directCols.forEach(function (col, idx) {
+              var isZoomCard =
+                col.querySelector(
+                  ".tm-fun-fact, .tm-portfolio-card, .gallery-showcase-card, .tm-partner-card, .blog-topic-pill-card, .sla-tier-card",
+                ) !== null;
+              var effect = isZoomCard ? "zoom-in" : "fade-up";
+              var delay = (idx % colsPerRow) * 95;
+              markRevealElement(col, effect, delay);
+            });
+          }
+        } else {
+          // Nested sub-grid inside a 2-column section (e.g., 4 RPM boxes, 4 Security pillars, 3 AI triage boxes, 4 Fun facts)
+          directCols.forEach(function (subCol, sIdx) {
+            markRevealElement(subCol, "fade-up", 100 + (sIdx % 4) * 85);
+          });
+        }
+      });
+
+      // 6. Stagger individual FAQ Accordion items
+      var accItems = sec.querySelectorAll(".accordian .single-accordian");
+      accItems.forEach(function (item, aIdx) {
+        markRevealElement(item, "fade-up", aIdx * 85);
+      });
+    });
+
+    // 7. Auth Pages (login.html & register.html) and 404 Page (404.html)
+    var authShowcase = scope.querySelector(
+      ".tm-auth-showcase, .tm-404-showcase",
+    );
+    var authFormCol = scope.querySelector(".tm-auth-form-col, .tm-404-console");
+    if (authShowcase) markRevealElement(authShowcase, "fade-right", 0);
+    if (authFormCol) markRevealElement(authFormCol, "fade-left", 140);
+
+    // 8. Dashboard Active Pane Cards (dashboard.html)
+    var activeDashPane = scope.querySelector(".tm-dash-section-pane.active");
+    if (activeDashPane) {
+      var kpiCols = activeDashPane.querySelectorAll(".row > [class*='col-']");
+      kpiCols.forEach(function (col, kIdx) {
+        markRevealElement(col, "fade-up", (kIdx % 4) * 85);
+      });
+      var dashCards = activeDashPane.querySelectorAll(".tm-dash-card");
+      dashCards.forEach(function (card, cIdx) {
+        markRevealElement(card, "fade-up", cIdx * 90);
+      });
+    }
+
+    // 9. Common Site Footer (#site-footer)
+    var footer =
+      scope.id === "site-footer" ? scope : scope.querySelector("#site-footer");
+    if (footer) {
+      var topBar = footer.querySelector(".tm-footer-top-bar");
+      var widgetCols = footer.querySelectorAll(
+        ".tm-footer-main .row > [class*='col-']",
+      );
+      var copyright = footer.querySelector(".tm-copyright");
+      markRevealElement(topBar, "fade-up", 0);
+      widgetCols.forEach(function (wCol, wIdx) {
+        markRevealElement(wCol, "fade-up", wIdx * 100);
+      });
+      markRevealElement(copyright, "fade-up", 80);
+    }
+  }
+
+  function observeScrollRevealTargets(rootEl) {
+    var scope = rootEl || document;
+    var prefersReduced =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var allSections = scope.querySelectorAll(".tm-section-reveal");
+    var allReveals = scope.querySelectorAll(".tm-reveal");
+
+    if (prefersReduced || !("IntersectionObserver" in window)) {
+      allSections.forEach(function (s) {
+        s.classList.add("is-section-revealed");
+      });
+      allReveals.forEach(function (el) {
+        triggerElementReveal(el);
+      });
+      return;
+    }
+
+    if (!tmSectionObserver) {
+      tmSectionObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-section-revealed");
+              tmSectionObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.02, rootMargin: "0px 0px -25px 0px" },
+      );
+    }
+
+    if (!tmRevealObserver) {
+      tmRevealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              triggerElementReveal(entry.target);
+              tmRevealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+    }
+
+    allSections.forEach(function (sec) {
+      if (!sec.classList.contains("is-section-revealed")) {
+        tmSectionObserver.observe(sec);
+      }
+    });
+
+    allReveals.forEach(function (el) {
+      if (!el.classList.contains("is-revealed")) {
+        tmRevealObserver.observe(el);
+      }
+    });
+  }
+
+  function initScrollReveal() {
+    setupScrollRevealTargets(document);
+
+    // If the Home Page preloader is active, wait until it dismisses so Hero section animations play visibly
+    var preloader = document.getElementById("tm-preloader");
+    if (preloader && document.body.classList.contains("tm-preloader-lock")) {
+      document.addEventListener(
+        "tm:preloader-dismissed",
+        function () {
+          observeScrollRevealTargets(document);
+        },
+        { once: true },
+      );
+    } else {
+      observeScrollRevealTargets(document);
     }
   }
 
@@ -729,6 +1095,7 @@
 
       preloader.classList.add("is-loaded");
       document.body.classList.remove("tm-preloader-lock");
+      document.dispatchEvent(new CustomEvent("tm:preloader-dismissed"));
 
       setTimeout(function () {
         if (preloader && preloader.parentNode) {
@@ -777,10 +1144,16 @@
    */
   document.addEventListener("DOMContentLoaded", function () {
     initHomePreloader();
+    initScrollReveal();
     initEmptyAndHashLinksRedirect();
     initCommonComponents(function () {
       initHeaderAndMobileMenu();
       initScrollToTop();
+      var footerEl = document.getElementById("footer-placeholder");
+      if (footerEl) {
+        setupScrollRevealTargets(footerEl);
+        observeScrollRevealTargets(footerEl);
+      }
     });
     initRotatingText();
     initDepartmentTabs();
