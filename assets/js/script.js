@@ -697,9 +697,86 @@
   }
 
   /**
+   * Home Page Telemedicine 4K Preloader (~2 Seconds)
+   */
+  function initHomePreloader() {
+    var preloader = document.getElementById("tm-preloader");
+    if (!preloader) return;
+
+    var barEl = document.getElementById("tm-preloader-bar");
+    var percentEl = document.getElementById("tm-preloader-percent");
+    var statusEl = document.getElementById("tm-preloader-status");
+
+    var durationMs = 2000; // 2 seconds total preloader experience
+    var startTime = performance.now();
+    var dismissed = false;
+
+    var statusStages = [
+      { threshold: 0, text: "Initializing Encrypted 4K Video Channel..." },
+      { threshold: 32, text: "Syncing Biometric ECG & Wearable Telemetry..." },
+      { threshold: 68, text: "Connecting GMC-Certified UK Specialists..." },
+      { threshold: 94, text: "Virtual Clinic Ready — Launching..." },
+    ];
+
+    function dismissPreloader() {
+      if (dismissed) return;
+      dismissed = true;
+      if (barEl) barEl.style.width = "100%";
+      if (percentEl) percentEl.textContent = "100%";
+      if (statusEl) {
+        statusEl.textContent = "Virtual Clinic Ready — Launching...";
+      }
+
+      preloader.classList.add("is-loaded");
+      document.body.classList.remove("tm-preloader-lock");
+
+      setTimeout(function () {
+        if (preloader && preloader.parentNode) {
+          preloader.parentNode.removeChild(preloader);
+        }
+      }, 600);
+    }
+
+    function tick(now) {
+      if (dismissed) return;
+      var elapsed = now - startTime;
+      var progress = Math.min(elapsed / durationMs, 1);
+      // Smooth ease-out curve for the percentage counter
+      var eased = 1 - Math.pow(1 - progress, 1.65);
+      var pct = Math.min(Math.round(eased * 100), 100);
+
+      if (barEl) barEl.style.width = pct + "%";
+      if (percentEl) percentEl.textContent = pct + "%";
+
+      if (statusEl) {
+        var activeText = statusStages[0].text;
+        for (var i = 0; i < statusStages.length; i++) {
+          if (pct >= statusStages[i].threshold) {
+            activeText = statusStages[i].text;
+          }
+        }
+        if (statusEl.textContent !== activeText) {
+          statusEl.textContent = activeText;
+        }
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        dismissPreloader();
+      }
+    }
+
+    requestAnimationFrame(tick);
+    // Fallback safety timer in case tab is backgrounded
+    setTimeout(dismissPreloader, durationMs + 150);
+  }
+
+  /**
    * Initialize everything on DOMContentLoaded
    */
   document.addEventListener("DOMContentLoaded", function () {
+    initHomePreloader();
     initEmptyAndHashLinksRedirect();
     initCommonComponents(function () {
       initHeaderAndMobileMenu();

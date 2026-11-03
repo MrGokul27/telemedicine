@@ -2542,3 +2542,571 @@ ul {
   border-color: var(--tm-light-blue);
   transform: translateY(-4px);
 }
+
+/* ==========================================================================
+   22. Home Page Telemedicine 4K Clinical Preloader (~2 Seconds)
+   ========================================================================== */
+body.tm-preloader-lock {
+  overflow: hidden !important;
+}
+
+.tm-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(
+    circle at 50% 35%,
+    #04346c 0%,
+    var(--tm-dark-blue) 48%,
+    var(--tm-dark-blue-deep) 100%
+  );
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tm-preloader.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.035);
+}
+
+/* Subtle Telemetry Grid & Ambient Glows */
+.tm-preloader-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(44, 174, 226, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44, 174, 226, 0.06) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 35%,
+    transparent 85%
+  );
+  pointer-events: none;
+}
+
+.tm-preloader-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.tm-preloader-glow.tm-glow-1 {
+  width: 380px;
+  height: 380px;
+  background: var(--tm-light-blue);
+  top: -90px;
+  left: -80px;
+  animation: tmGlowPulse 4s ease-in-out infinite alternate;
+}
+
+.tm-preloader-glow.tm-glow-2 {
+  width: 340px;
+  height: 340px;
+  background: var(--tm-success);
+  bottom: -90px;
+  right: -70px;
+  animation: tmGlowPulse 4s ease-in-out infinite alternate-reverse;
+}
+
+/* Ambient Floating Clinical Icons */
+.tm-preloader-floating-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tm-float-icon {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(44, 174, 226, 0.18);
+  color: rgba(44, 174, 226, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  backdrop-filter: blur(4px);
+  animation: tmFloatAmbient 5s ease-in-out infinite;
+}
+
+.tm-float-icon.i-1 {
+  top: 14%;
+  left: 12%;
+  animation-delay: 0s;
+}
+
+.tm-float-icon.i-2 {
+  top: 18%;
+  right: 13%;
+  animation-delay: 0.8s;
+}
+
+.tm-float-icon.i-3 {
+  bottom: 16%;
+  left: 15%;
+  animation-delay: 1.5s;
+}
+
+.tm-float-icon.i-4 {
+  bottom: 14%;
+  right: 12%;
+  animation-delay: 2.2s;
+}
+
+/* Central Glassmorphic Telemetry Card */
+.tm-preloader-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 470px;
+  background: rgba(0, 32, 68, 0.68);
+  border: 1px solid rgba(44, 174, 226, 0.32);
+  border-radius: 24px;
+  padding: 32px 30px 28px;
+  text-align: center;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 25px 60px rgba(0, 12, 28, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Top Live Security Badge */
+.tm-preloader-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(44, 174, 226, 0.14);
+  border: 1px solid rgba(44, 174, 226, 0.4);
+  color: #e0f6ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  padding: 6px 15px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.tm-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--tm-success);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: tmLivePing 1.4s infinite;
+}
+
+/* Orbital Biometric Radar & Core Logo */
+.tm-preloader-scanner {
+  position: relative;
+  width: 158px;
+  height: 158px;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.tm-orbit-ring.tm-ring-outer {
+  inset: 0;
+  border: 1.5px dashed rgba(44, 174, 226, 0.42);
+  animation: tmOrbitSpin 10s linear infinite;
+}
+
+.tm-orbit-ring.tm-ring-middle {
+  inset: 14px;
+  border: 2px solid transparent;
+  border-top-color: var(--tm-light-blue);
+  border-right-color: rgba(44, 174, 226, 0.35);
+  border-bottom-color: var(--tm-success);
+  animation: tmOrbitSpinReverse 2.4s cubic-bezier(0.55, 0.15, 0.45, 0.85)
+    infinite;
+}
+
+.tm-orbit-ring.tm-ring-inner {
+  inset: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: radial-gradient(
+    circle,
+    rgba(44, 174, 226, 0.18) 0%,
+    rgba(0, 40, 86, 0.4) 100%
+  );
+  box-shadow: 0 0 28px rgba(44, 174, 226, 0.25);
+}
+
+/* 4 Cardinal Medical Telemetry Nodes */
+.tm-orbit-node {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--tm-dark-blue);
+  border: 1.5px solid var(--tm-light-blue);
+  color: var(--tm-light-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  z-index: 3;
+}
+
+.tm-orbit-node.tm-node-top {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tm-orbit-node.tm-node-right {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tm-orbit-node.tm-node-bottom {
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tm-orbit-node.tm-node-left {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tm-scanner-core {
+  position: relative;
+  z-index: 4;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--tm-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--tm-light-blue), #0d8ec2);
+
+  box-shadow:
+    0 0 0 6px rgba(44, 174, 226, 0.18),
+    0 10px 25px rgba(0, 0, 0, 0.35);
+  animation: tmCoreHeartbeat 1.25s ease-in-out infinite;
+}
+
+.tm-preloader-logo {
+  max-width: 100%;
+  max-height: 46px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.tm-core-pulse-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--tm-light-blue), #0d8ec2);
+  color: var(--tm-white);
+  border: 2px solid var(--tm-dark-blue-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  box-shadow: 0 4px 10px rgba(44, 174, 226, 0.45);
+}
+
+/* Brand Heading */
+.tm-preloader-title {
+  color: var(--tm-white);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.tm-preloader-title span {
+  color: var(--tm-light-blue);
+}
+
+.tm-preloader-subtitle {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+/* Live ECG / EKG Waveform Monitor Box */
+.tm-ecg-monitor {
+  background: rgba(0, 18, 40, 0.65);
+  border: 1px solid rgba(44, 174, 226, 0.24);
+  border-radius: 14px;
+  padding: 10px 14px 8px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tm-ecg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+
+.tm-ecg-label {
+  color: var(--tm-light-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tm-ecg-bpm {
+  color: var(--tm-success);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tm-ecg-bpm i {
+  animation: tmCoreHeartbeat 0.95s ease-in-out infinite;
+}
+
+.tm-ecg-svg {
+  width: 100%;
+  height: 46px;
+  display: block;
+}
+
+.tm-ecg-grid-line {
+  stroke: rgba(44, 174, 226, 0.14);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.tm-ecg-path {
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+  filter: drop-shadow(0 0 6px rgba(44, 174, 226, 0.65));
+  animation: tmEcgSweep 1.85s ease-in-out infinite;
+}
+
+/* Progress Bar & Dynamic Status */
+.tm-preloader-progress-area {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.tm-preloader-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+
+.tm-preloader-status-text {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tm-preloader-percent {
+  color: var(--tm-light-blue);
+  font-size: 13px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.tm-preloader-bar-track {
+  width: 100%;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tm-preloader-bar-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(
+    90deg,
+    var(--tm-light-blue) 0%,
+    #38bdf8 55%,
+    var(--tm-success) 100%
+  );
+  box-shadow: 0 0 14px rgba(44, 174, 226, 0.65);
+  transition: width 0.08s linear;
+}
+
+/* Clinical Feature Pills */
+.tm-preloader-pillars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tm-pillar-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 11px;
+  border-radius: 50px;
+}
+
+.tm-pillar-chip i {
+  color: var(--tm-success);
+  font-size: 11px;
+}
+
+/* Keyframe Animations */
+@keyframes tmOrbitSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tmOrbitSpinReverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes tmCoreHeartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  18% {
+    transform: scale(1.06);
+  }
+  34% {
+    transform: scale(0.98);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes tmEcgSweep {
+  0% {
+    stroke-dashoffset: 650;
+    opacity: 0.35;
+  }
+  55% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -650;
+    opacity: 0.25;
+  }
+}
+
+@keyframes tmLivePing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.75);
+  }
+  75% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes tmGlowPulse {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.15) translate(18px, 14px);
+  }
+}
+
+@keyframes tmFloatAmbient {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .tm-preloader-card {
+    padding: 24px 20px 22px;
+    border-radius: 20px;
+  }
+
+  .tm-preloader-scanner {
+    width: 136px;
+    height: 136px;
+    margin-bottom: 18px;
+  }
+
+  .tm-scanner-core {
+    width: 76px;
+    height: 76px;
+  }
+
+  .tm-preloader-title {
+    font-size: 18px;
+  }
+
+  .tm-float-icon {
+    display: none;
+  }
+}

@@ -47,7 +47,146 @@
     <!-- Main & Home Stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-  <body>
+  <body class="tm-preloader-lock">
+    <!-- ==================================================================
+         TELEMEDICINE 4K CLINICAL PRELOADER (~2 SECONDS)
+         ================================================================== -->
+    <div
+      id="tm-preloader"
+      class="tm-preloader"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading Stackly Telemedicine Virtual Clinic"
+    >
+      <!-- Ambient Clinical Background & Floating Medical Shapes -->
+      <div class="tm-preloader-bg-grid"></div>
+      <div class="tm-preloader-glow tm-glow-1"></div>
+      <div class="tm-preloader-glow tm-glow-2"></div>
+      <div class="tm-preloader-floating-icons" aria-hidden="true">
+        <span class="tm-float-icon i-1"><i class="fa-solid fa-stethoscope"></i></span>
+        <span class="tm-float-icon i-2"><i class="fa-solid fa-dna"></i></span>
+        <span class="tm-float-icon i-3"><i class="fa-solid fa-user-doctor"></i></span>
+        <span class="tm-float-icon i-4"><i class="fa-solid fa-shield-heart"></i></span>
+      </div>
+
+      <div class="tm-preloader-card">
+        <!-- Top Encrypted Telemetry Badge -->
+        <div class="tm-preloader-badge">
+          <span class="tm-live-dot"></span>
+          <span>AES-256 ENCRYPTED 4K TELEHEALTH HUB</span>
+        </div>
+
+        <!-- Orbital Biometric Scanner & Heartbeat Core -->
+        <div class="tm-preloader-scanner">
+          <div class="tm-orbit-ring tm-ring-outer"></div>
+          <div class="tm-orbit-ring tm-ring-middle"></div>
+          <div class="tm-orbit-ring tm-ring-inner"></div>
+
+          <!-- Orbiting Medical Nodes -->
+          <div class="tm-orbit-node tm-node-top" title="4K Video Triage">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <div class="tm-orbit-node tm-node-right" title="Satellite Telemetry">
+            <i class="fa-solid fa-satellite-dish"></i>
+          </div>
+          <div class="tm-orbit-node tm-node-bottom" title="GMC Verified">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <div class="tm-orbit-node tm-node-left" title="E-Prescriptions">
+            <i class="fa-solid fa-prescription-bottle-medical"></i>
+          </div>
+
+          <!-- Center Logo & Pulse Core -->
+          <div class="tm-scanner-core">
+            <img
+              src="assets/images/logoStackly.webp"
+              alt="Stackly Telemedicine"
+              class="tm-preloader-logo"
+            />
+            <div class="tm-core-pulse-badge">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand Title & Subtitle -->
+        <div class="tm-preloader-brand">
+          <h2 class="tm-preloader-title">
+            STACKLY <span>TELEMEDICINE</span>
+          </h2>
+          <p class="tm-preloader-subtitle">
+            24/7 UK Virtual Hospital &amp; Remote Specialist Triage
+          </p>
+        </div>
+
+        <!-- Live ECG / EKG Waveform Monitor -->
+        <div class="tm-ecg-monitor" aria-hidden="true">
+          <div class="tm-ecg-header">
+            <span class="tm-ecg-label">
+              <i class="fa-solid fa-wave-square"></i> BIO-TELEMETRY SYNC
+            </span>
+            <span class="tm-ecg-bpm">
+              <i class="fa-solid fa-heart"></i> 72 BPM &bull; SPO2 99%
+            </span>
+          </div>
+          <svg
+            class="tm-ecg-svg"
+            viewBox="0 0 500 70"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="tmEcgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2caee2" stop-opacity="0.05" />
+                <stop offset="50%" stop-color="#2caee2" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#10b981" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+            <path
+              class="tm-ecg-grid-line"
+              d="M0,35 L500,35"
+            />
+            <path
+              class="tm-ecg-path"
+              d="M 0,35 L 55,35 L 68,26 L 80,35 L 98,35 L 106,46 L 118,8 L 130,62 L 142,28 L 154,35 L 215,35 L 228,26 L 240,35 L 258,35 L 266,46 L 278,6 L 290,64 L 302,28 L 314,35 L 375,35 L 388,26 L 400,35 L 418,35 L 426,46 L 438,8 L 450,62 L 462,28 L 474,35 L 500,35"
+              fill="none"
+              stroke="url(#tmEcgGrad)"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <!-- Dynamic Clinical Status & Progress Bar -->
+        <div class="tm-preloader-progress-area">
+          <div class="tm-preloader-status-row">
+            <span id="tm-preloader-status" class="tm-preloader-status-text">
+              Initializing Encrypted 4K Video Channel...
+            </span>
+            <span id="tm-preloader-percent" class="tm-preloader-percent">
+              0%
+            </span>
+          </div>
+          <div class="tm-preloader-bar-track">
+            <div id="tm-preloader-bar" class="tm-preloader-bar-fill"></div>
+          </div>
+        </div>
+
+        <!-- Clinical Pillars Footer -->
+        <div class="tm-preloader-pillars" aria-hidden="true">
+          <span class="tm-pillar-chip is-active">
+            <i class="fa-solid fa-circle-check"></i> GMC Certified
+          </span>
+          <span class="tm-pillar-chip is-active">
+            <i class="fa-solid fa-circle-check"></i> 4K UHD Stream
+          </span>
+          <span class="tm-pillar-chip is-active">
+            <i class="fa-solid fa-circle-check"></i> NHS &amp; Private
+          </span>
+        </div>
+      </div>
+    </div>
+
     <!-- Common Header Component Container -->
     <div id="header-placeholder"></div>
 
