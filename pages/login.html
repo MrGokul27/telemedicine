@@ -413,7 +413,7 @@
       </div>
     </footer>
 
-    <!-- Login Validation & Weak Password Script -->
+    <!-- Login Validation, Weak Password & Role-Based Dashboard Redirect Script -->
     <script>
       (function () {
         "use strict";
@@ -438,23 +438,38 @@
         var pwdBars = document.getElementById("login-pwd-bars");
         var pwdRules = document.getElementById("login-pwd-rules");
 
-        // Check if redirected after successful registration
+        // Check if redirected after successful registration or logout
         var params = new URLSearchParams(window.location.search);
-        var regUser = sessionStorage.getItem("tm_registered_username");
-        var regEmail = sessionStorage.getItem("tm_registered_email");
-        var regRole = sessionStorage.getItem("tm_registered_role");
+        var regUser =
+          params.get("username") ||
+          sessionStorage.getItem("tm_registered_username") ||
+          localStorage.getItem("tm_registered_username") ||
+          "";
+        var regEmail =
+          params.get("email") ||
+          sessionStorage.getItem("tm_registered_email") ||
+          "";
+        var regRole =
+          params.get("role") ||
+          sessionStorage.getItem("tm_registered_role") ||
+          "";
 
-        if (params.get("registered") === "1" || regUser) {
+        if (params.get("registered") === "1" || regEmail || regRole) {
           alertBox.className = "tm-form-alert success";
           alertBox.innerHTML =
             '<i class="fa-solid fa-circle-check me-2"></i>Registration complete' +
             (regUser ? " for <strong>" + regUser + "</strong>" : "") +
-            "! Please sign in below with your credentials.";
+            "! Please sign in below with your credentials to open your Clinical Dashboard.";
           if (regEmail && emailEl) emailEl.value = regEmail;
           if (regRole && roleEl) roleEl.value = regRole;
-          sessionStorage.removeItem("tm_registered_username");
-          sessionStorage.removeItem("tm_registered_email");
-          sessionStorage.removeItem("tm_registered_role");
+          try {
+            sessionStorage.removeItem("tm_registered_email");
+            sessionStorage.removeItem("tm_registered_role");
+          } catch (err) {}
+        } else if (params.get("logout") === "1") {
+          alertBox.className = "tm-form-alert success";
+          alertBox.innerHTML =
+            '<i class="fa-solid fa-circle-check me-2"></i>You have securely signed out of your Stackly Telemedicine Clinical Dashboard.';
         }
 
         // Toggle password visibility
@@ -656,17 +671,72 @@
             return;
           }
 
+          var selectedRoleValue = roleEl.value;
           var selectedRoleText =
-            roleEl.options[roleEl.selectedIndex].text || "Portal User";
+            roleEl.options[roleEl.selectedIndex].text.trim() || "Portal User";
+
+          // Derive display name from registered username or entered email prefix
+          var emailPrefix = emailVal.split("@")[0] || "Clinician";
+          var formattedFromEmail = emailPrefix
+            .replace(/[._-]+/g, " ")
+            .replace(/\b\w/g, function (c) {
+              return c.toUpperCase();
+            });
+          var displayUser = regUser || formattedFromEmail;
+
+          var now = new Date();
+          var loginTimeStr = now.toLocaleString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+
+          var sessionPayload = {
+            role: selectedRoleValue,
+            roleTitle: selectedRoleText,
+            email: emailVal,
+            username: displayUser,
+            remember: isRememberOk
+              ? "Trusted Clinical Device (Remembered)"
+              : "Standard Session",
+            passwordSecurity:
+              "Strong Verified (" + pwdVal.length + " chars • AES-256)",
+            sessionId: "STK-UK-" + Math.floor(100000 + Math.random() * 900000),
+            loginTime: loginTimeStr,
+          };
+
+          try {
+            sessionStorage.setItem(
+              "tm_dashboard_session",
+              JSON.stringify(sessionPayload),
+            );
+            localStorage.setItem(
+              "tm_dashboard_session",
+              JSON.stringify(sessionPayload),
+            );
+          } catch (err) {}
+
           alertBox.className = "tm-form-alert success";
           alertBox.innerHTML =
             '<i class="fa-solid fa-circle-check me-2"></i>Authentication verified as <strong>' +
             selectedRoleText +
-            "</strong>! Redirecting to Stackly Telemedicine Home...";
+            "</strong> (" +
+            emailVal +
+            ")! Redirecting to your Role-Based Clinical Dashboard...";
 
           setTimeout(function () {
-            window.location.href = "../index.html";
-          }, 900);
+            window.location.href =
+              "dashboard.html?role=" +
+              encodeURIComponent(selectedRoleValue) +
+              "&email=" +
+              encodeURIComponent(emailVal) +
+              "&user=" +
+              encodeURIComponent(displayUser) +
+              "&remember=" +
+              encodeURIComponent(isRememberOk ? "1" : "0");
+          }, 700);
         });
       })();
     </script>

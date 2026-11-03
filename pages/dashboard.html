@@ -1,0 +1,4682 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Clinical Role Dashboard | Stackly Telemedicine 24/7 UK Virtual Healthcare
+    </title>
+    <meta
+      name="description"
+      content="Role-based Stackly Telemedicine UK clinical dashboard for Patients, GMC Tele-Doctors, Clinical Triage Nurses, E-Pharmacy Coordinators, and Clinical Administrators."
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+    <link rel="apple-touch-icon" href="../assets/images/logoStackly.webp" />
+
+    <!-- Google Fonts: Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6.5.2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Theme & Dashboard Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  </head>
+  <body class="tm-dash-body">
+    <div class="tm-dash-wrapper">
+      <!-- Mobile Offcanvas Sidebar Backdrop -->
+      <div
+        class="tm-dash-backdrop"
+        id="tm-sidebar-backdrop"
+        aria-hidden="true"
+      ></div>
+
+      <!-- =====================================================================
+           LEFT ROLE-BASED CLINICAL SIDEBAR
+           ===================================================================== -->
+      <aside
+        class="tm-dash-sidebar"
+        id="tm-dashboard-sidebar"
+        aria-label="Clinical Portal Sidebar Navigation"
+      >
+        <div>
+          <!-- Brand Logo & Mobile Close -->
+          <div class="tm-dash-sidebar-header">
+            <a
+              href="../index.html"
+              class="tm-dash-brand-link"
+              aria-label="Stackly Telemedicine Home"
+            >
+              <img
+                src="../assets/images/logoStackly.webp"
+                alt="Stackly Telemedicine Logo"
+                class="tm-dash-logo"
+              />
+            </a>
+            <button
+              type="button"
+              class="tm-dash-sidebar-close"
+              id="tm-sidebar-close"
+              aria-label="Close Sidebar Menu"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Logged-In User & Role Card (Populated from Login Form Data) -->
+          <div class="tm-dash-user-card">
+            <div class="tm-dash-user-top">
+              <div class="tm-dash-avatar" id="sidebar-user-avatar">
+                <i class="fa-solid fa-user-shield"></i>
+              </div>
+              <div class="tm-dash-user-meta">
+                <h4 class="tm-dash-user-name" id="sidebar-user-name">
+                  Portal Member
+                </h4>
+                <p class="tm-dash-user-email" id="sidebar-user-email">
+                  member@stacklytelemed.co.uk
+                </p>
+              </div>
+            </div>
+            <div class="tm-dash-role-pill" id="sidebar-role-pill">
+              <i class="fa-solid fa-circle-check"></i>
+              <span id="sidebar-role-title">Patient / Care Member</span>
+            </div>
+          </div>
+
+          <!-- Role-Based Sidebar Navigation Menus -->
+          <nav class="tm-dash-nav-wrap" aria-label="Role Workspace Menu">
+            <div class="tm-dash-nav-label">
+              <span id="sidebar-menu-heading">Patient Care Workspace</span>
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+
+            <!-- 1. PATIENT SIDEBAR MENU -->
+            <ul
+              class="tm-dash-nav-list js-role-sidebar"
+              data-role-menu="patient"
+            >
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link active"
+                  data-dash-section="patient-overview"
+                  data-section-title="Care Overview &amp; Live Vitals"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Care Overview &amp; Vitals</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">Live</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="patient-consultations"
+                  data-section-title="4K Video Consultations"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-video"></i>
+                    <span>4K Video Consults</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">3</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="patient-telemetry"
+                  data-section-title="Wearable RPM &amp; ECG Telemetry"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Wearable ECG &amp; RPM</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">99%</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="patient-prescriptions"
+                  data-section-title="Digital Barcode E-Prescriptions"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+                    <span>E-Prescriptions</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">4</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="patient-records"
+                  data-section-title="NHS Lab &amp; Diagnostic Reports"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-microscope"></i>
+                    <span>NHS Lab &amp; Scans</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="patient-billing"
+                  data-section-title="Care Plan &amp; Session Profile"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-id-card-clip"></i>
+                    <span>Care Plan &amp; Profile</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+
+            <!-- 2. DOCTOR SIDEBAR MENU -->
+            <ul
+              class="tm-dash-nav-list js-role-sidebar d-none"
+              data-role-menu="doctor"
+            >
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="doctor-overview"
+                  data-section-title="Clinical Command &amp; Triage Queue"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    <span>Clinical Command Hub</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">14</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="doctor-consultations"
+                  data-section-title="4K Tele-Consultation Studio"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-laptop-medical"></i>
+                    <span>4K Consult Studio</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">Live</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="doctor-rpm"
+                  data-section-title="Remote Patient Telemetry (RPM)"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-wave-square"></i>
+                    <span>Cardiac &amp; RPM Cloud</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">2 Alerts</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="doctor-eprescribe"
+                  data-section-title="EPS E-Prescribing &amp; BNF Formulary"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-file-prescription"></i>
+                    <span>EPS E-Prescribing</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="doctor-referrals"
+                  data-section-title="MDT Referrals &amp; Pathology Sign-Off"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-vial-circle-check"></i>
+                    <span>MDT &amp; Lab Sign-Off</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">7</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="doctor-governance"
+                  data-section-title="GMC Rota &amp; Clinician Profile"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <span>GMC Rota &amp; Profile</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+
+            <!-- 3. NURSE SIDEBAR MENU -->
+            <ul
+              class="tm-dash-nav-list js-role-sidebar d-none"
+              data-role-menu="nurse"
+            >
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="nurse-overview"
+                  data-section-title="24/7 Live Triage Command Desk"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-user-nurse"></i>
+                    <span>Live Triage Desk</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">19</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="nurse-assessments"
+                  data-section-title="NEWS2 Acuity &amp; Pre-Consult Triage"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    <span>NEWS2 Assessments</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">AI</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="nurse-telemetry"
+                  data-section-title="RPM Vitals &amp; Threshold Watch"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-heart-circle-bolt"></i>
+                    <span>RPM Vitals Watch</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">4</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="nurse-kits"
+                  data-section-title="Home Diagnostic Kit Dispatch"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-kit-medical"></i>
+                    <span>Diagnostic Kit Dispatch</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="nurse-careplans"
+                  data-section-title="Post-Discharge Recovery Follow-Ups"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-hand-holding-medical"></i>
+                    <span>Recovery Follow-Ups</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="nurse-handover"
+                  data-section-title="SBAR Shift Handover &amp; Profile"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-notes-medical"></i>
+                    <span>SBAR Handover &amp; Profile</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+
+            <!-- 4. PHARMACIST SIDEBAR MENU -->
+            <ul
+              class="tm-dash-nav-list js-role-sidebar d-none"
+              data-role-menu="pharmacist"
+            >
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="pharmacist-overview"
+                  data-section-title="UK E-Pharmacy Dispatch Command"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-mortar-pestle"></i>
+                    <span>E-Pharmacy Hub</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">28</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="pharmacist-verification"
+                  data-section-title="BNF Clinical Script Verification"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-prescription"></i>
+                    <span>Script Verification</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">6</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="pharmacist-logistics"
+                  data-section-title="UK Courier &amp; Cold-Chain Telemetry"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-truck-medical"></i>
+                    <span>Courier &amp; Cold-Chain</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="pharmacist-inventory"
+                  data-section-title="National Formulary &amp; Stock Inventory"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span>Formulary Inventory</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="pharmacist-counseling"
+                  data-section-title="Virtual Medication Reviews (NMS)"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-comments-medical"></i>
+                    <span>Medication Counseling</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="pharmacist-compliance"
+                  data-section-title="GPhC Controlled Drug Audit &amp; Profile"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-shield-virus"></i>
+                    <span>GPhC Audit &amp; Profile</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+
+            <!-- 5. ADMIN SIDEBAR MENU -->
+            <ul
+              class="tm-dash-nav-list js-role-sidebar d-none"
+              data-role-menu="admin"
+            >
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="admin-overview"
+                  data-section-title="UK Network Operations Center (NOC)"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-server"></i>
+                    <span>UK Network Command</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">99.98%</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="admin-clinicians"
+                  data-section-title="GMC Clinician &amp; Staff Credentialing"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>GMC Staff Roster</span>
+                  </span>
+                  <span class="tm-dash-nav-badge">142</span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="admin-departments"
+                  data-section-title="Virtual Clinic &amp; 4K Pod Capacity"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-hospital-user"></i>
+                    <span>Clinic Pod Capacity</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="admin-security"
+                  data-section-title="CQC, GDPR &amp; ISO 27001 Security Audits"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>CQC &amp; DSPT Security</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="admin-billing"
+                  data-section-title="NHS &amp; Private Revenue Analytics"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>NHS &amp; Revenue Claims</span>
+                  </span>
+                </button>
+              </li>
+              <li class="tm-dash-nav-item">
+                <button
+                  type="button"
+                  class="tm-dash-nav-link"
+                  data-dash-section="admin-settings"
+                  data-section-title="Portal Gateway Config &amp; Admin Profile"
+                >
+                  <span class="tm-dash-nav-link-left">
+                    <i class="fa-solid fa-gears"></i>
+                    <span>Gateway &amp; Profile</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Sidebar Bottom Security Indicator & Logout Button (Does NOT redirect to 404) -->
+        <div class="tm-dash-sidebar-footer">
+          <button
+            type="button"
+            class="tm-dash-logout-btn js-dash-logout"
+            id="tm-sidebar-logout-btn"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Sign Out of Portal
+          </button>
+        </div>
+      </aside>
+
+      <!-- =====================================================================
+           MAIN WORKSPACE
+           ===================================================================== -->
+      <div class="tm-dash-main">
+        <!-- Sticky Topbar -->
+        <header class="tm-dash-topbar">
+          <div class="tm-dash-topbar-inner">
+            <div class="tm-dash-topbar-left">
+              <button
+                type="button"
+                class="tm-dash-menu-toggle"
+                id="tm-sidebar-toggle"
+                aria-label="Open Sidebar Navigation"
+              >
+                <i class="fa-solid fa-bars-staggered"></i>
+              </button>
+              <div class="tm-dash-page-title-wrap">
+                <h1 id="topbar-section-title">
+                  Care Overview &amp; Live Vitals
+                </h1>
+                <p class="tm-dash-breadcrumb">
+                  <span>Stackly UK Portal</span>
+                  <i
+                    class="fa-solid fa-chevron-right"
+                    style="font-size: 10px"
+                  ></i>
+                  <span class="role-tag" id="topbar-role-label"
+                    >Patient / Care Member</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="tm-dash-topbar-right">
+              <!-- Action icons (Redirect to 404 per Requirement 7) -->
+              <button
+                type="button"
+                class="tm-dash-icon-btn"
+                title="Clinical Notifications"
+                aria-label="Clinical Notifications"
+              >
+                <i class="fa-regular fa-bell"></i>
+                <span class="notif-dot"></span>
+              </button>
+              <button
+                type="button"
+                class="tm-dash-icon-btn d-none d-sm-inline-flex"
+                title="Encrypted Tele-Messages"
+                aria-label="Encrypted Tele-Messages"
+              >
+                <i class="fa-regular fa-envelope"></i>
+              </button>
+
+              <!-- Logged-in User Pill -->
+              <div class="tm-dash-top-user d-none d-md-flex">
+                <div class="tm-dash-top-user-avatar" id="topbar-user-initials">
+                  PT
+                </div>
+                <div class="tm-dash-top-user-info">
+                  <strong id="topbar-user-name">Portal Member</strong>
+                  <span id="topbar-user-email"
+                    >member@stacklytelemed.co.uk</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="tm-dash-content">
+          <!-- =================================================================
+               HERO WELCOME BANNER & SUBMITTED LOGIN FORM DATA SUMMARY
+               (Requirement 2 & 3: Shows exact data entered in login page)
+               ================================================================= -->
+          <section
+            class="tm-dash-hero-banner"
+            aria-label="Logged-in Session Summary"
+          >
+            <div class="row align-items-center gy-3">
+              <div class="col-lg-8">
+                <span class="tm-dash-hero-badge">
+                  <i class="fa-solid fa-shield-heart"></i>
+                  <span id="hero-role-badge"
+                    >CQC Verified Patient Workspace</span
+                  >
+                </span>
+                <h2>
+                  Welcome back, <span id="hero-user-name">Portal Member</span>
+                </h2>
+                <p id="hero-role-desc">
+                  Your encrypted Stackly Telemedicine UK session is active.
+                  Manage 4K video consultations, real-time wearable ECG &amp;
+                  SpO2 telemetry, and instant digital prescriptions below.
+                </p>
+              </div>
+              <div class="col-lg-4 text-lg-end">
+                <div class="d-inline-flex flex-wrap gap-2">
+                  <a href="#" class="tm-btn1">
+                    <i class="fa-solid fa-video"></i> Launch 4K Studio
+                  </a>
+                  <button type="button" class="tm-btn-outline-light">
+                    <i class="fa-solid fa-file-arrow-down"></i> Sync Telemetry
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submitted Login Credentials Strip -->
+            <div class="tm-login-data-strip">
+              <div class="row g-3">
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="tm-login-data-item">
+                    <div class="tm-login-data-icon">
+                      <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="tm-login-data-text">
+                      <span>Selected Login Role</span>
+                      <strong id="login-data-role"
+                        >Patient / Care Member</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="tm-login-data-item">
+                    <div class="tm-login-data-icon">
+                      <i class="fa-solid fa-envelope-circle-check"></i>
+                    </div>
+                    <div class="tm-login-data-text">
+                      <span>Submitted Login Email</span>
+                      <strong id="login-data-email"
+                        >member@stacklytelemed.co.uk</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="tm-login-data-item">
+                    <div class="tm-login-data-icon">
+                      <i class="fa-solid fa-laptop-medical"></i>
+                    </div>
+                    <div class="tm-login-data-text">
+                      <span>Remember Me &amp; Device</span>
+                      <strong id="login-data-remember"
+                        >Trusted Clinical Device</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="tm-login-data-item">
+                    <div class="tm-login-data-icon">
+                      <i class="fa-solid fa-key"></i>
+                    </div>
+                    <div class="tm-login-data-text">
+                      <span>Session &amp; Auth Security</span>
+                      <strong id="login-data-security"
+                        >Strong Verified • AES-256</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =================================================================
+               ROLE 1: PATIENT / CARE MEMBER — 6 DEDICATED SIDEBAR VIEWS
+               ================================================================= -->
+
+          <!-- PATIENT 1: CARE OVERVIEW & LIVE VITALS -->
+          <div
+            class="tm-dash-section-pane active"
+            id="patient-overview"
+            data-role-pane="patient"
+          >
+            <!-- 4 KPI Cards -->
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-video"></i>
+                    </div>
+                    <span class="tm-kpi-trend info"
+                      ><i class="fa-solid fa-clock"></i> Today 18:15</span
+                    >
+                  </div>
+                  <div>
+                    <div class="tm-kpi-value">03</div>
+                    <div class="tm-kpi-label">Upcoming 4K Consultations</div>
+                  </div>
+                  <p class="tm-kpi-sub">
+                    Next: Dr. Alistair Vance (Tele-Cardiology)
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <span class="tm-kpi-trend up"
+                      ><i class="fa-solid fa-check"></i> Normal Sinus</span
+                    >
+                  </div>
+                  <div>
+                    <div class="tm-kpi-value">99% / 72</div>
+                    <div class="tm-kpi-label">Live SpO2 &amp; Resting BPM</div>
+                  </div>
+                  <p class="tm-kpi-sub">
+                    Synced 2 mins ago via Stackly BioPatch
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-prescription-bottle-medical"></i>
+                    </div>
+                    <span class="tm-kpi-trend up"
+                      ><i class="fa-solid fa-truck-fast"></i> 1 In Transit</span
+                    >
+                  </div>
+                  <div>
+                    <div class="tm-kpi-value">04</div>
+                    <div class="tm-kpi-label">Active E-Prescriptions</div>
+                  </div>
+                  <p class="tm-kpi-sub">
+                    EPS Barcode Dispatched to Boots Marylebone
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <span class="tm-kpi-trend up"
+                      ><i class="fa-solid fa-arrow-trend-up"></i> +4.2 Pts</span
+                    >
+                  </div>
+                  <div>
+                    <div class="tm-kpi-value">94 / 100</div>
+                    <div class="tm-kpi-label">NHS Digital Wellness Index</div>
+                  </div>
+                  <p class="tm-kpi-sub">
+                    Optimal blood pressure &amp; lipid profile
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upcoming Consultations Table -->
+            <div class="tm-dash-card mb-4">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-calendar-check"></i> Upcoming &amp;
+                  Recent 4K Virtual Consultations
+                </h3>
+                <a href="#" class="tm-btn-dash"
+                  ><i class="fa-solid fa-plus"></i> Book New Tele-Consult</a
+                >
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Consult ID</th>
+                        <th>GMC Specialist</th>
+                        <th>Tele-Department</th>
+                        <th>Date &amp; UK Time</th>
+                        <th>Channel &amp; Telemetry</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#TM-UK-8841</strong></td>
+                        <td>Dr. Alistair Vance (GMC #7412908)</td>
+                        <td>Tele-Cardiology &amp; ECG</td>
+                        <td>03 Nov 2026 • 18:15 GMT</td>
+                        <td>4K Video + 12-Lead Live Stream</td>
+                        <td>
+                          <span class="tm-status-badge active"
+                            ><i class="fa-solid fa-circle-dot"></i> Room
+                            Ready</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Join 4K Room
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#TM-UK-8894</strong></td>
+                        <td>Dr. Priya Nair (GMC #6892311)</td>
+                        <td>HD Teledermatology</td>
+                        <td>06 Nov 2026 • 10:30 GMT</td>
+                        <td>Macro Dermoscopy Upload + HD Video</td>
+                        <td>
+                          <span class="tm-status-badge info"
+                            ><i class="fa-solid fa-calendar"></i>
+                            Confirmed</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Pre-Consult Form
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#TM-UK-8910</strong></td>
+                        <td>Dr. Marcus Sterling (GMC #7120445)</td>
+                        <td>Tele-Neurology Triage</td>
+                        <td>11 Nov 2026 • 14:00 GMT</td>
+                        <td>4K Neuro-Motor Assessment</td>
+                        <td>
+                          <span class="tm-status-badge info"
+                            ><i class="fa-solid fa-calendar"></i>
+                            Scheduled</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Reschedule
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#TM-UK-8702</strong></td>
+                        <td>Dr. Eleanor Beckett (GMC #6540199)</td>
+                        <td>Remote Pulmonology</td>
+                        <td>24 Oct 2026 • 11:00 GMT</td>
+                        <td>Spirometry Cloud Sync</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            ><i class="fa-solid fa-check-double"></i>
+                            Completed</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Summary PDF</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Equal-Height Cards: Connected Wearables & Care Highlights -->
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-wave-square"></i>
+                      </div>
+                      <div>
+                        <h5>Stackly 12-Lead BioPatch</h5>
+                        <span class="sub-meta"
+                          >Continuous Cardiac Telemetry</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      Streaming encrypted sinus rhythm telemetry to Harley
+                      Street Cardiology Hub. Zero arrhythmia events detected in
+                      the past 72 hours.
+                    </p>
+                    <div class="tm-telemetry-progress">
+                      <div
+                        class="tm-telemetry-progress-bar"
+                        style="width: 92%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">Battery 92%</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      View ECG Strip
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-xl-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-droplet"></i>
+                      </div>
+                      <div>
+                        <h5>Smart Cuff &amp; SpO2 Ring</h5>
+                        <span class="sub-meta"
+                          >BP: 118/76 mmHg • SpO2: 99%</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      Automated morning and evening blood pressure readings are
+                      within optimal NICE hypertension management targets.
+                    </p>
+                    <div class="tm-telemetry-progress">
+                      <div
+                        class="tm-telemetry-progress-bar"
+                        style="width: 96%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge info">Synced via BLE 5.2</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Calibrate Cuff
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-12 col-xl-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-qrcode"></i>
+                      </div>
+                      <div>
+                        <h5>Instant NHS EPS Barcode</h5>
+                        <span class="sub-meta"
+                          >Nominated: Boots 221B Harley St</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      Your Atorvastatin 20mg &amp; Ramipril 5mg repeat digital
+                      prescriptions have been signed and are ready for express
+                      courier dispatch.
+                    </p>
+                    <div class="tm-telemetry-progress">
+                      <div
+                        class="tm-telemetry-progress-bar"
+                        style="width: 100%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge success"
+                      >Ready to Collect</span
+                    >
+                    <button type="button" class="tm-btn-dash">
+                      Show QR Token
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT 2: 4K VIDEO CONSULTATIONS -->
+          <div
+            class="tm-dash-section-pane"
+            id="patient-consultations"
+            data-role-pane="patient"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-camera"></i>
+                      </div>
+                      <div>
+                        <h5>4K Ultra-HD Camera Check</h5>
+                        <span class="sub-meta">2160p @ 60fps Verified</span>
+                      </div>
+                    </div>
+                    <p>
+                      Optical clarity calibrated for remote dermatology, throat
+                      inspection, and neurological pupil reactivity assessments.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">Hardware Passed</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Test Webcam
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                      </div>
+                      <div>
+                        <h5>Digital Stethoscope Audio</h5>
+                        <span class="sub-meta">Lossless Acoustic Channel</span>
+                      </div>
+                    </div>
+                    <p>
+                      Low-latency WebRTC audio stream configured for
+                      simultaneous voice consultation and heart/lung
+                      auscultation.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">14ms Latency</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Test Audio
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                      </div>
+                      <div>
+                        <h5>24/7 On-Demand GP Triage</h5>
+                        <span class="sub-meta">Current Wait: 5 Mins</span>
+                      </div>
+                    </div>
+                    <p>
+                      Need urgent medical advice right now? Enter our rapid UK
+                      virtual triage queue to see an on-call GMC doctor.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge info">6 Doctors Online</span>
+                    <button type="button" class="tm-btn-dash">
+                      Start Instant Triage
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-video"></i> Complete 4K Consultation
+                  Directory &amp; Session Recordings
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-calendar-plus"></i> Schedule Specialist
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Session Ref</th>
+                        <th>Consultant Name</th>
+                        <th>Specialty Hub</th>
+                        <th>Date &amp; Slot</th>
+                        <th>Encryption Key</th>
+                        <th>Clinical Notes</th>
+                        <th>Room Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#VC-4091</strong></td>
+                        <td>Dr. Alistair Vance</td>
+                        <td>London Tele-Cardiology</td>
+                        <td>03 Nov 2026 • 18:15</td>
+                        <td><code>TLS1.3-ECDHE</code></td>
+                        <td>12-Lead ECG Review</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Enter Waiting Pod
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#VC-4105</strong></td>
+                        <td>Dr. Priya Nair</td>
+                        <td>Edinburgh Teledermatology</td>
+                        <td>06 Nov 2026 • 10:30</td>
+                        <td><code>TLS1.3-ECDHE</code></td>
+                        <td>Pigmented Lesion AI Scan</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Upload Photos
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#VC-3988</strong></td>
+                        <td>Dr. Hannah Al-Mansoor</td>
+                        <td>Manchester Endocrinology</td>
+                        <td>19 Oct 2026 • 15:45</td>
+                        <td><code>TLS1.3-ECDHE</code></td>
+                        <td>HbA1c &amp; Thyroid Follow-up</td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Download Transcript</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT 3: WEARABLE RPM & ECG TELEMETRY -->
+          <div
+            class="tm-dash-section-pane"
+            id="patient-telemetry"
+            data-role-pane="patient"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-md-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">Optimal</span>
+                  </div>
+                  <div class="tm-kpi-value">72 BPM</div>
+                  <div class="tm-kpi-label">Resting Heart Rate</div>
+                  <p class="tm-kpi-sub">QTc Interval: 412 ms (Normal)</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-lungs"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">99% SpO2</span>
+                  </div>
+                  <div class="tm-kpi-value">15 / min</div>
+                  <div class="tm-kpi-label">Respiratory Rate</div>
+                  <p class="tm-kpi-sub">No nocturnal desaturation events</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-gauge"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">NICE Target</span>
+                  </div>
+                  <div class="tm-kpi-value">118 / 76</div>
+                  <div class="tm-kpi-label">Arterial Blood Pressure</div>
+                  <p class="tm-kpi-sub">Mean Arterial Pressure: 90 mmHg</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <span class="tm-kpi-trend info">Fasting</span>
+                  </div>
+                  <div class="tm-kpi-value">5.1 mmol/L</div>
+                  <div class="tm-kpi-label">Continuous Glucose (CGM)</div>
+                  <p class="tm-kpi-sub">Time-in-Range (70–180): 96%</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-satellite-dish"></i> 7-Day Wearable
+                  Telemetry Transmission Log
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-rotate"></i> Force Cloud Sync
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Timestamp (GMT)</th>
+                        <th>Medical Sensor</th>
+                        <th>Recorded Reading</th>
+                        <th>AI Triage Interpretation</th>
+                        <th>NEWS2 Score</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>03 Nov 2026 • 16:40</td>
+                        <td>Stackly BioPatch 12-Lead</td>
+                        <td><strong>72 BPM • Sinus Rhythm</strong></td>
+                        <td>Normal P-QRS-T morphology</td>
+                        <td>
+                          <span class="tm-status-badge success">Score 0</span>
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline">ECG PDF</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>03 Nov 2026 • 08:15</td>
+                        <td>Omron-Stackly BLE Cuff</td>
+                        <td><strong>118/76 mmHg • Pulse 70</strong></td>
+                        <td>Normotensive baseline maintained</td>
+                        <td>
+                          <span class="tm-status-badge success">Score 0</span>
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline">Trend Log</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>02 Nov 2026 • 22:00</td>
+                        <td>Nocturnal SpO2 Oximeter</td>
+                        <td><strong>99% SpO2 • Perf Index 4.8</strong></td>
+                        <td>Clear airway oxygen saturation</td>
+                        <td>
+                          <span class="tm-status-badge success">Score 0</span>
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline">Sleep Wave</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT 4: DIGITAL E-PRESCRIPTIONS -->
+          <div
+            class="tm-dash-section-pane"
+            id="patient-prescriptions"
+            data-role-pane="patient"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-barcode"></i>
+                      </div>
+                      <div>
+                        <h5>NHS EPS Barcode Token</h5>
+                        <span class="sub-meta">Instant UK Pharmacy Scan</span>
+                      </div>
+                    </div>
+                    <p>
+                      Present your encrypted EPS barcode at any of our 984 UK
+                      partner pharmacies for immediate dispensing without paper
+                      slips.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">Token Active</span>
+                    <button type="button" class="tm-btn-dash">
+                      Display Barcode
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                      </div>
+                      <div>
+                        <h5>2-Hour Harley St Courier</h5>
+                        <span class="sub-meta">Temperature-Monitored Van</span>
+                      </div>
+                    </div>
+                    <p>
+                      Same-day doorstep medication delivery across Greater
+                      London, Manchester, and Edinburgh with biometric signature
+                      verification.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge info">ETA: 19:10 GMT</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Live GPS Map
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                      </div>
+                      <div>
+                        <h5>Pharmacist Video Advice</h5>
+                        <span class="sub-meta">GPhC Clinical Support</span>
+                      </div>
+                    </div>
+                    <p>
+                      Speak directly with a Stackly E-Pharmacy Coordinator to
+                      review dosage timing, side-effect profiles, or repeat
+                      synchronization.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge success">On Duty 24/7</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Ask Pharmacist
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-dash-card mb-4">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-prescription-bottle-medical"></i> Active
+                  UK Electronic Prescription Service (EPS) Medications
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-repeat"></i> Request Repeat Script
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>EPS Barcode</th>
+                        <th>Medication &amp; Strength</th>
+                        <th>Dosage Regimen</th>
+                        <th>Prescribing Clinician</th>
+                        <th>Refills Left</th>
+                        <th>Dispensing Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>EPS-UK-90421</code></td>
+                        <td><strong>Atorvastatin 20mg Film Tablets</strong></td>
+                        <td>1 Tablet Nightly (28 Days)</td>
+                        <td>Dr. Alistair Vance</td>
+                        <td>3 of 6</td>
+                        <td>
+                          <span class="tm-status-badge active"
+                            >Dispatched by Courier</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Track Courier
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>EPS-UK-90422</code></td>
+                        <td><strong>Ramipril 5mg Capsules</strong></td>
+                        <td>1 Capsule Every Morning</td>
+                        <td>Dr. Alistair Vance</td>
+                        <td>3 of 6</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Ready at Pharmacy</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Barcode Pass
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>EPS-UK-88310</code></td>
+                        <td><strong>Azelaic Acid 15% Topical Gel</strong></td>
+                        <td>Apply Twice Daily</td>
+                        <td>Dr. Priya Nair</td>
+                        <td>1 of 2</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >Renewal Due in 5d</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Order Refill
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT 5: NHS LAB & DIAGNOSTIC REPORTS -->
+          <div
+            class="tm-dash-section-pane"
+            id="patient-records"
+            data-role-pane="patient"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-vial-circle-check"></i>
+                      </div>
+                      <div>
+                        <h5>UKAS Accredited Pathology</h5>
+                        <span class="sub-meta"
+                          >Venous &amp; Capillary Kits</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      All home finger-prick and phlebotomy samples are analyzed
+                      at our UKAS ISO 15189 reference laboratory in Marylebone.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge success">3 Reports Ready</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Download All
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-brain"></i>
+                      </div>
+                      <div>
+                        <h5>DICOM &amp; MRI Cloud Viewer</h5>
+                        <span class="sub-meta">High-Res Radiology Access</span>
+                      </div>
+                    </div>
+                    <p>
+                      Inspect 3T MRI, CT coronary angiograms, and AI dermoscopy
+                      serial comparisons directly inside your browser.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge info">4K DICOM Ready</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Open Imaging
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-share-from-square"></i>
+                      </div>
+                      <div>
+                        <h5>NHS GP Summary Sync</h5>
+                        <span class="sub-meta">SNOMED-CT Coded Export</span>
+                      </div>
+                    </div>
+                    <p>
+                      Automatically transmit your consultation discharge letters
+                      and blood biomarker trends to your registered NHS GP
+                      practice.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">Auto-Sync On</span>
+                    <button type="button" class="tm-btn-dash">
+                      Share with NHS GP
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-vials"></i> Pathology Biomarkers, Home
+                  Blood Kits &amp; Imaging Reports
+                </h3>
+                <a href="#" class="tm-btn-dash"
+                  ><i class="fa-solid fa-box-open"></i> Order Home Blood Kit</a
+                >
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Lab Accession</th>
+                        <th>Diagnostic Panel</th>
+                        <th>Sample Date</th>
+                        <th>Key Result</th>
+                        <th>NHS Reference Range</th>
+                        <th>Clinician Sign-Off</th>
+                        <th>Report</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#LAB-7721</strong></td>
+                        <td>Comprehensive Lipid &amp; ApoB Profile</td>
+                        <td>28 Oct 2026</td>
+                        <td>LDL-C: 2.1 mmol/L</td>
+                        <td>&lt; 3.0 mmol/L (Normal)</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Verified Normal</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Download PDF</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#LAB-7690</strong></td>
+                        <td>HbA1c &amp; Fasting Metabolic Panel</td>
+                        <td>20 Oct 2026</td>
+                        <td>36 mmol/mol (5.4%)</td>
+                        <td>20–41 mmol/mol</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Optimal Control</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Download PDF</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#IMG-4412</strong></td>
+                        <td>AI Dermoscopy Macro Lesion Analysis</td>
+                        <td>14 Oct 2026</td>
+                        <td>Benign Nevus (Risk 0.4%)</td>
+                        <td>Low Risk (&lt; 2.0%)</td>
+                        <td>
+                          <span class="tm-status-badge info"
+                            >Reviewed by Derm</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >View HD Scan</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT 6: CARE PLAN & SESSION PROFILE -->
+          <div
+            class="tm-dash-section-pane"
+            id="patient-billing"
+            data-role-pane="patient"
+          >
+            <div class="row g-4">
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-user-check"></i> Active Login
+                      Session &amp; Patient Credentials
+                    </h3>
+                    <span class="tm-status-badge active">Verified Session</span>
+                  </div>
+                  <div class="tm-dash-card-body">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <tbody>
+                          <tr>
+                            <td><strong>Portal Role</strong></td>
+                            <td class="js-bind-role">Patient / Care Member</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Account Holder</strong></td>
+                            <td class="js-bind-user">Portal Member</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Registered Email</strong></td>
+                            <td class="js-bind-email">
+                              member@stacklytelemed.co.uk
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Device Preference</strong></td>
+                            <td class="js-bind-remember">
+                              Trusted Clinical Device
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Session Reference</strong></td>
+                            <td class="js-bind-session">STK-UK-849201</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tm-dash-card-footer">
+                    <span class="text-muted small"
+                      >Protected by NHS Digital DSPT &amp; GDPR</span
+                    >
+                    <button type="button" class="tm-btn-dash outline">
+                      Update Profile
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-file-invoice-dollar"></i> Recent
+                      Telehealth Invoices &amp; Care Plan
+                    </h3>
+                    <button type="button" class="tm-btn-dash">
+                      Manage Plan
+                    </button>
+                  </div>
+                  <div class="tm-dash-card-body p-0">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <thead>
+                          <tr>
+                            <th>Invoice</th>
+                            <th>Service Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Receipt</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><strong>#INV-9921</strong></td>
+                            <td>UK Premier 4K Care Plan (Monthly)</td>
+                            <td>£49.00</td>
+                            <td>
+                              <span class="tm-status-badge success">Paid</span>
+                            </td>
+                            <td>
+                              <a href="#" class="tm-btn-dash outline">PDF</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>#INV-9840</strong></td>
+                            <td>12-Lead Cardiac Telemetry Kit Deposit</td>
+                            <td>£0.00 (Covered)</td>
+                            <td>
+                              <span class="tm-status-badge info"
+                                >NHS / Insurer</span
+                              >
+                            </td>
+                            <td>
+                              <a href="#" class="tm-btn-dash outline">PDF</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tm-dash-card-footer">
+                    <span class="text-muted small"
+                      >Bupa, AXA Health &amp; NHS Shared Care Linked</span
+                    >
+                    <a href="#" class="tm-btn-dash outline">Billing Support</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================================================================
+               ROLE 2: GMC TELE-DOCTOR / SPECIALIST — 6 DEDICATED SIDEBAR VIEWS
+               ================================================================= -->
+
+          <!-- DOCTOR 1: CLINICAL COMMAND & TRIAGE QUEUE -->
+          <div
+            class="tm-dash-section-pane"
+            id="doctor-overview"
+            data-role-pane="doctor"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-user-injured"></i>
+                    </div>
+                    <span class="tm-kpi-trend info">2 Urgent</span>
+                  </div>
+                  <div class="tm-kpi-value">14</div>
+                  <div class="tm-kpi-label">Patients in 4K Waiting Queue</div>
+                  <p class="tm-kpi-sub">Avg wait time: 4m 18s (SLA Target)</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-wave-square"></i>
+                    </div>
+                    <span class="tm-kpi-trend warn">2 Escalated</span>
+                  </div>
+                  <div class="tm-kpi-value">68</div>
+                  <div class="tm-kpi-label">Active RPM Telemetry Streams</div>
+                  <p class="tm-kpi-sub">12-Lead Holter &amp; SpO2 cohorts</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">100% EPS</span>
+                  </div>
+                  <div class="tm-kpi-value">31</div>
+                  <div class="tm-kpi-label">E-Prescriptions Signed Today</div>
+                  <p class="tm-kpi-sub">Zero BNF interaction flags pending</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-award"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">CQC Outstanding</span>
+                  </div>
+                  <div class="tm-kpi-value">4.98 / 5</div>
+                  <div class="tm-kpi-label">GMC Clinical Feedback Score</div>
+                  <p class="tm-kpi-sub">Based on 410 verified UK consults</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Specialist Waiting Queue Table -->
+            <div class="tm-dash-card mb-4">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-stethoscope"></i> Live 4K Virtual Clinic
+                  Patient Queue (Harley Street Pod #04)
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-headset"></i> Call Next Patient
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>NHS Number</th>
+                        <th>Patient Name &amp; Age</th>
+                        <th>Presenting Complaint</th>
+                        <th>Live Vitals (RPM)</th>
+                        <th>NEWS2 Acuity</th>
+                        <th>Triage Nurse</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>485 772 9104</code></td>
+                        <td><strong>Arthur Pendelton (64M)</strong></td>
+                        <td>Palpitations &amp; exertional dyspnea</td>
+                        <td>HR 108 bpm • BP 146/92 • SpO2 95%</td>
+                        <td>
+                          <span class="tm-status-badge danger"
+                            >NEWS2: 4 (Priority)</span
+                          >
+                        </td>
+                        <td>Sr. Clara Hughes</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Launch 4K Consult
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>619 304 8821</code></td>
+                        <td><strong>Eleanor Vance-Smith (42F)</strong></td>
+                        <td>Post-ablation 12-lead telemetry review</td>
+                        <td>HR 68 bpm • BP 118/74 • SpO2 99%</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >NEWS2: 0 (Stable)</span
+                          >
+                        </td>
+                        <td>RN Liam O'Connor</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Open EHR &amp; Call
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>730 118 4490</code></td>
+                        <td><strong>Tariq Mahmood (51M)</strong></td>
+                        <td>Resistant hypertension titration</td>
+                        <td>HR 76 bpm • BP 154/96 • SpO2 98%</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >NEWS2: 2 (Monitor)</span
+                          >
+                        </td>
+                        <td>Sr. Clara Hughes</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Review BP Log
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Equal-Height Clinical Action Cards -->
+            <div class="row g-4">
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-heart-circle-exclamation"></i>
+                      </div>
+                      <div>
+                        <h5>AFib Telemetry Escalation</h5>
+                        <span class="sub-meta"
+                          >Patient: Arthur Pendelton (64M)</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      AI arrhythmia detector flagged a 42-second paroxysmal
+                      atrial fibrillation run at 16:12 GMT on BioPatch channel
+                      V2–V5.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge danger">Urgent Review</span>
+                    <button type="button" class="tm-btn-dash">
+                      Inspect Strip
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-vial-virus"></i>
+                      </div>
+                      <div>
+                        <h5>Troponin &amp; BNP Lab Alerts</h5>
+                        <span class="sub-meta">7 Pathology Results Ready</span>
+                      </div>
+                    </div>
+                    <p>
+                      High-sensitivity Troponin-I and NT-proBNP venous samples
+                      from London &amp; Manchester courier hubs awaiting your
+                      digital sign-off.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge info">7 Pending</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Sign Off Labs
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-file-prescription"></i>
+                      </div>
+                      <div>
+                        <h5>EPS Repeat Script Batch</h5>
+                        <span class="sub-meta">5 Chronic Care Renewals</span>
+                      </div>
+                    </div>
+                    <p>
+                      Pharmacist-screened repeat prescriptions for DOAC
+                      anticoagulation and beta-blocker maintenance ready for GMC
+                      smartcard signature.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge success">BNF Cleared</span>
+                    <button type="button" class="tm-btn-dash">
+                      Batch Sign (5)
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCTOR 2: 4K TELE-CONSULTATION STUDIO -->
+          <div
+            class="tm-dash-section-pane"
+            id="doctor-consultations"
+            data-role-pane="doctor"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-video"></i>
+                      </div>
+                      <div>
+                        <h5>WebRTC 4K Studio Pod #04</h5>
+                        <span class="sub-meta"
+                          >Bitrate: 18.4 Mbps Lossless</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      Multi-stream clinical workspace with picture-in-picture
+                      12-lead ECG telemetry overlay and high-magnification
+                      dermoscopy capture.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">Studio Online</span>
+                    <button type="button" class="tm-btn-dash">
+                      Open Tele-Pod
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                      </div>
+                      <div>
+                        <h5>Ambient AI Clinical Scribe</h5>
+                        <span class="sub-meta"
+                          >SNOMED-CT &amp; ICD-11 Auto-Code</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      Automatically structures consultation transcripts into
+                      GMC-compliant SOAP notes, referral letters, and patient
+                      aftercare summaries.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge info">99.6% Accuracy</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Review Drafts
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-stethoscope"></i>
+                      </div>
+                      <div>
+                        <h5>Remote Auscultation Bridge</h5>
+                        <span class="sub-meta"
+                          >20Hz–2000Hz Acoustic Filter</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      Real-time bell and diaphragm frequency filtering for
+                      detecting systolic murmurs, S3 gallops, and basal
+                      crepitations remotely.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge success">Paired</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Calibrate Audio
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-laptop-medical"></i> Today's 4K
+                  Specialist Consultation Schedule &amp; SOAP Documentation
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-microphone"></i> Launch AI Medical
+                  Scribe
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Slot (GMT)</th>
+                        <th>Patient &amp; NHS ID</th>
+                        <th>Consult Modality</th>
+                        <th>ICD-11 / SNOMED Code</th>
+                        <th>SOAP Note Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>17:30 – 17:50</td>
+                        <td>
+                          <strong>Arthur Pendelton</strong> (485 772 9104)
+                        </td>
+                        <td>4K Video + Live 12-Lead ECG</td>
+                        <td><code>BA81.2 Paroxysmal AF</code></td>
+                        <td>
+                          <span class="tm-status-badge active"
+                            >In Waiting Pod</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Start Session
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>18:00 – 18:20</td>
+                        <td>
+                          <strong>Eleanor Vance-Smith</strong> (619 304 8821)
+                        </td>
+                        <td>4K Video + Holter Cloud</td>
+                        <td><code>BC65 Post-Ablation</code></td>
+                        <td>
+                          <span class="tm-status-badge info"
+                            >Pre-Triage Complete</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Preview Chart
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>16:30 – 16:50</td>
+                        <td>
+                          <strong>David Kensington</strong> (309 881 2204)
+                        </td>
+                        <td>4K Video + Digital Stethoscope</td>
+                        <td><code>BA00 Essential HTN</code></td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Signed &amp; Coded</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline">Edit SOAP</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCTOR 3: REMOTE PATIENT TELEMETRY (RPM) -->
+          <div
+            class="tm-dash-section-pane"
+            id="doctor-rpm"
+            data-role-pane="doctor"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-wave-square"></i> Continuous Cardiac
+                  &amp; Pulmonary Remote Patient Monitoring (RPM) Cohort
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-sliders"></i> Configure Alert Thresholds
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Patient Name</th>
+                        <th>Wearable Device ID</th>
+                        <th>Live ECG / Rhythm</th>
+                        <th>BP &amp; SpO2</th>
+                        <th>AI Risk Stratification</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Arthur Pendelton (64M)</strong></td>
+                        <td><code>BPATCH-UK-901</code></td>
+                        <td>108 BPM • Irregularly Irregular</td>
+                        <td>146/92 mmHg • 95%</td>
+                        <td>
+                          <span class="tm-status-badge danger"
+                            >High Alert (AFib)</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Open Live Waveform
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Margaret Holloway (71F)</strong></td>
+                        <td><code>BPATCH-UK-844</code></td>
+                        <td>64 BPM • First-Degree AV Block</td>
+                        <td>126/78 mmHg • 97%</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >PR Interval 228ms</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Compare Baseline
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Callum MacLeod (55M)</strong></td>
+                        <td><code>SPIRO-UK-312</code></td>
+                        <td>74 BPM • Normal Sinus</td>
+                        <td>122/80 mmHg • 99%</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >FEV1 Stable (94%)</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            View Spirometry
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCTOR 4: EPS E-PRESCRIBING & FORMULARY -->
+          <div
+            class="tm-dash-section-pane"
+            id="doctor-eprescribe"
+            data-role-pane="doctor"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-file-prescription"></i> NHS Electronic
+                  Prescription Service (EPS) &amp; BNF Interaction Queue
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-plus"></i> Issue New EPS Script
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Script Token</th>
+                        <th>Patient</th>
+                        <th>Medication (BNF Approved)</th>
+                        <th>eGFR / Renal Check</th>
+                        <th>Nominated UK Pharmacy</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>EPS-99812</code></td>
+                        <td>Arthur Pendelton</td>
+                        <td><strong>Apixaban 5mg Tablets (BD)</strong></td>
+                        <td>eGFR 78 mL/min (Safe)</td>
+                        <td>Boots 221B Harley St</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >Awaiting GMC Sign</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Sign with Smartcard
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>EPS-99809</code></td>
+                        <td>Tariq Mahmood</td>
+                        <td><strong>Indapamide 1.5mg MR</strong></td>
+                        <td>eGFR 84 mL/min (Safe)</td>
+                        <td>Lloyds Manchester Hub</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Dispatched</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline">Audit Log</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCTOR 5: MDT REFERRALS & PATHOLOGY SIGN-OFF -->
+          <div
+            class="tm-dash-section-pane"
+            id="doctor-referrals"
+            data-role-pane="doctor"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-vial-circle-check"></i>
+                  Multidisciplinary Team (MDT) Referrals &amp; Pathology
+                  Sign-Off
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-share-nodes"></i> New Fast-Track
+                  Referral
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Referral ID</th>
+                        <th>Patient</th>
+                        <th>Receiving Specialty / Lab</th>
+                        <th>Clinical Priority</th>
+                        <th>Diagnostic Attachment</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#MDT-501</strong></td>
+                        <td>Arthur Pendelton</td>
+                        <td>Electrophysiology Cath Lab (London)</td>
+                        <td>
+                          <span class="tm-status-badge danger"
+                            >Urgent (48h)</span
+                          >
+                        </td>
+                        <td>12-Lead Holter + Echo</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Approve Transfer
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#MDT-498</strong></td>
+                        <td>Margaret Holloway</td>
+                        <td>Pacemaker Clinic (Edinburgh Hub)</td>
+                        <td>
+                          <span class="tm-status-badge info"
+                            >Routine (2 Weeks)</span
+                          >
+                        </td>
+                        <td>7-Day BioPatch Report</td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >View Dossier</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCTOR 6: GMC ROTA & CLINICIAN PROFILE -->
+          <div
+            class="tm-dash-section-pane"
+            id="doctor-governance"
+            data-role-pane="doctor"
+          >
+            <div class="row g-4">
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-user-doctor"></i> Verified GMC
+                      Clinician Login Credentials
+                    </h3>
+                    <span class="tm-status-badge active"
+                      >GMC Licence Active</span
+                    >
+                  </div>
+                  <div class="tm-dash-card-body">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <tbody>
+                          <tr>
+                            <td><strong>Clinical Portal Role</strong></td>
+                            <td class="js-bind-role">
+                              GMC Tele-Doctor / Specialist
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Clinician Name</strong></td>
+                            <td class="js-bind-user">Dr. Clinician</td>
+                          </tr>
+                          <tr>
+                            <td><strong>NHS / Clinical Email</strong></td>
+                            <td class="js-bind-email">
+                              doctor@stacklytelemed.co.uk
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Workstation Security</strong></td>
+                            <td class="js-bind-remember">
+                              Trusted Clinical Device
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Session Token</strong></td>
+                            <td class="js-bind-session">STK-UK-849201</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-calendar-week"></i> Weekly UK
+                      Virtual Tele-Clinic Shift Rota
+                    </h3>
+                    <button type="button" class="tm-btn-dash outline">
+                      Swap Shift
+                    </button>
+                  </div>
+                  <div class="tm-dash-card-body p-0">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <thead>
+                          <tr>
+                            <th>Day</th>
+                            <th>Virtual Pod</th>
+                            <th>Shift Hours (GMT)</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Tuesday (Today)</td>
+                            <td>Harley St 4K Pod #04</td>
+                            <td>14:00 – 22:00</td>
+                            <td>
+                              <span class="tm-status-badge active"
+                                >On Duty</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Thursday</td>
+                            <td>UK National RPM Command</td>
+                            <td>08:00 – 16:00</td>
+                            <td>
+                              <span class="tm-status-badge info"
+                                >Scheduled</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Saturday</td>
+                            <td>Weekend On-Call Cardiology</td>
+                            <td>09:00 – 17:00</td>
+                            <td>
+                              <span class="tm-status-badge info"
+                                >Scheduled</span
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================================================================
+               ROLE 3: CLINICAL TRIAGE NURSE — 6 DEDICATED SIDEBAR VIEWS
+               ================================================================= -->
+
+          <!-- NURSE 1: LIVE TRIAGE COMMAND DESK -->
+          <div
+            class="tm-dash-section-pane"
+            id="nurse-overview"
+            data-role-pane="nurse"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <span class="tm-kpi-trend info">Live Intake</span>
+                  </div>
+                  <div class="tm-kpi-value">19</div>
+                  <div class="tm-kpi-label">Incoming Triage Requests</div>
+                  <p class="tm-kpi-sub">3 pediatric • 5 cardiac • 11 GP</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">&lt; 8m Target</span>
+                  </div>
+                  <div class="tm-kpi-value">05m 42s</div>
+                  <div class="tm-kpi-label">Mean Triage Response Time</div>
+                  <p class="tm-kpi-sub">99.2% within NHS 111 / CQC SLA</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-bell-concierge"></i>
+                    </div>
+                    <span class="tm-kpi-trend warn">Immediate</span>
+                  </div>
+                  <div class="tm-kpi-value">04</div>
+                  <div class="tm-kpi-label">NEWS2 Red-Flag Escalations</div>
+                  <p class="tm-kpi-sub">Assigned to GMC On-Call Consultants</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-kit-medical"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">Same-Day</span>
+                  </div>
+                  <div class="tm-kpi-value">26</div>
+                  <div class="tm-kpi-label">Home Diagnostic Kits Sent</div>
+                  <p class="tm-kpi-sub">BioPatch &amp; SpO2 couriers active</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-dash-card mb-4">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-user-nurse"></i> 24/7 UK Patient Intake
+                  &amp; NEWS2 Acuity Triage Board
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-phone-volume"></i> Accept Next Triage
+                  Call
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Triage ID</th>
+                        <th>Patient &amp; Location</th>
+                        <th>Chief Symptom</th>
+                        <th>Uploaded Vitals</th>
+                        <th>NEWS2 Score</th>
+                        <th>Routed Pathway</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#TRG-1092</strong></td>
+                        <td>Leo Finnegan (7M • Manchester)</td>
+                        <td>Acute wheeze &amp; nocturnal cough</td>
+                        <td>SpO2 93% • Temp 38.4°C • HR 128</td>
+                        <td>
+                          <span class="tm-status-badge danger"
+                            >PEWS: 5 (Urgent)</span
+                          >
+                        </td>
+                        <td>Virtual Pediatrics Pod #1</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Escalate to Consultant
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#TRG-1095</strong></td>
+                        <td>Sophie Campbell (34F • Edinburgh)</td>
+                        <td>Unilateral migraine with visual aura</td>
+                        <td>BP 124/82 • HR 78 • GCS 15/15</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >NEWS2: 2 (Moderate)</span
+                          >
+                        </td>
+                        <td>Tele-Neurology Triage</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Complete Neuro Check
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#TRG-1098</strong></td>
+                        <td>George Whitaker (58M • London)</td>
+                        <td>Erythematous forearm rash (48h)</td>
+                        <td>Temp 36.9°C • HR 70 • BP 128/80</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >NEWS2: 0 (Routine)</span
+                          >
+                        </td>
+                        <td>HD Teledermatology</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Verify Macro Photos
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Equal-Height Triage Nurse Cards -->
+            <div class="row g-4">
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-bell-concierge"></i>
+                      </div>
+                      <div>
+                        <h5>Pediatric Wheeze Pathway</h5>
+                        <span class="sub-meta">PEWS Score 5 Escalation</span>
+                      </div>
+                    </div>
+                    <p>
+                      Immediate bronchodilator spacer protocol initiated via
+                      video link while connecting on-call Consultant
+                      Pediatrician.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge danger">Priority 1</span>
+                    <button type="button" class="tm-btn-dash">
+                      Open Protocol
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-bluetooth-b"></i>
+                      </div>
+                      <div>
+                        <h5>Patient Wearable Onboarding</h5>
+                        <span class="sub-meta">14 Kits Paired Today</span>
+                      </div>
+                    </div>
+                    <p>
+                      Guided Bluetooth telemetry pairing for elderly and
+                      post-operative cardiac patients receiving home BioPatch
+                      kits.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">100% Connected</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Pairing Queue
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                      </div>
+                      <div>
+                        <h5>NHS 111 Warm Transfer Bridge</h5>
+                        <span class="sub-meta">Direct Clinical Handover</span>
+                      </div>
+                    </div>
+                    <p>
+                      Seamless electronic SBAR intake from regional NHS 111
+                      advisors for rapid virtual urgent care diversion.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge info">Bridge Active</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      View Transfers
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NURSE 2: NEWS2 ACUITY & PRE-CONSULT TRIAGE -->
+          <div
+            class="tm-dash-section-pane"
+            id="nurse-assessments"
+            data-role-pane="nurse"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-clipboard-check"></i> AI-Assisted
+                  Symptom Triage &amp; Pre-Consultation Vitals Verification
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  New NEWS2 Assessment
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Assessment ID</th>
+                        <th>Patient</th>
+                        <th>Allergy Verification</th>
+                        <th>BLE Sensor Pairing</th>
+                        <th>Assigned Specialist</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#PRE-4401</strong></td>
+                        <td>Arthur Pendelton</td>
+                        <td>Penicillin (Anaphylaxis) Flagged</td>
+                        <td>12-Lead BioPatch Verified</td>
+                        <td>Dr. Alistair Vance</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Mark Ready for Doctor
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#PRE-4404</strong></td>
+                        <td>Sophie Campbell</td>
+                        <td>NKDA (Confirmed Today)</td>
+                        <td>Webcam Pupil Check Ready</td>
+                        <td>Dr. Marcus Sterling</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Open Checklist
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NURSE 3: RPM VITALS & THRESHOLD WATCH -->
+          <div
+            class="tm-dash-section-pane"
+            id="nurse-telemetry"
+            data-role-pane="nurse"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-heart-circle-bolt"></i> Live Home
+                  Monitoring Threshold Breaches &amp; Welfare Check Calls
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Acknowledge All Alerts
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Alert Time</th>
+                        <th>Patient</th>
+                        <th>Triggered Parameter</th>
+                        <th>Threshold Rule</th>
+                        <th>Welfare Call Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>17:10 GMT</td>
+                        <td><strong>Evelyn Barnes (69F)</strong></td>
+                        <td>SpO2 dropped to 91%</td>
+                        <td>COPD Target: 88–92%</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >Call In Progress</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Connect Audio Pod
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>16:45 GMT</td>
+                        <td><strong>Tariq Mahmood (51M)</strong></td>
+                        <td>Systolic BP 154 mmHg</td>
+                        <td>Alert &gt; 150 mmHg</td>
+                        <td>
+                          <span class="tm-status-badge info"
+                            >Rest &amp; Retest Sent</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Request Retest
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NURSE 4: HOME DIAGNOSTIC KIT DISPATCH -->
+          <div
+            class="tm-dash-section-pane"
+            id="nurse-kits"
+            data-role-pane="nurse"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-kit-medical"></i> Remote Telemetry Kit
+                  &amp; Home Pathology Pack Dispatch Log
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Dispatch New Kit
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Kit Serial</th>
+                        <th>Diagnostic Hardware</th>
+                        <th>Recipient Patient</th>
+                        <th>UK Regional Hub</th>
+                        <th>Courier Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>KIT-BIO-771</code></td>
+                        <td>12-Lead ECG BioPatch + SpO2 Ring</td>
+                        <td>Henry Thornton (Bristol)</td>
+                        <td>London Marylebone Hub</td>
+                        <td>
+                          <span class="tm-status-badge active"
+                            >Out for Delivery</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline">Track GPS</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>KIT-SPI-409</code></td>
+                        <td>Bluetooth Ultrasonic Spirometer</td>
+                        <td>Leo Finnegan (Manchester)</td>
+                        <td>Manchester Northern Hub</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Delivered &amp; Paired</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Pairing Log</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NURSE 5: POST-DISCHARGE RECOVERY FOLLOW-UPS -->
+          <div
+            class="tm-dash-section-pane"
+            id="nurse-careplans"
+            data-role-pane="nurse"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-hand-holding-medical"></i> 48-Hour
+                  Post-Consultation Recovery &amp; Chronic Care Check-Ins
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Send Check-In Survey
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Care Plan ID</th>
+                        <th>Patient</th>
+                        <th>Pathway</th>
+                        <th>Adherence Rate</th>
+                        <th>Next Nurse Call</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#CP-302</strong></td>
+                        <td>Eleanor Vance-Smith</td>
+                        <td>Post-Ablation Sinus Rhythm Care</td>
+                        <td>98% Wearable Compliance</td>
+                        <td>04 Nov 2026 • 10:00</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Update Care Plan
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#CP-318</strong></td>
+                        <td>Callum MacLeod</td>
+                        <td>Severe Asthma Biologic Monitoring</td>
+                        <td>94% Peak Flow Logged</td>
+                        <td>05 Nov 2026 • 14:30</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Review Diary
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NURSE 6: SBAR SHIFT HANDOVER & PROFILE -->
+          <div
+            class="tm-dash-section-pane"
+            id="nurse-handover"
+            data-role-pane="nurse"
+          >
+            <div class="row g-4">
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-user-nurse"></i> Verified NMC Triage
+                      Nurse Login Session
+                    </h3>
+                    <span class="tm-status-badge active">NMC Pin Verified</span>
+                  </div>
+                  <div class="tm-dash-card-body">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <tbody>
+                          <tr>
+                            <td><strong>Portal Role</strong></td>
+                            <td class="js-bind-role">Clinical Triage Nurse</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Nurse Practitioner</strong></td>
+                            <td class="js-bind-user">Triage Nurse</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Clinical Email</strong></td>
+                            <td class="js-bind-email">
+                              nurse@stacklytelemed.co.uk
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Device Trust</strong></td>
+                            <td class="js-bind-remember">
+                              Trusted Clinical Device
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Session ID</strong></td>
+                            <td class="js-bind-session">STK-UK-849201</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-notes-medical"></i> SBAR Clinical
+                      Shift Handover Log
+                    </h3>
+                    <button type="button" class="tm-btn-dash">
+                      Sign SBAR Handover
+                    </button>
+                  </div>
+                  <div class="tm-dash-card-body p-0">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <thead>
+                          <tr>
+                            <th>Shift</th>
+                            <th>Lead Triage Nurse</th>
+                            <th>High-Acuity Cases</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Day Shift (08:00–20:00)</td>
+                            <td>Sr. Clara Hughes (RN)</td>
+                            <td>4 Escalated • 0 Breaches</td>
+                            <td>
+                              <span class="tm-status-badge active"
+                                >Active Shift</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Night Shift (20:00–08:00)</td>
+                            <td>RN Marcus Osei</td>
+                            <td>Incoming Handover</td>
+                            <td>
+                              <span class="tm-status-badge info"
+                                >Starts 20:00</span
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================================================================
+               ROLE 4: E-PHARMACY COORDINATOR — 6 DEDICATED SIDEBAR VIEWS
+               ================================================================= -->
+
+          <!-- PHARMACIST 1: E-PHARMACY DISPATCH HUB -->
+          <div
+            class="tm-dash-section-pane"
+            id="pharmacist-overview"
+            data-role-pane="pharmacist"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-barcode"></i>
+                    </div>
+                    <span class="tm-kpi-trend info">EPS Spine</span>
+                  </div>
+                  <div class="tm-kpi-value">28</div>
+                  <div class="tm-kpi-label">Pending Barcode E-Scripts</div>
+                  <p class="tm-kpi-sub">6 priority • 22 routine repeats</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">98.7% On-Time</span>
+                  </div>
+                  <div class="tm-kpi-value">114</div>
+                  <div class="tm-kpi-label">Same-Day Courier Dispatches</div>
+                  <p class="tm-kpi-sub">London, Manchester &amp; Edinburgh</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">BNF Screened</span>
+                  </div>
+                  <div class="tm-kpi-value">100%</div>
+                  <div class="tm-kpi-label">Clinical Interaction Accuracy</div>
+                  <p class="tm-kpi-sub">3 renal dose adjustments today</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-store"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">UK Network</span>
+                  </div>
+                  <div class="tm-kpi-value">984</div>
+                  <div class="tm-kpi-label">Connected Partner Pharmacies</div>
+                  <p class="tm-kpi-sub">Real-time NHS EPS token sync</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-dash-card mb-4">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-mortar-pestle"></i> Live UK Electronic
+                  Prescription Service (EPS) Dispensing Queue
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-qrcode"></i> Scan EPS Token
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>EPS Barcode</th>
+                        <th>Patient Name</th>
+                        <th>Prescribed Item &amp; Qty</th>
+                        <th>Prescriber (GMC)</th>
+                        <th>Fulfillment Route</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>EPS-UK-90421</code></td>
+                        <td>Arthur Pendelton</td>
+                        <td><strong>Apixaban 5mg Tabs (x56)</strong></td>
+                        <td>Dr. Alistair Vance</td>
+                        <td>2-Hr Harley St Medical Courier</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >Clinical Check</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Verify &amp; Release
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>EPS-UK-90418</code></td>
+                        <td>Callum MacLeod</td>
+                        <td><strong>Dupilumab 300mg Pen (x2)</strong></td>
+                        <td>Dr. Eleanor Beckett</td>
+                        <td>Cold-Chain Biologics Van (2–8°C)</td>
+                        <td>
+                          <span class="tm-status-badge active"
+                            >Cold-Pack Sealed</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Print Label
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>EPS-UK-90412</code></td>
+                        <td>Sophie Campbell</td>
+                        <td><strong>Rimegepant 75mg ODT (x8)</strong></td>
+                        <td>Dr. Marcus Sterling</td>
+                        <td>Boots Edinburgh Princes St</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Dispatched</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline">Track</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Equal-Height Pharmacist Action Cards -->
+            <div class="row g-4">
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-snowflake"></i>
+                      </div>
+                      <div>
+                        <h5>Cold-Chain Biologics Telemetry</h5>
+                        <span class="sub-meta">2°C – 8°C Continuous IoT</span>
+                      </div>
+                    </div>
+                    <p>
+                      Live thermal probe tracking inside all refrigerated
+                      medical courier vans carrying monoclonal antibodies and
+                      GLP-1 pens.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge success">4.2°C Verified</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Thermal Log
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                      </div>
+                      <div>
+                        <h5>CYP3A4 &amp; Renal Screening</h5>
+                        <span class="sub-meta">Automated eGFR Cross-Check</span>
+                      </div>
+                    </div>
+                    <p>
+                      Real-time integration with UKAS pathology eGFR values to
+                      flag DOAC and antimicrobial renal dosage adjustments.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge warning">1 Hold Active</span>
+                    <button type="button" class="tm-btn-dash">
+                      Review Flag
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-file-medical"></i>
+                      </div>
+                      <div>
+                        <h5>GPhC Responsible Pharmacist</h5>
+                        <span class="sub-meta"
+                          >RP Notice &amp; CD Reconciled</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      Daily electronic Schedule 2 &amp; 3 Controlled Drug stock
+                      balances verified and signed in accordance with GPhC
+                      standards.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">100% Compliant</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      View Register
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHARMACIST 2: BNF CLINICAL SCRIPT VERIFICATION -->
+          <div
+            class="tm-dash-section-pane"
+            id="pharmacist-verification"
+            data-role-pane="pharmacist"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-prescription"></i> BNF Contraindication,
+                  Allergy &amp; Renal Dose Screening Queue
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Run Batch BNF Check
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Script ID</th>
+                        <th>Patient</th>
+                        <th>Flagged Regimen</th>
+                        <th>Clinical Alert</th>
+                        <th>Pharmacist Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#BNF-812</strong></td>
+                        <td>Margaret Holloway (71F)</td>
+                        <td>Clarithromycin 500mg + Atorvastatin</td>
+                        <td>
+                          <span class="tm-status-badge danger"
+                            >CYP3A4 Interaction</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Hold Statin &amp; Message Doctor
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#BNF-815</strong></td>
+                        <td>Arthur Pendelton (64M)</td>
+                        <td>Apixaban 5mg BD Initiation</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >CrCl 81 mL/min Cleared</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Approve Script
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHARMACIST 3: UK COURIER & COLD-CHAIN TELEMETRY -->
+          <div
+            class="tm-dash-section-pane"
+            id="pharmacist-logistics"
+            data-role-pane="pharmacist"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-truck-medical"></i> UK Express Medical
+                  Courier &amp; Cold-Chain Biologics Telemetry
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Book Priority Courier
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Consignment</th>
+                        <th>Medication</th>
+                        <th>Destination Postcode</th>
+                        <th>Container Temp</th>
+                        <th>ETA</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>CR-LON-441</code></td>
+                        <td>Dupilumab 300mg Biologic</td>
+                        <td>M1 4BT (Manchester)</td>
+                        <td><strong>4.2°C (Optimal)</strong></td>
+                        <td>18:40 GMT</td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Temp Sensor Log</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>CR-LON-448</code></td>
+                        <td>Apixaban 5mg Starter Pack</td>
+                        <td>W1G 9QT (London)</td>
+                        <td><strong>19.5°C (Ambient)</strong></td>
+                        <td>18:05 GMT</td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline">Live Map</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHARMACIST 4: NATIONAL FORMULARY & STOCK INVENTORY -->
+          <div
+            class="tm-dash-section-pane"
+            id="pharmacist-inventory"
+            data-role-pane="pharmacist"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-boxes-stacked"></i> Central UK
+                  Dispensary Stock &amp; Automated Wholesaler Reordering
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Order AAH / Alliance Stock
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>BNF Code</th>
+                        <th>Pharmaceutical Item</th>
+                        <th>London Hub Qty</th>
+                        <th>Batch &amp; Expiry</th>
+                        <th>Stock Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>0208020Z0</code></td>
+                        <td>Apixaban 5mg Film-Coated Tabs</td>
+                        <td>420 Packs</td>
+                        <td>Batch #AX92 • Exp 08/2028</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >High Stock</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Audit Batch
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>0601023AW</code></td>
+                        <td>Semaglutide 1mg Pre-Filled Pen</td>
+                        <td>18 Pens</td>
+                        <td>Batch #SM14 • Exp 03/2027</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >Reorder Triggered</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Expedite Restock
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHARMACIST 5: VIRTUAL MEDICATION REVIEWS (NMS) -->
+          <div
+            class="tm-dash-section-pane"
+            id="pharmacist-counseling"
+            data-role-pane="pharmacist"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-comments-medical"></i> NHS New Medicine
+                  Service (NMS) Video Counseling Schedule
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Start Video Counseling
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Appointment</th>
+                        <th>Patient</th>
+                        <th>New Therapy</th>
+                        <th>Counseling Focus</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Today • 18:30</td>
+                        <td>Arthur Pendelton</td>
+                        <td>Apixaban 5mg (DOAC)</td>
+                        <td>Bleeding precautions &amp; adherence card</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Join Video Room
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Tomorrow • 11:00</td>
+                        <td>Leo Finnegan (Parent)</td>
+                        <td>Symbicort Turbohaler</td>
+                        <td>Spacer &amp; inhaler technique check</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Send Video Guide
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHARMACIST 6: GPHC CONTROLLED DRUG AUDIT & PROFILE -->
+          <div
+            class="tm-dash-section-pane"
+            id="pharmacist-compliance"
+            data-role-pane="pharmacist"
+          >
+            <div class="row g-4">
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-user-check"></i> Verified GPhC
+                      Pharmacist Session Credentials
+                    </h3>
+                    <span class="tm-status-badge active">RP Signed In</span>
+                  </div>
+                  <div class="tm-dash-card-body">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <tbody>
+                          <tr>
+                            <td><strong>Portal Role</strong></td>
+                            <td class="js-bind-role">E-Pharmacy Coordinator</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Responsible Pharmacist</strong></td>
+                            <td class="js-bind-user">Lead Pharmacist</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Dispensary Email</strong></td>
+                            <td class="js-bind-email">
+                              pharmacist@stacklytelemed.co.uk
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Terminal Status</strong></td>
+                            <td class="js-bind-remember">
+                              Trusted Clinical Device
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Session Token</strong></td>
+                            <td class="js-bind-session">STK-UK-849201</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-file-shield"></i> GPhC Electronic
+                      Controlled Drug (CD) Register
+                    </h3>
+                    <button type="button" class="tm-btn-dash outline">
+                      Export GPhC Log
+                    </button>
+                  </div>
+                  <div class="tm-dash-card-body p-0">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <thead>
+                          <tr>
+                            <th>Schedule</th>
+                            <th>Controlled Item</th>
+                            <th>Running Balance</th>
+                            <th>Audit Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Schedule 2</td>
+                            <td>Methylphenidate 36mg XL</td>
+                            <td>140 Tablets (Verified)</td>
+                            <td>
+                              <span class="tm-status-badge success"
+                                >Reconciled</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Schedule 3</td>
+                            <td>Pregabalin 75mg Capsules</td>
+                            <td>336 Capsules (Verified)</td>
+                            <td>
+                              <span class="tm-status-badge success"
+                                >Reconciled</span
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================================================================
+               ROLE 5: CLINICAL ADMINISTRATOR — 6 DEDICATED SIDEBAR VIEWS
+               ================================================================= -->
+
+          <!-- ADMIN 1: UK NETWORK OPERATIONS CENTER -->
+          <div
+            class="tm-dash-section-pane"
+            id="admin-overview"
+            data-role-pane="admin"
+          >
+            <div class="row g-4 mb-4">
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-satellite-dish"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">Zero Packet Loss</span>
+                  </div>
+                  <div class="tm-kpi-value">84</div>
+                  <div class="tm-kpi-label">Concurrent 4K Consult Streams</div>
+                  <p class="tm-kpi-sub">
+                    Across London, Manchester &amp; Edinburgh
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">100% DBS/GMC</span>
+                  </div>
+                  <div class="tm-kpi-value">142</div>
+                  <div class="tm-kpi-label">Active Credentialed Clinicians</div>
+                  <p class="tm-kpi-sub">
+                    94 Consultants • 32 Nurses • 16 Pharm
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-server"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">ISO 27001</span>
+                  </div>
+                  <div class="tm-kpi-value">99.98%</div>
+                  <div class="tm-kpi-label">UK Telehealth Cloud Uptime</div>
+                  <p class="tm-kpi-sub">NHS HSCN redundant fiber active</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-3">
+                <div class="tm-kpi-card">
+                  <div class="tm-kpi-top">
+                    <div class="tm-kpi-icon">
+                      <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <span class="tm-kpi-trend up">CQC Verified</span>
+                  </div>
+                  <div class="tm-kpi-value">100 / 100</div>
+                  <div class="tm-kpi-label">NHS DSPT Security Compliance</div>
+                  <p class="tm-kpi-sub">
+                    AES-256 &amp; MFA enforced network-wide
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-dash-card mb-4">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-network-wired"></i> Regional UK Command
+                  Hub Telemetry &amp; SLA Performance
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-download"></i> Export CQC Board Report
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Regional UK Hub</th>
+                        <th>Active 4K Pods</th>
+                        <th>On-Duty Staff</th>
+                        <th>Mean Wait SLA</th>
+                        <th>HSCN Bandwidth</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>London (221B Harley St HQ)</strong></td>
+                        <td>42 / 48 Pods</td>
+                        <td>68 Clinicians</td>
+                        <td>04m 12s</td>
+                        <td>10 Gbps Encrypted</td>
+                        <td>
+                          <span class="tm-status-badge active"
+                            >Optimal Load</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Manage Hub
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Manchester Northern Command</strong></td>
+                        <td>24 / 30 Pods</td>
+                        <td>44 Clinicians</td>
+                        <td>05m 08s</td>
+                        <td>10 Gbps Encrypted</td>
+                        <td>
+                          <span class="tm-status-badge active"
+                            >Optimal Load</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Manage Hub
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Edinburgh Scottish Tele-Hub</strong></td>
+                        <td>18 / 20 Pods</td>
+                        <td>30 Clinicians</td>
+                        <td>06m 19s</td>
+                        <td>10 Gbps Encrypted</td>
+                        <td>
+                          <span class="tm-status-badge warning"
+                            >90% Capacity</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash">
+                            Scale Overflow Pods
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Equal-Height Admin Governance Cards -->
+            <div class="row g-4">
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                      </div>
+                      <div>
+                        <h5>Zero-Trust AES-256 Gateway</h5>
+                        <span class="sub-meta">NHS Digital DSPT Standards</span>
+                      </div>
+                    </div>
+                    <p>
+                      All patient video streams, DICOM scans, and wearable
+                      telemetry packets are encrypted end-to-end with hardware
+                      HSM keys.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge success">0 Intrusions</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Security SIEM
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-id-badge"></i>
+                      </div>
+                      <div>
+                        <h5>Automated GMC &amp; NMC Sync</h5>
+                        <span class="sub-meta"
+                          >Nightly Regulator API Check</span
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      Continuous verification of clinician license-to-practice
+                      status, indemnity insurance, and Enhanced DBS
+                      certificates.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge active">142 Verified</span>
+                    <button type="button" class="tm-btn-dash outline">
+                      Roster Audit
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="tm-dash-feature-card">
+                  <div>
+                    <div class="tm-dash-feature-top">
+                      <div class="tm-dash-feature-icon">
+                        <i class="fa-solid fa-server"></i>
+                      </div>
+                      <div>
+                        <h5>4K WebRTC Auto-Scaling</h5>
+                        <span class="sub-meta">Multi-Region UK Failover</span>
+                      </div>
+                    </div>
+                    <p>
+                      Dynamic Kubernetes media pod orchestration across London
+                      and Manchester data centers maintains &lt;15ms video
+                      latency.
+                    </p>
+                  </div>
+                  <div class="tm-dash-feature-bottom">
+                    <span class="tm-status-badge info">Load: 64%</span>
+                    <button type="button" class="tm-btn-dash">
+                      Cluster Console
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADMIN 2: GMC CLINICIAN & STAFF CREDENTIALING -->
+          <div
+            class="tm-dash-section-pane"
+            id="admin-clinicians"
+            data-role-pane="admin"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-users-gear"></i> GMC, NMC &amp; GPhC
+                  Clinician Credentialing &amp; DBS Directory
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  <i class="fa-solid fa-user-plus"></i> Onboard Clinician
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Staff ID</th>
+                        <th>Clinician Name</th>
+                        <th>Department</th>
+                        <th>Regulator Number</th>
+                        <th>Enhanced DBS &amp; Appraisal</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#STF-101</strong></td>
+                        <td>Dr. Alistair Vance</td>
+                        <td>Tele-Cardiology Lead</td>
+                        <td>GMC #7412908</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Verified to 2028</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Audit File
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#STF-114</strong></td>
+                        <td>Dr. Priya Nair</td>
+                        <td>HD Teledermatology</td>
+                        <td>GMC #6892311</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Verified to 2027</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Audit File
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#STF-209</strong></td>
+                        <td>Sr. Clara Hughes</td>
+                        <td>24/7 Triage Nursing</td>
+                        <td>NMC #14I0922E</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Verified to 2027</span
+                          >
+                        </td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Audit File
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADMIN 3: VIRTUAL CLINIC & 4K POD CAPACITY -->
+          <div
+            class="tm-dash-section-pane"
+            id="admin-departments"
+            data-role-pane="admin"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-hospital-user"></i> Tele-Department
+                  Throughput &amp; 4K WebRTC Media Cluster Allocation
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Rebalance Server Nodes
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Tele-Department</th>
+                        <th>Daily Consults</th>
+                        <th>Avg Triage Wait</th>
+                        <th>WebRTC Node Cluster</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <strong>Tele-Cardiology &amp; 12-Lead ECG</strong>
+                        </td>
+                        <td>312 Sessions</td>
+                        <td>03m 50s</td>
+                        <td>UK-LON-WEBRTC-01</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Node Metrics
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Virtual Pediatrics 24/7</strong></td>
+                        <td>284 Sessions</td>
+                        <td>04m 15s</td>
+                        <td>UK-MAN-WEBRTC-02</td>
+                        <td>
+                          <button type="button" class="tm-btn-dash outline">
+                            Node Metrics
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADMIN 4: CQC, GDPR & ISO 27001 SECURITY AUDITS -->
+          <div
+            class="tm-dash-section-pane"
+            id="admin-security"
+            data-role-pane="admin"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-shield-halved"></i> Zero-Trust AES-256
+                  Security Log &amp; NHS Digital DSPT Audit Trail
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Run Penetration Scan
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Event ID</th>
+                        <th>Timestamp (GMT)</th>
+                        <th>Security Control</th>
+                        <th>Compliance Standard</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>SEC-9920</code></td>
+                        <td>03 Nov 2026 • 17:25</td>
+                        <td>Clinical Portal Login &amp; Role Verification</td>
+                        <td>NHS DSPT / ISO 27001</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >TLS 1.3 Verified</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Inspect Packet</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><code>SEC-9914</code></td>
+                        <td>03 Nov 2026 • 16:00</td>
+                        <td>Hourly EHR Database Snapshot Encryption</td>
+                        <td>UK GDPR Art. 32</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >SHA-512 Signed</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Verify Hash</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADMIN 5: NHS & PRIVATE REVENUE ANALYTICS -->
+          <div
+            class="tm-dash-section-pane"
+            id="admin-billing"
+            data-role-pane="admin"
+          >
+            <div class="tm-dash-card">
+              <div class="tm-dash-card-header">
+                <h3 class="tm-dash-card-title">
+                  <i class="fa-solid fa-chart-line"></i> NHS Integrated Care
+                  Board (ICB) &amp; Private Insurer Settlement Ledger
+                </h3>
+                <button type="button" class="tm-btn-dash">
+                  Generate Monthly Ledger
+                </button>
+              </div>
+              <div class="tm-dash-card-body p-0">
+                <div class="table-responsive tm-table-responsive">
+                  <table class="table tm-dash-table">
+                    <thead>
+                      <tr>
+                        <th>Contract Ref</th>
+                        <th>Payer / Commissioning Body</th>
+                        <th>Consult Volume</th>
+                        <th>Settlement Value</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#FIN-UK-01</strong></td>
+                        <td>NHS North West London ICB</td>
+                        <td>4,820 Virtual Consults</td>
+                        <td>£289,200.00</td>
+                        <td>
+                          <span class="tm-status-badge success"
+                            >Cleared BACS</span
+                          >
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Statement PDF</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#FIN-UK-02</strong></td>
+                        <td>Bupa &amp; AXA Corporate Telehealth</td>
+                        <td>3,150 Virtual Consults</td>
+                        <td>£220,500.00</td>
+                        <td>
+                          <span class="tm-status-badge active">Reconciled</span>
+                        </td>
+                        <td>
+                          <a href="#" class="tm-btn-dash outline"
+                            >Statement PDF</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADMIN 6: PORTAL GATEWAY CONFIG & ADMIN PROFILE -->
+          <div
+            class="tm-dash-section-pane"
+            id="admin-settings"
+            data-role-pane="admin"
+          >
+            <div class="row g-4">
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-user-gear"></i> Verified Clinical
+                      Administrator Login Session
+                    </h3>
+                    <span class="tm-status-badge active">Root Privileges</span>
+                  </div>
+                  <div class="tm-dash-card-body">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <tbody>
+                          <tr>
+                            <td><strong>Portal Role</strong></td>
+                            <td class="js-bind-role">Clinical Administrator</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Administrator Name</strong></td>
+                            <td class="js-bind-user">System Administrator</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Admin Email</strong></td>
+                            <td class="js-bind-email">
+                              admin@stacklytelemed.co.uk
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Device Trust</strong></td>
+                            <td class="js-bind-remember">
+                              Trusted Clinical Device
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Session ID</strong></td>
+                            <td class="js-bind-session">STK-UK-849201</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="tm-dash-card">
+                  <div class="tm-dash-card-header">
+                    <h3 class="tm-dash-card-title">
+                      <i class="fa-solid fa-plug-circle-check"></i> NHS Spine
+                      &amp; API Gateway Endpoints
+                    </h3>
+                    <button type="button" class="tm-btn-dash">
+                      Rotate API Keys
+                    </button>
+                  </div>
+                  <div class="tm-dash-card-body p-0">
+                    <div class="table-responsive tm-table-responsive">
+                      <table class="table tm-dash-table">
+                        <thead>
+                          <tr>
+                            <th>Integration</th>
+                            <th>Latency</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>NHS Personal Demographics Service (PDS)</td>
+                            <td>18 ms</td>
+                            <td>
+                              <span class="tm-status-badge success"
+                                >Online</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>NHS Electronic Prescription Service (EPS)</td>
+                            <td>22 ms</td>
+                            <td>
+                              <span class="tm-status-badge success"
+                                >Online</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Stackly Wearable BLE Telemetry Cloud</td>
+                            <td>11 ms</td>
+                            <td>
+                              <span class="tm-status-badge success"
+                                >Online</span
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Dashboard Footer -->
+        <footer class="tm-dash-footer">
+          <div>
+            &copy; 2026 <strong>Stackly Telemedicine UK</strong> | 221B Harley
+            Street, Marylebone, London W1G 9QT | CQC &amp; NHS Digital DSPT
+            Verified
+          </div>
+          <div>
+            <span
+              >24/7 Clinical Command Desk: <strong>+91 9876543210</strong></span
+            >
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         ROLE-BASED DASHBOARD ENGINE, LOGIN DATA BINDER & 404 REDIRECT SCRIPT
+         ===================================================================== -->
+    <script>
+      (function () {
+        "use strict";
+
+        // 1. Role Metadata Configuration for All 5 Login Form Roles
+        var roleConfig = {
+          patient: {
+            title: "Patient / Care Member",
+            menuHeading: "Patient Care Workspace",
+            badge: "CQC Verified Patient Workspace",
+            icon: "fa-solid fa-user-injured",
+            initials: "PT",
+            defaultSection: "patient-overview",
+            defaultSectionTitle: "Care Overview & Live Vitals",
+            desc: "Your encrypted Stackly Telemedicine UK session is active. Manage 4K video consultations, real-time wearable ECG & SpO2 telemetry, and instant digital prescriptions below.",
+          },
+          doctor: {
+            title: "GMC Tele-Doctor / Specialist",
+            menuHeading: "GMC Specialist Console",
+            badge: "GMC Registered Consultant Hub",
+            icon: "fa-solid fa-user-doctor",
+            initials: "DR",
+            defaultSection: "doctor-overview",
+            defaultSectionTitle: "Clinical Command & Triage Queue",
+            desc: "Welcome to Harley Street 4K Virtual Clinic Pod #04. Review your live patient waiting queue, inspect continuous 12-lead ECG telemetry alerts, and sign EPS barcode prescriptions.",
+          },
+          nurse: {
+            title: "Clinical Triage Nurse",
+            menuHeading: "24/7 Triage Command Menu",
+            badge: "NMC Verified Clinical Triage Hub",
+            icon: "fa-solid fa-user-nurse",
+            initials: "RN",
+            defaultSection: "nurse-overview",
+            defaultSectionTitle: "24/7 Live Triage Command Desk",
+            desc: "Real-time UK patient intake & NEWS2 acuity scoring active. Verify pre-consultation wearable vitals, escalate red-flag telemetry, and coordinate home diagnostic kit dispatches.",
+          },
+          pharmacist: {
+            title: "E-Pharmacy Coordinator",
+            menuHeading: "GPhC E-Pharmacy Menu",
+            badge: "GPhC Accredited E-Dispensary Hub",
+            icon: "fa-solid fa-mortar-pestle",
+            initials: "PH",
+            defaultSection: "pharmacist-overview",
+            defaultSectionTitle: "UK E-Pharmacy Dispatch Command",
+            desc: "Connected to the NHS Electronic Prescription Service (EPS) Spine. Screen BNF drug interactions, release barcode e-prescriptions, and monitor cold-chain courier telemetry.",
+          },
+          admin: {
+            title: "Clinical Administrator",
+            menuHeading: "UK Network Governance Menu",
+            badge: "ISO 27001 & CQC Operations Center",
+            icon: "fa-solid fa-user-shield",
+            initials: "AD",
+            defaultSection: "admin-overview",
+            defaultSectionTitle: "UK Network Operations Center (NOC)",
+            desc: "Full administrative oversight across London, Manchester, and Edinburgh virtual clinic hubs. Monitor 4K WebRTC server clusters, GMC staff credentialing, and NHS DSPT audits.",
+          },
+        };
+
+        // 2. Load Session Data Entered in Login Page (sessionStorage / localStorage / URL Params)
+        var storedSession = null;
+        try {
+          var rawSession =
+            sessionStorage.getItem("tm_dashboard_session") ||
+            localStorage.getItem("tm_dashboard_session");
+          if (rawSession) {
+            storedSession = JSON.parse(rawSession);
+          }
+        } catch (err) {}
+
+        var params = new URLSearchParams(window.location.search);
+        var activeRole = (
+          params.get("role") ||
+          (storedSession && storedSession.role) ||
+          "patient"
+        ).toLowerCase();
+
+        if (!roleConfig[activeRole]) {
+          activeRole = "patient";
+        }
+
+        var meta = roleConfig[activeRole];
+
+        var activeEmail =
+          params.get("email") ||
+          (storedSession && storedSession.email) ||
+          activeRole + "@stacklytelemed.co.uk";
+
+        var emailPrefix = activeEmail.split("@")[0] || "Portal User";
+        var derivedName = emailPrefix
+          .replace(/[._-]+/g, " ")
+          .replace(/\b\w/g, function (c) {
+            return c.toUpperCase();
+          });
+
+        var activeUser =
+          params.get("user") ||
+          (storedSession && storedSession.username) ||
+          derivedName;
+
+        var activeRemember =
+          params.get("remember") === "1"
+            ? "Trusted Clinical Device (Remembered)"
+            : (storedSession && storedSession.remember) ||
+              "Trusted Clinical Device (Remembered)";
+
+        var activeSecurity =
+          (storedSession && storedSession.passwordSecurity) ||
+          "Strong Verified • AES-256";
+
+        var activeSessionId =
+          (storedSession && storedSession.sessionId) || "STK-UK-849201";
+
+        // 3. Bind Login Form Data to Dashboard UI Elements
+        function setText(id, val) {
+          var el = document.getElementById(id);
+          if (el) el.textContent = val;
+        }
+
+        setText("sidebar-user-name", activeUser);
+        setText("sidebar-user-email", activeEmail);
+        setText("sidebar-role-title", meta.title);
+        setText("sidebar-menu-heading", meta.menuHeading);
+        setText("sidebar-device-trust", activeRemember);
+
+        var avatarEl = document.getElementById("sidebar-user-avatar");
+        if (avatarEl) {
+          avatarEl.innerHTML = '<i class="' + meta.icon + '"></i>';
+        }
+
+        setText("topbar-section-title", meta.defaultSectionTitle);
+        setText("topbar-role-label", meta.title);
+        setText("topbar-user-name", activeUser);
+        setText("topbar-user-email", activeEmail);
+
+        var initials = activeUser
+          .split(/\s+/)
+          .map(function (part) {
+            return part.charAt(0).toUpperCase();
+          })
+          .join("")
+          .slice(0, 2);
+        setText("topbar-user-initials", initials || meta.initials);
+
+        setText("hero-role-badge", meta.badge);
+        setText("hero-user-name", activeUser);
+        setText("hero-role-desc", meta.desc);
+        setText("login-data-role", meta.title);
+        setText("login-data-email", activeEmail);
+        setText("login-data-remember", activeRemember);
+        setText("login-data-security", activeSecurity);
+
+        // Bind inside Profile tables across all roles
+        document.querySelectorAll(".js-bind-role").forEach(function (el) {
+          el.textContent = meta.title;
+        });
+        document.querySelectorAll(".js-bind-user").forEach(function (el) {
+          el.textContent = activeUser;
+        });
+        document.querySelectorAll(".js-bind-email").forEach(function (el) {
+          el.textContent = activeEmail;
+        });
+        document.querySelectorAll(".js-bind-remember").forEach(function (el) {
+          el.textContent = activeRemember;
+        });
+        document.querySelectorAll(".js-bind-session").forEach(function (el) {
+          el.textContent = activeSessionId;
+        });
+
+        // 4. Show Sidebar Menu & Default Content Pane for the Logged-In Role
+        var roleMenus = document.querySelectorAll(".js-role-sidebar");
+        roleMenus.forEach(function (menu) {
+          if (menu.getAttribute("data-role-menu") === activeRole) {
+            menu.classList.remove("d-none");
+          } else {
+            menu.classList.add("d-none");
+          }
+        });
+
+        var allPanes = document.querySelectorAll(".tm-dash-section-pane");
+        var allNavBtns = document.querySelectorAll(".tm-dash-nav-link");
+
+        function activateSection(sectionId, sectionTitle) {
+          allPanes.forEach(function (pane) {
+            if (pane.id === sectionId) {
+              pane.classList.add("active");
+            } else {
+              pane.classList.remove("active");
+            }
+          });
+
+          allNavBtns.forEach(function (btn) {
+            if (btn.getAttribute("data-dash-section") === sectionId) {
+              btn.classList.add("active");
+            } else {
+              btn.classList.remove("active");
+            }
+          });
+
+          if (sectionTitle) {
+            setText("topbar-section-title", sectionTitle);
+          }
+        }
+
+        // Initialize with default section for the selected role
+        activateSection(meta.defaultSection, meta.defaultSectionTitle);
+
+        // 5. Mobile Offcanvas Sidebar Toggle & Close Logic
+        var sidebar = document.getElementById("tm-dashboard-sidebar");
+        var backdrop = document.getElementById("tm-sidebar-backdrop");
+        var openToggle = document.getElementById("tm-sidebar-toggle");
+        var closeToggle = document.getElementById("tm-sidebar-close");
+
+        function openMobileSidebar() {
+          if (sidebar) sidebar.classList.add("is-open");
+          if (backdrop) backdrop.classList.add("is-active");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeMobileSidebar() {
+          if (sidebar) sidebar.classList.remove("is-open");
+          if (backdrop) backdrop.classList.remove("is-active");
+          document.body.style.overflow = "";
+        }
+
+        if (openToggle) {
+          openToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            openMobileSidebar();
+          });
+        }
+        if (closeToggle) {
+          closeToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            closeMobileSidebar();
+          });
+        }
+        if (backdrop) {
+          backdrop.addEventListener("click", closeMobileSidebar);
+        }
+
+        // 6. Sidebar Menu Click Handler (Requirement 5 & 7: Switch Content, Do NOT Redirect to 404)
+        allNavBtns.forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var targetSection = btn.getAttribute("data-dash-section");
+            var title = btn.getAttribute("data-section-title");
+            if (targetSection) {
+              activateSection(targetSection, title);
+              closeMobileSidebar();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          });
+        });
+
+        // 7. Logout Button Handler (Requirement 3 & 7: Redirect to Login Page, Do NOT Redirect to 404)
+        var logoutBtns = document.querySelectorAll(".js-dash-logout");
+        logoutBtns.forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            try {
+              sessionStorage.removeItem("tm_dashboard_session");
+            } catch (err) {}
+            window.location.href = "login.html?logout=1";
+          });
+        });
+
+        // 8. Requirement 7: Redirect All Empty Links, "#" Links, and Dashboard Action Buttons to 404 Page
+        // (Excluding Sidebar Menu, Mobile Sidebar Controls, and Logout Buttons)
+        document.addEventListener("click", function (e) {
+          var target = e.target;
+          if (!target || !target.closest) return;
+
+          // Exclude anything inside sidebar navigation items, logout buttons, or mobile sidebar toggle/close
+          if (
+            target.closest(".tm-dash-nav-link") ||
+            target.closest(".js-dash-logout") ||
+            target.closest("#tm-sidebar-toggle") ||
+            target.closest("#tm-sidebar-close") ||
+            target.closest("#tm-sidebar-backdrop")
+          ) {
+            return;
+          }
+
+          // Check if clicked element is a link <a>
+          var link = target.closest("a");
+          if (link) {
+            var rawHref = link.getAttribute("href");
+            var trimmed = rawHref !== null ? rawHref.trim() : "";
+            var lower = trimmed.toLowerCase();
+
+            var isEmptyOrHash =
+              rawHref === null ||
+              trimmed === "" ||
+              trimmed === "#" ||
+              lower === "javascript:void(0)" ||
+              lower === "javascript:;";
+
+            if (isEmptyOrHash) {
+              e.preventDefault();
+              window.location.href = "404.html";
+            }
+            return;
+          }
+
+          // Check if clicked element is a <button> inside the dashboard workspace/topbar
+          var btn = target.closest("button");
+          if (btn) {
+            e.preventDefault();
+            window.location.href = "404.html";
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -886,14 +886,17 @@
             return;
           }
 
-          // Store registered info for seamless pre-fill on login page
+          // Store registered info for seamless pre-fill on login page & dashboard display
+          var cleanUser = usernameEl.value.trim();
+          var cleanEmail = emailEl.value.trim();
+          var cleanRole = roleEl.value;
           try {
-            sessionStorage.setItem(
-              "tm_registered_username",
-              usernameEl.value.trim(),
-            );
-            sessionStorage.setItem("tm_registered_email", emailEl.value.trim());
-            sessionStorage.setItem("tm_registered_role", roleEl.value);
+            sessionStorage.setItem("tm_registered_username", cleanUser);
+            sessionStorage.setItem("tm_registered_email", cleanEmail);
+            sessionStorage.setItem("tm_registered_role", cleanRole);
+            localStorage.setItem("tm_registered_username", cleanUser);
+            localStorage.setItem("tm_registered_email", cleanEmail);
+            localStorage.setItem("tm_registered_role", cleanRole);
           } catch (err) {}
 
           alertBox.className = "tm-form-alert success";
@@ -901,7 +904,13 @@
             '<i class="fa-solid fa-circle-check me-2"></i>Registration successful! Redirecting you to the Login page...';
 
           setTimeout(function () {
-            window.location.href = "login.html?registered=1";
+            window.location.href =
+              "login.html?registered=1&username=" +
+              encodeURIComponent(cleanUser) +
+              "&email=" +
+              encodeURIComponent(cleanEmail) +
+              "&role=" +
+              encodeURIComponent(cleanRole);
           }, 500);
         });
       })();
