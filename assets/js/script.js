@@ -885,19 +885,23 @@
       input.addEventListener("keydown", function (e) {
         if (e.ctrlKey || e.metaKey || e.altKey) return;
         if (controlKeys.indexOf(e.key) !== -1) return;
-        if (!/^[a-zA-Z\s]$/.test(e.key)) {
+        if (e.key === " " || e.code === "Space") {
+          e.preventDefault();
+          return;
+        }
+        if (!/^[a-zA-Z]$/.test(e.key)) {
           e.preventDefault();
         }
       });
 
       input.addEventListener("beforeinput", function (e) {
-        if (e.data && !/^[a-zA-Z\s]+$/.test(e.data)) {
+        if (e.data && !/^[a-zA-Z]+$/.test(e.data)) {
           e.preventDefault();
         }
       });
 
       input.addEventListener("input", function () {
-        var cleaned = input.value.replace(/[^a-zA-Z\s]/g, "");
+        var cleaned = input.value.replace(/[^a-zA-Z]/g, "");
         if (input.value !== cleaned) {
           input.value = cleaned;
         }
@@ -907,7 +911,7 @@
         e.preventDefault();
         var pasted =
           (e.clipboardData || window.clipboardData).getData("text") || "";
-        var cleaned = pasted.replace(/[^a-zA-Z\s]/g, "");
+        var cleaned = pasted.replace(/[^a-zA-Z]/g, "");
         var start = input.selectionStart || 0;
         var end = input.selectionEnd || 0;
         input.value =
